@@ -1,0 +1,9 @@
+{
+  "schema": "web-doctor.provider-fixture",
+  "schemaVersion": 1,
+  "id": "template/fail",
+  "rule": "no-template-bad",
+  "input": "fail.js",
+  "filename": "fail.js",
+  "expected": "fail"
+}

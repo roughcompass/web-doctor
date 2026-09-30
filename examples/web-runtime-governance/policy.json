@@ -1,0 +1,152 @@
+{
+  "schema": "web-doctor.policy-pack",
+  "schemaVersion": 1,
+  "id": "platform/web-runtime",
+  "version": "1.0.0",
+  "owner": "Web Runtime Platform",
+  "layer": "platform",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "controls": [
+    {
+      "id": "platform/web-runtime/event-hub",
+      "title": "Runtime events use the EventHub API",
+      "rationale": "EventHub provides a governed event contract, lifecycle isolation, and observability that global window events cannot provide.",
+      "strength": "required",
+      "applicability": {
+        "capabilities": [{ "name": "web-runtime" }],
+        "files": { "include": ["src/**/*.{js,jsx,ts,tsx}"] }
+      },
+      "evidence": [
+        {
+          "provider": "web-runtime-eslint",
+          "rule": "use-event-hub",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Replace window.dispatchEvent and window.postMessage integration events with runtimeApi.eventHub.publish.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run web-runtime-eslint/use-event-hub."
+        }
+      ]
+    },
+    {
+      "id": "platform/web-runtime/storage-namespace",
+      "title": "Runtime localStorage keys are application scoped",
+      "rationale": "Portal and application identifiers prevent collisions when several applications share one browser origin.",
+      "strength": "required",
+      "applicability": {
+        "capabilities": [{ "name": "web-runtime" }],
+        "files": { "include": ["src/**/*.{js,jsx,ts,tsx}"] }
+      },
+      "evidence": [
+        {
+          "provider": "web-runtime-eslint",
+          "rule": "require-storage-namespace",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Prefix keys as portal:application:key or use the runtime storage adapter.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run web-runtime-eslint/require-storage-namespace."
+        }
+      ]
+    },
+    {
+      "id": "platform/web-runtime/react-16-retirement",
+      "title": "Migrate applications away from React 16",
+      "rationale": "React 16 support is being retired from the managed web runtime, and legacy root APIs are common migration blockers.",
+      "strength": "recommended",
+      "applicability": {
+        "capabilities": [{ "name": "web-runtime" }],
+        "files": { "include": ["src/**/*.{js,jsx,ts,tsx}"] }
+      },
+      "evidence": [
+        {
+          "provider": "web-runtime-eslint",
+          "rule": "no-legacy-react-root",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Plan a supported React upgrade and replace ReactDOM.render or ReactDOM.hydrate with modern root APIs.",
+      "verification": [
+        {
+          "kind": "repo-facts",
+          "description": "Verify the resolved React and react-dom versions are outside the React 16 range."
+        },
+        {
+          "kind": "eslint",
+          "description": "Run web-runtime-eslint/no-legacy-react-root."
+        }
+      ]
+    },
+    {
+      "id": "platform/web-runtime/cdaas-hosting",
+      "title": "Runtime applications use CDaaS managed hosting",
+      "rationale": "Content Gateway and Jules configuration are being retired in favor of one managed hosting path.",
+      "strength": "recommended",
+      "applicability": {
+        "capabilities": [{ "name": "web-runtime" }],
+        "files": { "include": ["**/*.{js,jsx,ts,tsx}"] }
+      },
+      "evidence": [
+        {
+          "provider": "web-runtime-eslint",
+          "rule": "no-content-gateway",
+          "kind": "static",
+          "required": true
+        },
+        {
+          "provider": "web-runtime-eslint",
+          "rule": "no-jules-config",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Remove Content Gateway dependencies and Jules configuration, then onboard the application to CDaaS managed hosting.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run the Content Gateway and Jules deprecation rules."
+        },
+        {
+          "kind": "manual",
+          "description": "Confirm the CDaaS deployment is registered and healthy before removing the prior hosting path."
+        }
+      ]
+    },
+    {
+      "id": "platform/web-runtime/no-local-harness",
+      "title": "Use the supported runtime development environment",
+      "rationale": "A separate local web harness can diverge from runtime lifecycle, routing, identity, and EventHub behavior.",
+      "strength": "recommended",
+      "applicability": {
+        "capabilities": [{ "name": "web-runtime" }],
+        "files": { "include": ["**/*.{js,jsx,ts,tsx}"] }
+      },
+      "evidence": [
+        {
+          "provider": "web-runtime-eslint",
+          "rule": "no-local-web-harness",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Use the runtime platform's supported development environment and connection workflow.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run web-runtime-eslint/no-local-web-harness."
+        }
+      ]
+    }
+  ]
+}

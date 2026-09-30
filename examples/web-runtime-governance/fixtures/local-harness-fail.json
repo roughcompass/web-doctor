@@ -1,0 +1,9 @@
+{
+  "schema": "web-doctor.provider-fixture",
+  "schemaVersion": 1,
+  "id": "web-runtime/local-harness-fail",
+  "rule": "no-local-web-harness",
+  "input": "local-harness-fail.js",
+  "filename": "local-harness-fail.js",
+  "expected": "fail"
+}

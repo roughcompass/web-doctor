@@ -1,0 +1,28 @@
+name: Registry
+
+on:
+  pull_request:
+    paths:
+      - "registry/**"
+      - ".github/CODEOWNERS"
+      - "src/contracts/**"
+      - "src/registry/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.14.0
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run registry:check
+      - run: npm run registry:pr
+        env:
+          WEB_DOCTOR_NPM_REGISTRY: ${{ vars.WEB_DOCTOR_NPM_REGISTRY }}
+          NODE_AUTH_TOKEN: ${{ secrets.WEB_DOCTOR_NPM_TOKEN }}

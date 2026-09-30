@@ -1,0 +1,18 @@
+{
+  "schema": "web-doctor.contribution",
+  "schemaVersion": 1,
+  "id": "firm/example",
+  "type": "policy",
+  "owner": "Example Enterprise Team",
+  "compatibility": { "webDoctor": ">=0.1.0" },
+  "portals": [],
+  "layers": ["firmwide"],
+  "documents": [{ "kind": "policy", "path": "policy.json" }],
+  "runtimeArtifacts": [],
+  "dependencies": [],
+  "fixtures": ["fixtures/accept.json", "fixtures/reject.json"],
+  "provenance": {
+    "repository": "ssh://git.internal/example/firmwide-policy.git",
+    "commit": "cccccccccccccccccccccccccccccccccccccccc"
+  }
+}

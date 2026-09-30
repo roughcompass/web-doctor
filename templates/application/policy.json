@@ -1,0 +1,19 @@
+{
+  "schema": "web-doctor.policy-pack",
+  "schemaVersion": 1,
+  "id": "application/example",
+  "version": "1.0.0",
+  "owner": "Example Application Team",
+  "layer": "application",
+  "compatibility": { "webDoctor": ">=0.1.0" },
+  "controls": [{
+    "id": "application/example/no-template-bad",
+    "title": "Avoid the template placeholder",
+    "rationale": "Replace the placeholder in this application.",
+    "strength": "required",
+    "applicability": { "applicationMetadata": { "managed": true } },
+    "evidence": [{ "provider": "template-eslint", "rule": "no-template-bad", "kind": "static", "required": true }],
+    "remediation": "Rename the placeholder.",
+    "verification": [{ "kind": "eslint", "description": "Run the declared ESLint rule." }]
+  }]
+}

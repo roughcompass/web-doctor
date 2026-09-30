@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "web-doctor": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/dist/mcp-entry.js"]
+    }
+  }
+}

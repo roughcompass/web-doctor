@@ -1,0 +1,20 @@
+{
+  "schema": "web-doctor.mcp-response",
+  "schemaVersion": 1,
+  "requestId": "request-1",
+  "tool": "project_overview",
+  "complete": true,
+  "truncated": false,
+  "registryDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "evidence": [
+    {
+      "path": "package.json",
+      "line": 1,
+      "column": 1
+    }
+  ],
+  "warnings": [],
+  "data": {
+    "framework": "vite"
+  }
+}

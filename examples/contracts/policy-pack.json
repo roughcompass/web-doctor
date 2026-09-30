@@ -1,0 +1,34 @@
+{
+  "schema": "web-doctor.policy-pack",
+  "schemaVersion": 1,
+  "id": "firm/accessibility",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "layer": "firmwide",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "controls": [
+    {
+      "id": "firm/accessibility/button-name",
+      "title": "Buttons have accessible names",
+      "rationale": "Interactive controls need an accessible name.",
+      "strength": "required",
+      "applicability": {},
+      "evidence": [
+        {
+          "provider": "axe",
+          "rule": "button-name",
+          "kind": "rendered",
+          "required": true
+        }
+      ],
+      "verification": [
+        {
+          "kind": "axe",
+          "description": "Run axe against the rendered state."
+        }
+      ]
+    }
+  ]
+}

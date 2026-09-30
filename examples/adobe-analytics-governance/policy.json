@@ -1,0 +1,92 @@
+{
+  "schema": "web-doctor.policy-pack",
+  "schemaVersion": 1,
+  "id": "platform/adobe-analytics",
+  "version": "1.0.0",
+  "owner": "Digital Analytics Platform",
+  "layer": "platform",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "controls": [
+    {
+      "id": "platform/adobe-analytics/approved-adapter",
+      "title": "Adobe events use the enterprise analytics adapter",
+      "rationale": "One adapter centralizes consent handling, shared XDM fields, datastream selection, and error reporting.",
+      "strength": "required",
+      "applicability": {
+        "files": {
+          "include": ["src/**/*.{js,jsx,ts,tsx}"]
+        }
+      },
+      "evidence": [
+        {
+          "provider": "adobe-analytics-eslint",
+          "rule": "no-direct-alloy-send-event",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Replace direct alloy('sendEvent') calls with the approved analytics.track adapter.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run adobe-analytics-eslint/no-direct-alloy-send-event."
+        }
+      ]
+    },
+    {
+      "id": "platform/adobe-analytics/event-taxonomy",
+      "title": "Analytics events use the canonical taxonomy",
+      "rationale": "Stable domain.object.action names keep Adobe Analytics dimensions and downstream reporting comparable across applications.",
+      "strength": "required",
+      "applicability": {
+        "files": {
+          "include": ["src/**/*.{js,jsx,ts,tsx}"]
+        }
+      },
+      "evidence": [
+        {
+          "provider": "adobe-analytics-eslint",
+          "rule": "require-canonical-event-name",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Use a registered lowercase domain.object.action event name, such as commerce.checkout.started.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run adobe-analytics-eslint/require-canonical-event-name and compare new names with the analytics taxonomy registry."
+        }
+      ]
+    },
+    {
+      "id": "platform/adobe-analytics/no-direct-identifiers",
+      "title": "Analytics payloads exclude direct identifiers",
+      "rationale": "Behavioral analytics events must not carry direct identifiers when pseudonymous or aggregate attributes satisfy the reporting purpose.",
+      "strength": "required",
+      "applicability": {
+        "files": {
+          "include": ["src/**/*.{js,jsx,ts,tsx}"]
+        }
+      },
+      "evidence": [
+        {
+          "provider": "adobe-analytics-eslint",
+          "rule": "no-direct-identifiers",
+          "kind": "static",
+          "required": true
+        }
+      ],
+      "remediation": "Remove direct identifiers and use approved pseudonymous identity and consent mechanisms.",
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run adobe-analytics-eslint/no-direct-identifiers and complete privacy review for new payload fields."
+        }
+      ],
+      "exceptionPolicy": "Privacy approval with a documented purpose, retention period, and removal date."
+    }
+  ]
+}

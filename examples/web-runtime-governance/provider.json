@@ -1,0 +1,55 @@
+{
+  "schema": "web-doctor.provider-manifest",
+  "schemaVersion": 1,
+  "id": "web-runtime-eslint",
+  "version": "1.0.0",
+  "owner": "Web Runtime Platform",
+  "adapterVersion": "1.0.0",
+  "engine": "eslint",
+  "engineRange": "^9.0.0",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "evidenceKinds": ["static"],
+  "completeness": ["complete"],
+  "capabilities": ["filesystem-read"],
+  "invocationModes": ["static"],
+  "rules": [
+    {
+      "id": "use-event-hub",
+      "title": "Publish runtime events through EventHub",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "require-storage-namespace",
+      "title": "Namespace localStorage keys by portal and application",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-legacy-react-root",
+      "title": "Remove legacy React root APIs",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-content-gateway",
+      "title": "Remove deprecated Content Gateway integration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-jules-config",
+      "title": "Remove Jules deployment configuration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-local-web-harness",
+      "title": "Use the supported runtime development environment",
+      "evidenceKind": "static"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "plugin.mjs",
+      "digest": "c94d627fdd04d5a420560a585a4aa502b30b82dbea9f19b15996e0ec49ab8ce5"
+    }
+  ]
+}

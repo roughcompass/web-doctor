@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.14.0
+          cache: npm
+          registry-url: ${{ vars.WEB_DOCTOR_NPM_REGISTRY }}
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - name: Rebuild and verify release artifacts
+        run: npm run release:verify
+        env:
+          WEB_DOCTOR_NPM_REGISTRY: ${{ vars.WEB_DOCTOR_NPM_REGISTRY }}
+          WEB_DOCTOR_COMMIT: ${{ github.sha }}
+          WEB_DOCTOR_CATALOG_COMMIT: ${{ github.sha }}
+          NODE_AUTH_TOKEN: ${{ secrets.WEB_DOCTOR_NPM_TOKEN }}
+      - name: Verify package contents
+        run: npm pack --dry-run
+      - name: Publish to enterprise npm
+        run: npm publish --registry "$WEB_DOCTOR_NPM_REGISTRY"
+        env:
+          WEB_DOCTOR_NPM_REGISTRY: ${{ vars.WEB_DOCTOR_NPM_REGISTRY }}
+          NODE_AUTH_TOKEN: ${{ secrets.WEB_DOCTOR_NPM_TOKEN }}

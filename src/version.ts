@@ -1,0 +1,1 @@
+export const WEB_DOCTOR_VERSION = "0.1.0";

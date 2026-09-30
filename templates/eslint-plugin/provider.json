@@ -1,0 +1,17 @@
+{
+  "schema": "web-doctor.provider-manifest",
+  "schemaVersion": 1,
+  "id": "template-eslint",
+  "version": "1.0.0",
+  "owner": "Example Web Platform Team",
+  "adapterVersion": "1.0.0",
+  "engine": "eslint",
+  "engineRange": "^9.0.0",
+  "compatibility": { "webDoctor": ">=0.1.0" },
+  "evidenceKinds": ["static"],
+  "completeness": ["complete"],
+  "capabilities": ["filesystem-read"],
+  "invocationModes": ["static"],
+  "rules": [{ "id": "no-template-bad", "title": "Disallow the template placeholder", "evidenceKind": "static" }],
+  "artifacts": [{ "path": "plugin.mjs", "digest": "61b3b8064dfe4cb103828486ee5b8faa0c0e4f4bbede24ef3f2cd4d313c8ece2" }]
+}

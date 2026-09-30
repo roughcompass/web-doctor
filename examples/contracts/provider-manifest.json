@@ -1,0 +1,30 @@
+{
+  "schema": "web-doctor.provider-manifest",
+  "schemaVersion": 1,
+  "id": "axe",
+  "version": "4.13.0",
+  "owner": "Web Platform",
+  "adapterVersion": "1",
+  "engine": "axe-core",
+  "engineRange": "^4.13.0",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "evidenceKinds": ["rendered"],
+  "completeness": ["complete", "partial", "unavailable"],
+  "capabilities": ["browser"],
+  "invocationModes": ["runtime"],
+  "rules": [
+    {
+      "id": "button-name",
+      "title": "Button has an accessible name",
+      "evidenceKind": "rendered"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "dist/provider.js",
+      "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "web-doctor.provider-fixture",
+  "schemaVersion": 1,
+  "id": "adobe-analytics/no-identifiers-fail",
+  "rule": "no-direct-identifiers",
+  "input": "sensitive-payload.js",
+  "filename": "sensitive-payload.js",
+  "expected": "fail"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "react/upgrade/19",
+  "version": "1.0.0",
+  "owner": "Web Platform",
+  "applicability": {
+    "capabilities": [
+      {
+        "name": "react",
+        "range": "<19"
+      }
+    ]
+  },
+  "evidencePrerequisites": ["static"],
+  "classification": "risk",
+  "explanation": "Prepare removed APIs before upgrading React.",
+  "alternatives": ["Upgrade through a supported intermediate release."],
+  "tradeoffs": ["A staged upgrade takes longer but isolates compatibility failures."],
+  "verification": [
+    {
+      "kind": "test",
+      "description": "Run the application test suite at every stage."
+    }
+  ],
+  "controls": []
+}

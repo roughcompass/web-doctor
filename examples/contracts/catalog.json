@@ -1,0 +1,37 @@
+{
+  "schema": "web-doctor.catalog",
+  "schemaVersion": 1,
+  "portals": [
+    {
+      "id": "wealth",
+      "lifecycle": "active"
+    }
+  ],
+  "entries": [
+    {
+      "id": "firm/accessibility",
+      "type": "policy",
+      "owner": "enterprise-accessibility",
+      "source": {
+        "schema": "web-doctor.npm-source",
+        "schemaVersion": 1,
+        "registry": "internal",
+        "packageName": "@firm/accessibility-policy",
+        "version": "1.0.0",
+        "integrity": "sha512-AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+        "provenance": {
+          "repository": "ssh://git.internal/firm/accessibility.git",
+          "commit": "cccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      "manifestPath": "web-doctor.json",
+      "portals": [],
+      "layers": ["firmwide"],
+      "compatibility": {
+        "webDoctor": ">=0.1.0"
+      },
+      "lifecycle": "active",
+      "dependencies": []
+    }
+  ]
+}

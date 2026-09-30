@@ -1,0 +1,47 @@
+{
+  "schema": "web-doctor.contribution",
+  "schemaVersion": 1,
+  "id": "platform/web-runtime-governance",
+  "type": "provider",
+  "owner": "Web Runtime Platform",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "portals": [],
+  "layers": ["platform"],
+  "documents": [
+    {
+      "kind": "provider",
+      "path": "provider.json"
+    },
+    {
+      "kind": "policy",
+      "path": "policy.json"
+    }
+  ],
+  "runtimeArtifacts": [
+    {
+      "path": "plugin.mjs",
+      "digest": "c94d627fdd04d5a420560a585a4aa502b30b82dbea9f19b15996e0ec49ab8ce5"
+    }
+  ],
+  "dependencies": ["platform/eslint-adapter"],
+  "fixtures": [
+    "fixtures/event-hub-pass.json",
+    "fixtures/event-hub-fail.json",
+    "fixtures/storage-pass.json",
+    "fixtures/storage-fail.json",
+    "fixtures/react-root-pass.json",
+    "fixtures/react-root-fail.json",
+    "fixtures/content-gateway-pass.json",
+    "fixtures/content-gateway-fail.json",
+    "fixtures/jules-config-pass.json",
+    "fixtures/jules-config-fail.json",
+    "fixtures/local-harness-pass.json",
+    "fixtures/local-harness-fail.json"
+  ],
+  "provenance": {
+    "repository": "ssh://git.internal/web-platform/web-runtime-governance.git",
+    "commit": "4444444444444444444444444444444444444444"
+  }
+}

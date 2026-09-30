@@ -1,0 +1,12 @@
+{
+  "name": "@enterprise/web-runtime-governance",
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "web-doctor.json",
+    "provider.json",
+    "policy.json",
+    "plugin.mjs",
+    "fixtures/"
+  ]
+}

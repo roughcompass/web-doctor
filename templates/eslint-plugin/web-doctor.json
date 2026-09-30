@@ -1,0 +1,18 @@
+{
+  "schema": "web-doctor.contribution",
+  "schemaVersion": 1,
+  "id": "platform/template-eslint",
+  "type": "provider",
+  "owner": "Example Web Platform Team",
+  "compatibility": { "webDoctor": ">=0.1.0" },
+  "portals": [],
+  "layers": ["platform"],
+  "documents": [{ "kind": "provider", "path": "provider.json" }],
+  "runtimeArtifacts": [{ "path": "plugin.mjs", "digest": "61b3b8064dfe4cb103828486ee5b8faa0c0e4f4bbede24ef3f2cd4d313c8ece2" }],
+  "dependencies": ["platform/eslint-adapter"],
+  "fixtures": ["fixtures/pass.json", "fixtures/fail.json"],
+  "provenance": {
+    "repository": "ssh://git.internal/example/web-doctor-eslint-plugin.git",
+    "commit": "cccccccccccccccccccccccccccccccccccccccc"
+  }
+}

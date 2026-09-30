@@ -1,0 +1,16 @@
+{
+  "schema": "web-doctor.effective-policy",
+  "schemaVersion": 1,
+  "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "registryDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "resolverVersion": "0.1.0",
+  "portals": ["wealth"],
+  "capabilities": {
+    "react": "observed"
+  },
+  "contributions": [],
+  "controls": [],
+  "exceptions": [],
+  "conflicts": [],
+  "unresolvedApplicability": []
+}

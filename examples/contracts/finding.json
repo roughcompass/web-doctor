@@ -1,0 +1,31 @@
+{
+  "schema": "web-doctor.finding",
+  "schemaVersion": 1,
+  "id": "finding/button-name",
+  "provider": "axe",
+  "providerVersion": "4.13.0",
+  "rule": "button-name",
+  "evidenceKind": "rendered",
+  "locations": [
+    {
+      "path": "src/App.tsx",
+      "line": 12,
+      "column": 5
+    }
+  ],
+  "severity": "error",
+  "certainty": "observed",
+  "classification": "defect",
+  "message": "Button has no accessible name.",
+  "controls": ["firm/accessibility/button-name"],
+  "remediation": ["Give the button an accessible name."],
+  "verification": [
+    {
+      "kind": "axe",
+      "description": "Run axe against the rendered state."
+    }
+  ],
+  "completeness": "complete",
+  "registryDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "policyDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "cli": ["wealth", "advisor", "wealth"],
+    "repository": ["advisor", "wealth"],
+    "assignment": ["wealth", "advisor"]
+  },
+  "expected": {
+    "status": "resolved",
+    "portals": ["advisor", "wealth"],
+    "source": "cli"
+  }
+}

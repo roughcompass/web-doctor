@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "name": "current project dependency",
+      "installedVersion": "1.2.3",
+      "installationMode": "project-exact",
+      "availableVersion": "1.2.3",
+      "expectedStatus": "current"
+    },
+    {
+      "name": "outdated managed package",
+      "installedVersion": "1.2.3",
+      "installationMode": "managed",
+      "availableVersion": "2.0.0",
+      "expectedStatus": "outdated"
+    },
+    {
+      "name": "offline workspace",
+      "installedVersion": "1.2.3",
+      "installationMode": "workspace",
+      "expectedStatus": "unknown"
+    }
+  ]
+}

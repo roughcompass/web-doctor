@@ -1,0 +1,9 @@
+{
+  "schema": "web-doctor.provider-fixture",
+  "schemaVersion": 1,
+  "id": "web-runtime/content-gateway-pass",
+  "rule": "no-content-gateway",
+  "input": "managed-hosting-pass.js",
+  "filename": "managed-hosting-pass.js",
+  "expected": "pass"
+}

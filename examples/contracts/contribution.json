@@ -1,0 +1,25 @@
+{
+  "schema": "web-doctor.contribution",
+  "schemaVersion": 1,
+  "id": "firm/accessibility",
+  "type": "policy",
+  "owner": "Enterprise Accessibility",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "portals": [],
+  "layers": ["firmwide"],
+  "documents": [
+    {
+      "kind": "policy",
+      "path": "policy.json"
+    }
+  ],
+  "runtimeArtifacts": [],
+  "dependencies": [],
+  "fixtures": ["fixtures/policy.json"],
+  "provenance": {
+    "repository": "ssh://git.internal/firm/accessibility.git",
+    "commit": "cccccccccccccccccccccccccccccccccccccccc"
+  }
+}

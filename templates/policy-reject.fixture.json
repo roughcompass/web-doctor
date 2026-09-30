@@ -1,0 +1,8 @@
+{
+  "schema": "web-doctor.fixture",
+  "schemaVersion": 1,
+  "id": "policy/reject",
+  "contract": "policyPack",
+  "input": "invalid-policy.json",
+  "expected": "reject"
+}

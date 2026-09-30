@@ -1,0 +1,42 @@
+{
+  "schema": "web-doctor.registry-ownership",
+  "schemaVersion": 1,
+  "platformReviewTeam": "@platform/web-doctor",
+  "owners": [
+    {
+      "id": "enterprise-accessibility",
+      "name": "Enterprise Accessibility",
+      "codeownersTeam": "@firm/accessibility",
+      "namespaces": ["firm/accessibility"],
+      "portals": []
+    },
+    {
+      "id": "wealth-design-platform",
+      "name": "Wealth Design Platform",
+      "codeownersTeam": "@wealth/design-platform",
+      "namespaces": ["wealth/brand"],
+      "portals": ["wealth"]
+    },
+    {
+      "id": "advisor-experience",
+      "name": "Advisor Experience",
+      "codeownersTeam": "@advisor/experience",
+      "namespaces": ["advisor/content"],
+      "portals": ["advisor"]
+    },
+    {
+      "id": "web-platform",
+      "name": "Web Platform",
+      "codeownersTeam": "@platform/web",
+      "namespaces": ["platform/runtime"],
+      "portals": []
+    },
+    {
+      "id": "application-team",
+      "name": "Application Team",
+      "codeownersTeam": "@application/owners",
+      "namespaces": ["application/engineering"],
+      "portals": []
+    }
+  ]
+}

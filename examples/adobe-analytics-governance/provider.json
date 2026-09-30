@@ -1,0 +1,40 @@
+{
+  "schema": "web-doctor.provider-manifest",
+  "schemaVersion": 1,
+  "id": "adobe-analytics-eslint",
+  "version": "1.0.0",
+  "owner": "Digital Analytics Platform",
+  "adapterVersion": "1.0.0",
+  "engine": "eslint",
+  "engineRange": "^9.0.0",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "evidenceKinds": ["static"],
+  "completeness": ["complete"],
+  "capabilities": ["filesystem-read"],
+  "invocationModes": ["static"],
+  "rules": [
+    {
+      "id": "no-direct-alloy-send-event",
+      "title": "Route Adobe Web SDK events through the enterprise adapter",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "require-canonical-event-name",
+      "title": "Use a canonical analytics event name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-direct-identifiers",
+      "title": "Exclude direct identifiers from analytics payloads",
+      "evidenceKind": "static"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "plugin.mjs",
+      "digest": "fd00238064bd5ad0b4a59c4f2fd47d6d606521b623ca810589ccff5d03afac62"
+    }
+  ]
+}

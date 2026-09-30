@@ -1,0 +1,14 @@
+{
+  "schema": "web-doctor.registry-ownership",
+  "schemaVersion": 1,
+  "platformReviewTeam": "@platform/web-doctor",
+  "owners": [
+    {
+      "id": "enterprise-accessibility",
+      "name": "Enterprise Accessibility",
+      "codeownersTeam": "@firm/accessibility",
+      "namespaces": ["firm/accessibility"],
+      "portals": []
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "web-doctor.provider-fixture",
+  "schemaVersion": 1,
+  "id": "adobe-analytics/no-direct-alloy-pass",
+  "rule": "no-direct-alloy-send-event",
+  "input": "approved-wrapper.js",
+  "filename": "approved-wrapper.js",
+  "expected": "pass"
+}

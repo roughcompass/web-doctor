@@ -1,0 +1,12 @@
+{
+  "schema": "web-doctor.npm-source",
+  "schemaVersion": 1,
+  "registry": "internal",
+  "packageName": "@firm/accessibility-policy",
+  "version": "1.0.0",
+  "integrity": "sha512-AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+  "provenance": {
+    "repository": "ssh://git.internal/firm/accessibility.git",
+    "commit": "cccccccccccccccccccccccccccccccccccccccc"
+  }
+}

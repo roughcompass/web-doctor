@@ -1,0 +1,41 @@
+{
+  "schema": "web-doctor.contribution",
+  "schemaVersion": 1,
+  "id": "platform/adobe-analytics-governance",
+  "type": "provider",
+  "owner": "Digital Analytics Platform",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "portals": [],
+  "layers": ["platform"],
+  "documents": [
+    {
+      "kind": "provider",
+      "path": "provider.json"
+    },
+    {
+      "kind": "policy",
+      "path": "policy.json"
+    }
+  ],
+  "runtimeArtifacts": [
+    {
+      "path": "plugin.mjs",
+      "digest": "fd00238064bd5ad0b4a59c4f2fd47d6d606521b623ca810589ccff5d03afac62"
+    }
+  ],
+  "dependencies": ["platform/eslint-adapter"],
+  "fixtures": [
+    "fixtures/no-direct-alloy-pass.json",
+    "fixtures/no-direct-alloy-fail.json",
+    "fixtures/canonical-event-pass.json",
+    "fixtures/canonical-event-fail.json",
+    "fixtures/no-identifiers-pass.json",
+    "fixtures/no-identifiers-fail.json"
+  ],
+  "provenance": {
+    "repository": "ssh://git.internal/analytics/adobe-analytics-governance.git",
+    "commit": "3333333333333333333333333333333333333333"
+  }
+}
