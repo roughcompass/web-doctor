@@ -1,7 +1,7 @@
 {
   "schema": "web-doctor.mcp-response",
   "schemaVersion": 2,
-  "requestId": "req_58d0c5bac5cf3ee6c477e0c7ce296561a2c9d59f89f469db4322807ece3970f5",
+  "requestId": "req_94388deaece9c801c8c7918886a087a43e5559a0c6f351f3d11fc9121b620202",
   "tool": "plan_upgrade",
   "complete": true,
   "truncated": false,
@@ -16,10 +16,10 @@
     "repoFacts": {
       "status": "complete",
       "reason": null,
-      "release": "0.1.0",
-      "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
-      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "release": "0.2.0",
+      "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+      "configurationDigest": "970fe5597c93da7d061077656393511cdaf6ee06bbbcf2d6e0851258c3a9c32d",
+      "factDocumentDigest": "a3e35c17bb74d618b28744d9527f4b0a550d2e1e28153797a59a9d4ec28f7a69",
       "incompleteCategories": [
         "served_origins"
       ]
@@ -32,7 +32,7 @@
     },
     "project": {
       "root": "/work/orders",
-      "snapshotDigest": "5258257850eaeb97265ef2d78af2ee7985d48ff1990d981ab77af51f41262ad0",
+      "snapshotDigest": "dd70fadcbb80e3d7861a3e2f06a337d7f4fa559685eb41f25111445a2bf9e595",
       "treeDigest": "de9ad457b19730210d387d34d2b0207f522beae6db769d95cddad6a3b0cf63ef"
     },
     "policy": null
@@ -117,9 +117,9 @@
     },
     "modifiesProject": false,
     "provenance": {
-      "detectorRelease": "0.1.0",
-      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
-      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "detectorRelease": "0.2.0",
+      "configurationDigest": "970fe5597c93da7d061077656393511cdaf6ee06bbbcf2d6e0851258c3a9c32d",
+      "factDocumentDigest": "a3e35c17bb74d618b28744d9527f4b0a550d2e1e28153797a59a9d4ec28f7a69",
       "extensionStateDigest": "240e02ea9505c235c4e31ce0754370a85c42d26de81327d9d078baceb0b24ae7",
       "indexDigest": "ee64a0668759219f37609cf6a30cf2ecbbc78d144ca44188491a93027c335eed",
       "knowledge": {

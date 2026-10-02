@@ -1,7 +1,7 @@
 {
   "schema": "web-doctor.mcp-response",
   "schemaVersion": 2,
-  "requestId": "req_6a2f87bde9b886695fc9a4fff1e7da47bdc0bef695ea4b3ec5822cbe1b4bc631",
+  "requestId": "req_ac4ae0da1d85af316b5e6ffce7840bf60ea19181c5a122eaea79fedb0706787a",
   "tool": "effective_guidance",
   "complete": true,
   "truncated": false,
@@ -16,10 +16,10 @@
     "repoFacts": {
       "status": "complete",
       "reason": null,
-      "release": "0.1.0",
-      "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
-      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "release": "0.2.0",
+      "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+      "configurationDigest": "970fe5597c93da7d061077656393511cdaf6ee06bbbcf2d6e0851258c3a9c32d",
+      "factDocumentDigest": "a3e35c17bb74d618b28744d9527f4b0a550d2e1e28153797a59a9d4ec28f7a69",
       "incompleteCategories": [
         "served_origins"
       ]
@@ -32,11 +32,11 @@
     },
     "project": {
       "root": "/work/orders",
-      "snapshotDigest": "5258257850eaeb97265ef2d78af2ee7985d48ff1990d981ab77af51f41262ad0",
+      "snapshotDigest": "dd70fadcbb80e3d7861a3e2f06a337d7f4fa559685eb41f25111445a2bf9e595",
       "treeDigest": "de9ad457b19730210d387d34d2b0207f522beae6db769d95cddad6a3b0cf63ef"
     },
     "policy": {
-      "digest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "digest": "20f87ebcc083d27fa28241a8b5cb060949e98ed3e9ff4c9891acc0301b19287c",
       "portals": [
         "wealth"
       ]
@@ -56,7 +56,7 @@
     "policy": {
       "schema": "web-doctor.effective-policy",
       "schemaVersion": 3,
-      "digest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "digest": "20f87ebcc083d27fa28241a8b5cb060949e98ed3e9ff4c9891acc0301b19287c",
       "webDoctorVersion": "0.1.0",
       "registryDigest": "262558f4290b04a4c98198f0e97dd5a2fb252b366aaec8f3b05c7917f4c45f59",
       "resolverVersion": "1.0.0",
@@ -66,9 +66,9 @@
       "capabilities": {},
       "facts": {
         "status": "complete",
-        "detectorRelease": "0.1.0",
-        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
-        "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+        "detectorRelease": "0.2.0",
+        "configurationDigest": "970fe5597c93da7d061077656393511cdaf6ee06bbbcf2d6e0851258c3a9c32d",
+        "factDocumentDigest": "a3e35c17bb74d618b28744d9527f4b0a550d2e1e28153797a59a9d4ec28f7a69",
         "extensionStateDigest": "240e02ea9505c235c4e31ce0754370a85c42d26de81327d9d078baceb0b24ae7"
       },
       "contributions": [
@@ -326,7 +326,7 @@
       ],
       "conflicts": [],
       "unresolved": [],
-      "policyDigest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "policyDigest": "20f87ebcc083d27fa28241a8b5cb060949e98ed3e9ff4c9891acc0301b19287c",
       "modifiesProject": false
     }
   }

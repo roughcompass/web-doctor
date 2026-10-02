@@ -44,7 +44,7 @@ describe("pinned repo-facts release", () => {
     expect(manifest.dependencies["@repo-facts/contract"]).toBe(DETECTOR_RELEASE);
     const entries = Object.entries(lock.packages).filter(([key]) => key.includes("node_modules/@repo-facts/"));
     expect(entries.map(([key]) => key).sort()).toEqual(
-      ["architecture", "bundle", "contract", "core", "services", "syntax"].map((name) => `node_modules/@repo-facts/${name}`),
+      ["architecture", "bundle", "contract", "core", "design-system", "services", "syntax"].map((name) => `node_modules/@repo-facts/${name}`),
     );
     for (const [key, entry] of entries) {
       expect(entry.version, key).toBe(DETECTOR_RELEASE);
@@ -61,6 +61,7 @@ describe("pinned repo-facts release", () => {
       "@repo-facts/bundle",
       "@repo-facts/contract",
       "@repo-facts/core",
+      "@repo-facts/design-system",
       "@repo-facts/services",
       "@repo-facts/syntax",
     ]);
@@ -100,14 +101,16 @@ describe("pinned repo-facts release", () => {
   });
 
   it("refuses ranges, mixed versions, nested copies, aliases, registry URLs, and missing integrity", async () => {
+    // A consumer pinned at 0.1.0, whatever release Web Doctor itself installs.
+    const synthetic = { "@repo-facts/bundle": "0.1.0", "@repo-facts/contract": "0.1.0" };
     const cases: [string, Record<string, string>, Record<string, object>, string][] = [
       ["range", { "@repo-facts/bundle": "^0.1.0", "@repo-facts/contract": "0.1.0" }, {}, "must be pinned to an exact version, not ^0.1.0"],
       ["split pins", { "@repo-facts/bundle": "0.1.0", "@repo-facts/contract": "0.1.1" }, {}, "are different releases"],
-      ["mixed lock", pins(), { "node_modules/@repo-facts/core": { version: "0.2.0", integrity: INTEGRITY } }, "node_modules/@repo-facts/core is 0.2.0, not the pinned release 0.1.0"],
-      ["nested copy", pins(), { "node_modules/@repo-facts/bundle/node_modules/@repo-facts/contract": { version: "0.1.0-rc.0", integrity: INTEGRITY } }, "is 0.1.0-rc.0, not the pinned release 0.1.0"],
-      ["alias", pins(), { "node_modules/@repo-facts/core": { name: "not-repo-facts", version: "0.1.0", integrity: INTEGRITY } }, "is an alias for not-repo-facts"],
-      ["registry URL", pins(), { "node_modules/@repo-facts/core": { version: "0.1.0", integrity: INTEGRITY, resolved: "https://registry.npmjs.org/@repo-facts/core/-/core-0.1.0.tgz" } }, "records a registry URL"],
-      ["missing integrity", pins(), { "node_modules/@repo-facts/core": { version: "0.1.0" } }, "has no SHA-512 integrity"],
+      ["mixed lock", synthetic, { "node_modules/@repo-facts/core": { version: "0.2.0", integrity: INTEGRITY } }, "node_modules/@repo-facts/core is 0.2.0, not the pinned release 0.1.0"],
+      ["nested copy", synthetic, { "node_modules/@repo-facts/bundle/node_modules/@repo-facts/contract": { version: "0.1.0-rc.0", integrity: INTEGRITY } }, "is 0.1.0-rc.0, not the pinned release 0.1.0"],
+      ["alias", synthetic, { "node_modules/@repo-facts/core": { name: "not-repo-facts", version: "0.1.0", integrity: INTEGRITY } }, "is an alias for not-repo-facts"],
+      ["registry URL", synthetic, { "node_modules/@repo-facts/core": { version: "0.1.0", integrity: INTEGRITY, resolved: "https://registry.npmjs.org/@repo-facts/core/-/core-0.1.0.tgz" } }, "records a registry URL"],
+      ["missing integrity", synthetic, { "node_modules/@repo-facts/core": { version: "0.1.0" } }, "has no SHA-512 integrity"],
     ];
     for (const [name, dependencies, extraLock, message] of cases) {
       const directory = await temporary();

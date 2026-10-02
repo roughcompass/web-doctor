@@ -2,6 +2,7 @@ import { execFile } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { promisify } from "node:util";
+import { DETECTOR_RELEASE } from "@repo-facts/bundle";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { representativePolicyPacks } from "../fixtures/policies.js";
 import { installManagedApplication, type CleanInstallation } from "../support/clean-install.js";
@@ -72,7 +73,7 @@ describe.runIf(fs.existsSync(FLEET))("fleet evaluation under the managed Node 24
 
   it("records both the shared fact provenance and the policy provenance for every repository", () => {
     for (const result of evaluation.repositories) {
-      expect(result.bundle, result.repository).toMatchObject({ detectorRelease: "0.1.0", configurationDigest: expect.stringMatching(/^[0-9a-f]{64}$/), factDocumentDigest: expect.stringMatching(/^[0-9a-f]{64}$/) });
+      expect(result.bundle, result.repository).toMatchObject({ detectorRelease: DETECTOR_RELEASE, configurationDigest: expect.stringMatching(/^[0-9a-f]{64}$/), factDocumentDigest: expect.stringMatching(/^[0-9a-f]{64}$/) });
       expect(result.policy, result.repository).toMatchObject({ policyDigest: expect.stringMatching(/^[0-9a-f]{64}$/), registryDigest: evaluation.registryDigest, extensionStateDigest: expect.stringMatching(/^[0-9a-f]{64}$/), factStatus: "complete" });
     }
   });

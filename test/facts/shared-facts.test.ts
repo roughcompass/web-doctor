@@ -42,10 +42,10 @@ describe("pinned shared detector release", () => {
   });
 
   it("covers every vendored golden fixture", async () => {
-    expect(await goldenFixtureNames()).toHaveLength(12);
+    expect(await goldenFixtureNames()).toHaveLength(14);
   });
 
-  for (const name of ["analytics-client", "analytics-consumer", "federation-shell", "hostile-repository", "javascript-app", "legacy-portal", "npm-workspace", "orders-testbed", "pnpm-typescript", "single-spa-root", "typescript-library", "yarn-classic"]) {
+  for (const name of ["analytics-client", "analytics-consumer", "federation-shell", "hostile-repository", "javascript-app", "legacy-portal", "npm-workspace", "orders-testbed", "pnpm-typescript", "salt-application", "scss-stylesheets", "single-spa-root", "typescript-library", "yarn-classic"]) {
     it(`reproduces the ${name} golden document through the working tree with network and processes denied`, async () => {
       const fixture = await loadGoldenFixture(name);
       const root = await temporary();
@@ -96,13 +96,28 @@ describe("pinned shared detector release", () => {
     expect(result.incompleteCategories.length).toBeGreaterThan(0);
   });
 
-  it("rejects an unsupported fact-document schema without reinterpreting it", async () => {
+  it("returns the design-system categories unchanged, with the pinned release's provenance", async () => {
+    const fixture = await loadGoldenFixture("salt-application");
+    const root = await temporary();
+    await materialize(root, fixture.files);
+    const result = await analyzer.analyze((await WorkingTreeListing.scan({ root, repositoryRoot: root })).open(fixture.budgets)) as SharedFactsComplete;
+    expect(result.status).toBe("complete");
+    const expected = JSON.parse(fixture.expected) as FactDocument;
+    for (const category of ["design_systems", "ui_elements", "style_values"]) {
+      expect(result.document.categories[category], category).toEqual(expected.categories[category]);
+    }
+    expect(result.document.categories.design_systems!.facts.map((fact) => fact.key)).toEqual(["salt"]);
+    expect(result.provenance.detectorRelease).toBe(DETECTOR_RELEASE);
+    expect(result.provenance.packages.map((entry) => entry.name)).toContain("@repo-facts/design-system");
+  });
+
+  it("rejects an unsupported fact-document schema, such as the earlier version 1, without reinterpreting it", async () => {
     const { document, provenance } = await sampleDocument();
-    const result = acceptSharedDocument({ ...document, schema_version: 2 }, { provenance, usage: { files: 0, bytes: 0 } });
+    const result = acceptSharedDocument({ ...document, schema_version: 1 }, { provenance, usage: { files: 0, bytes: 0 } });
     expect(result).toEqual({
       status: "incomplete",
       reason: "unsupported_schema",
-      problems: ["Unsupported fact document repo_facts.fact_document version 2; supported: repo_facts.fact_document version 1"],
+      problems: ["Unsupported fact document repo_facts.fact_document version 1; supported: repo_facts.fact_document version 2"],
       provenance,
     });
     expect(result).not.toHaveProperty("document");

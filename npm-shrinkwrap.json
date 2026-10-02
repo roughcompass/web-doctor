@@ -10,8 +10,8 @@
       "license": "UNLICENSED",
       "dependencies": {
         "@modelcontextprotocol/server": "2.2.0",
-        "@repo-facts/bundle": "0.1.0",
-        "@repo-facts/contract": "0.1.0",
+        "@repo-facts/bundle": "0.2.0",
+        "@repo-facts/contract": "0.2.0",
         "@typescript-eslint/parser": "8.71.0",
         "axe-core": "4.13.0",
         "eslint": "9.39.5",
@@ -20,7 +20,6 @@
         "npm-package-arg": "13.0.2",
         "pacote": "21.5.1",
         "playwright-core": "1.63.0",
-        "react-doctor": "0.9.14",
         "semver": "7.8.5",
         "ssri": "13.0.1",
         "typescript": "6.0.3",
@@ -1798,13 +1797,13 @@
       }
     },
     "node_modules/@repo-facts/architecture": {
-      "version": "0.1.0",
-      "integrity": "sha512-UntKhs8dh/uKawQ+l6P/B4NDvRsD2v1PJrcTFXLc3xma7ho6PYVclc7Oh/oguhkzkMsHWbeiutrn/MK5pLEhhQ==",
+      "version": "0.2.0",
+      "integrity": "sha512-GI/WdsyReEo1KOoTqCd8RcKr0WaJTHDimyqMOWqYFSVR3TLzAYL3z39cpOwb3sPO5UgW9r9ICHUa3G2e3fiDKw==",
       "license": "UNLICENSED",
       "dependencies": {
-        "@repo-facts/contract": "0.1.0",
-        "@repo-facts/core": "0.1.0",
-        "@repo-facts/syntax": "0.1.0",
+        "@repo-facts/contract": "0.2.0",
+        "@repo-facts/core": "0.2.0",
+        "@repo-facts/syntax": "0.2.0",
         "typescript": "6.0.3"
       },
       "engines": {
@@ -1812,23 +1811,24 @@
       }
     },
     "node_modules/@repo-facts/bundle": {
-      "version": "0.1.0",
-      "integrity": "sha512-N53X6BQpHKVjKD2rNmlGmz4aVIuUZRkdduWH17tmfW44OzX1igLALnnp/28LSBT9wrstB0Yr2F3GuknA9WQdpw==",
+      "version": "0.2.0",
+      "integrity": "sha512-h5zNS/GRI+SR8BrJLjN3ak1PwEbeqM7xQ2y9OI0RlN+31waNquXGNimm9dMMKGZwjbkhjykCPS/oZURc6cTybw==",
       "license": "UNLICENSED",
       "dependencies": {
-        "@repo-facts/architecture": "0.1.0",
-        "@repo-facts/contract": "0.1.0",
-        "@repo-facts/core": "0.1.0",
-        "@repo-facts/services": "0.1.0",
-        "@repo-facts/syntax": "0.1.0"
+        "@repo-facts/architecture": "0.2.0",
+        "@repo-facts/contract": "0.2.0",
+        "@repo-facts/core": "0.2.0",
+        "@repo-facts/design-system": "0.2.0",
+        "@repo-facts/services": "0.2.0",
+        "@repo-facts/syntax": "0.2.0"
       },
       "engines": {
         "node": ">=24.0.0"
       }
     },
     "node_modules/@repo-facts/contract": {
-      "version": "0.1.0",
-      "integrity": "sha512-YmFRMB5mF3sAUez0KcHl6iTwx9uDM5kFXfl4vfe8wqULvacWnDPnH2XRIVQWNIrqm7ca21UJb8SMLWXhSJ+QtQ==",
+      "version": "0.2.0",
+      "integrity": "sha512-Jh1vFnM3nZlCGvob0aYGvFyQaj7nop/oI4T3gbRJskqlc96UqKR25xg104yEY3PPOuQVwq5nruu3a1MV/iO/Dw==",
       "license": "UNLICENSED",
       "dependencies": {
         "yaml": "2.9.1",
@@ -1839,26 +1839,41 @@
       }
     },
     "node_modules/@repo-facts/core": {
-      "version": "0.1.0",
-      "integrity": "sha512-OnUtpIKmPIyB4VVK+d5Y03g+wVh5DwrfafETU5+a+NHYVUTibli3lzvmRkK7HLBaiJdcwMGe48TK3lfq7E4Qnw==",
+      "version": "0.2.0",
+      "integrity": "sha512-Q+l6SXa9PravcWPqGWnIudN0Mzf3Y1S+QBD894HHsDsKPevwiisiKNejd+NAq96YFas7EPLDWXNTtYqgzPqiXg==",
       "license": "UNLICENSED",
       "dependencies": {
-        "@repo-facts/contract": "0.1.0",
+        "@repo-facts/contract": "0.2.0",
         "semver": "7.8.5"
       },
       "engines": {
         "node": ">=24.0.0"
       }
     },
-    "node_modules/@repo-facts/services": {
-      "version": "0.1.0",
-      "integrity": "sha512-Hvue5UVDOFKd8tWR5PxAFnzKpWd0cWqCQng2edg4ZQC0Nb1yneFTBj0/KiSct17WBZmizlJeoK1MAkmOteRxMQ==",
+    "node_modules/@repo-facts/design-system": {
+      "version": "0.2.0",
+      "integrity": "sha512-AIkyZBPFo1PJPRAkKRZFZm2e/xbfs51/nIFDp2wp0nnzq9BH2JoiMyfObPYQ9fJnvTZrhX24X/FBWBN8MSnZ/w==",
       "license": "UNLICENSED",
       "dependencies": {
-        "@repo-facts/architecture": "0.1.0",
-        "@repo-facts/contract": "0.1.0",
-        "@repo-facts/core": "0.1.0",
-        "@repo-facts/syntax": "0.1.0",
+        "@repo-facts/contract": "0.2.0",
+        "@repo-facts/core": "0.2.0",
+        "@repo-facts/syntax": "0.2.0",
+        "typescript": "6.0.3",
+        "zod": "4.6.5"
+      },
+      "engines": {
+        "node": ">=24.0.0"
+      }
+    },
+    "node_modules/@repo-facts/services": {
+      "version": "0.2.0",
+      "integrity": "sha512-yuuwm9twi/uQ7a1y+UpvfXWZUc/dD0UC/9Qpb5P9EV+HzPyzAFK7j57nkSaGHJaI3EyuUevG9t2pRWajsil1vg==",
+      "license": "UNLICENSED",
+      "dependencies": {
+        "@repo-facts/architecture": "0.2.0",
+        "@repo-facts/contract": "0.2.0",
+        "@repo-facts/core": "0.2.0",
+        "@repo-facts/syntax": "0.2.0",
         "typescript": "6.0.3"
       },
       "engines": {
@@ -1866,11 +1881,11 @@
       }
     },
     "node_modules/@repo-facts/syntax": {
-      "version": "0.1.0",
-      "integrity": "sha512-2Y8EfNSieb+EhWoiLTShxT7MD+Ile37OzXUgG7+HACDfVBpJTgNaM/t32SIHp31BcZXFzxhdljKIz5XFXt/WiQ==",
+      "version": "0.2.0",
+      "integrity": "sha512-kliT5P4fHOCpOndg/cJg+hFRpszNou/9HB9ubWmZ4PXwLX9dl+jcbtMHtMOY6rfWDlDBwrv9BZv3ew4g0w/BOw==",
       "license": "UNLICENSED",
       "dependencies": {
-        "@repo-facts/contract": "0.1.0",
+        "@repo-facts/contract": "0.2.0",
         "typescript": "6.0.3",
         "zod": "4.6.5"
       },

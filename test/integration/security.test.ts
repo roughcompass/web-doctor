@@ -184,7 +184,8 @@ describe("shared fact attacks", () => {
     const release = await recordRepoFactsRelease({ root: ROOT });
     const recorded = await fs.readFile(path.join(ROOT, "generated", "repo-facts.json"));
     const substituted = { ...release, packages: release.packages.map((entry) => (entry.name === "@repo-facts/core" ? { ...entry, contentDigest: "0".repeat(64) } : entry)) };
-    const mixed = { ...release, packages: release.packages.map((entry) => (entry.name === "@repo-facts/contract" ? { ...entry, version: "0.2.0" } : entry)) };
+    // A contract from another release than the bundle's.
+    const mixed = { ...release, packages: release.packages.map((entry) => (entry.name === "@repo-facts/contract" ? { ...entry, version: "0.1.0" } : entry)) };
     const app = path.join(workspace, "facts-app");
     await materialize(app, { "package.json": '{"name":"orders","dependencies":{"react":"18.3.1"}}\n' });
     const registry = (await releaseFixture("facts-registry", [{ name: "@firm/example", version: "1.0.0", commit: COMMIT, files: contributionFiles() }]));

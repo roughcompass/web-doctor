@@ -6,7 +6,7 @@ Web Doctor answers questions about one application checkout from three sources. 
 
 | Source | Owner | Contents |
 | --- | --- | --- |
-| Shared fact document (`repo_facts.fact_document`) | repo-facts | Languages, submodules, package identity, workspaces, package managers, build tools, test frameworks, CI systems, scripts, verification commands, runtime requirements, dependencies, resolved versions, frameworks, composition, packages produced and consumed, runtime integrations, served origins, API contracts, test substitutes, egress routes, access signals, and Service Dependencies |
+| Shared fact document (`repo_facts.fact_document`) | repo-facts | Languages, submodules, package identity, workspaces, package managers, build tools, test frameworks, CI systems, scripts, verification commands, runtime requirements, dependencies, resolved versions, frameworks, composition, packages produced and consumed, runtime integrations, served origins, API contracts, test substitutes, egress routes, access signals, design systems, UI elements, style values, and Service Dependencies |
 | Extension document | Web Doctor | `web-doctor.components`, `web-doctor.hooks`, `web-doctor.providers`, `web-doctor.entry_points`, `web-doctor.tests`, `web-doctor.routes`, and `web-doctor.source_relationships` |
 | Source index | Web Doctor | Modules, imports, exports, top-level symbols, props, hook calls, rendered elements, contexts, providers, references, React roots, routes, single-spa lifecycles, frames, and message channels |
 

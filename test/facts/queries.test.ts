@@ -45,13 +45,15 @@ afterEach(async () => {
 describe("task-scoped project queries", () => {
   it("pages the project overview deterministically with totals and continuations", () => {
     const first = projectOverview(mixed, { limit: 10 });
-    expect(first.page).toMatchObject({ limit: 10, offset: 0, returned: 10, total: 30, truncated: true });
+    expect(first.page).toMatchObject({ limit: 10, offset: 0, returned: 10, total: 33, truncated: true });
     const second = projectOverview(mixed, { limit: 10, continuation: first.page.continuation! });
     const third = projectOverview(mixed, { limit: 10, continuation: second.page.continuation! });
     expect(second.page).toMatchObject({ offset: 10, returned: 10 });
-    expect(third.page).toMatchObject({ offset: 20, returned: 10, truncated: false, continuation: null });
-    const ids = [...first.items, ...second.items, ...third.items].map((item) => item.id);
-    expect(new Set(ids).size).toBe(30);
+    const fourth = projectOverview(mixed, { limit: 10, continuation: third.page.continuation! });
+    expect(third.page).toMatchObject({ offset: 20, returned: 10, truncated: true });
+    expect(fourth.page).toMatchObject({ offset: 30, returned: 3, truncated: false, continuation: null });
+    const ids = [...first.items, ...second.items, ...third.items, ...fourth.items].map((item) => item.id);
+    expect(new Set(ids).size).toBe(33);
     expect(ids.filter((id) => id.startsWith("web-doctor."))).toHaveLength(7);
     expect(projectOverview(mixed, { limit: 10 })).toEqual(first);
     expect(first.summary).toMatchObject({ frameworks: ["package.json#react"], build_tools: ["typescript", "vite"], components: 4, hooks: 1 });

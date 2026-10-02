@@ -1,50 +1,57 @@
 {
-    "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+    "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
     "packages": [
         {
-            "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-            "contentDigest": "29c6275507bb9361e3dfb3a6ad39f5ab6b5aacda02c9ddf9bf391b4046501ae0",
-            "integrity": "sha512-UntKhs8dh/uKawQ+l6P/B4NDvRsD2v1PJrcTFXLc3xma7ho6PYVclc7Oh/oguhkzkMsHWbeiutrn/MK5pLEhhQ==",
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "34c3b6fa135e9b35dcd2fd049e5b836faca4d310e3ebaa6eb09d0963f1fb7236",
+            "integrity": "sha512-GI/WdsyReEo1KOoTqCd8RcKr0WaJTHDimyqMOWqYFSVR3TLzAYL3z39cpOwb3sPO5UgW9r9ICHUa3G2e3fiDKw==",
             "name": "@repo-facts/architecture",
-            "version": "0.1.0"
+            "version": "0.2.0"
         },
         {
-            "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-            "contentDigest": "2ba4fb9d7fb6f38bfd49c1f653fb4931cc09ec90fe6d374ecf6e4ae465e4fb1f",
-            "integrity": "sha512-N53X6BQpHKVjKD2rNmlGmz4aVIuUZRkdduWH17tmfW44OzX1igLALnnp/28LSBT9wrstB0Yr2F3GuknA9WQdpw==",
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "7a764f49e38a04e2eeed70f4021395c28bf74684b20aee2db2a3c6b524ce2710",
+            "integrity": "sha512-h5zNS/GRI+SR8BrJLjN3ak1PwEbeqM7xQ2y9OI0RlN+31waNquXGNimm9dMMKGZwjbkhjykCPS/oZURc6cTybw==",
             "name": "@repo-facts/bundle",
-            "version": "0.1.0"
+            "version": "0.2.0"
         },
         {
-            "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-            "contentDigest": "6ed01477cc8f12635d136734498fe02a99b252625ded2eec480c62a1b6ba701c",
-            "integrity": "sha512-YmFRMB5mF3sAUez0KcHl6iTwx9uDM5kFXfl4vfe8wqULvacWnDPnH2XRIVQWNIrqm7ca21UJb8SMLWXhSJ+QtQ==",
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "4712f2e5b443811b94999110a6a3a8b448002cf710f99d9ec58a22233394c9e7",
+            "integrity": "sha512-Jh1vFnM3nZlCGvob0aYGvFyQaj7nop/oI4T3gbRJskqlc96UqKR25xg104yEY3PPOuQVwq5nruu3a1MV/iO/Dw==",
             "name": "@repo-facts/contract",
-            "version": "0.1.0"
+            "version": "0.2.0"
         },
         {
-            "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-            "contentDigest": "7d4298bfe2e6c3c78973a4d1a1b9599b50cc43d9c4f5ea9bfb797c627125cd95",
-            "integrity": "sha512-OnUtpIKmPIyB4VVK+d5Y03g+wVh5DwrfafETU5+a+NHYVUTibli3lzvmRkK7HLBaiJdcwMGe48TK3lfq7E4Qnw==",
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "c95f9ac83ba2e4795dd7c33d9218392c781e347afdbb65ef7eb7fe2646af5b5a",
+            "integrity": "sha512-Q+l6SXa9PravcWPqGWnIudN0Mzf3Y1S+QBD894HHsDsKPevwiisiKNejd+NAq96YFas7EPLDWXNTtYqgzPqiXg==",
             "name": "@repo-facts/core",
-            "version": "0.1.0"
+            "version": "0.2.0"
         },
         {
-            "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-            "contentDigest": "a551b58225f0b3fe928296cf4318be74dd04fdadd549244be79bd7b8633042d1",
-            "integrity": "sha512-Hvue5UVDOFKd8tWR5PxAFnzKpWd0cWqCQng2edg4ZQC0Nb1yneFTBj0/KiSct17WBZmizlJeoK1MAkmOteRxMQ==",
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "b2cbcdd200814ee548a662e7ed5d7bae970c4eab7f9120c450848eda29cae5f5",
+            "integrity": "sha512-AIkyZBPFo1PJPRAkKRZFZm2e/xbfs51/nIFDp2wp0nnzq9BH2JoiMyfObPYQ9fJnvTZrhX24X/FBWBN8MSnZ/w==",
+            "name": "@repo-facts/design-system",
+            "version": "0.2.0"
+        },
+        {
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "045794dd1847a68eab798b620090ab41a128b909aab1cbbff578cb3e07831271",
+            "integrity": "sha512-yuuwm9twi/uQ7a1y+UpvfXWZUc/dD0UC/9Qpb5P9EV+HzPyzAFK7j57nkSaGHJaI3EyuUevG9t2pRWajsil1vg==",
             "name": "@repo-facts/services",
-            "version": "0.1.0"
+            "version": "0.2.0"
         },
         {
-            "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
-            "contentDigest": "241bea94decc8ec2cf04a4a8fd28efe76270182dd06009eea90e62e5af22214a",
-            "integrity": "sha512-2Y8EfNSieb+EhWoiLTShxT7MD+Ile37OzXUgG7+HACDfVBpJTgNaM/t32SIHp31BcZXFzxhdljKIz5XFXt/WiQ==",
+            "commit": "2e700e6d90d99438d18e6c7472e79d01ecfa3305",
+            "contentDigest": "b827ea814dd145ecfad2e0900dc98f716782df0ef8b0ba42c33b3550d6f5f602",
+            "integrity": "sha512-kliT5P4fHOCpOndg/cJg+hFRpszNou/9HB9ubWmZ4PXwLX9dl+jcbtMHtMOY6rfWDlDBwrv9BZv3ew4g0w/BOw==",
             "name": "@repo-facts/syntax",
-            "version": "0.1.0"
+            "version": "0.2.0"
         }
     ],
-    "release": "0.1.0",
+    "release": "0.2.0",
     "schema": "web-doctor.repo-facts-release",
     "schemaVersion": 1
 }
