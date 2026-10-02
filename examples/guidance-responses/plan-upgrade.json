@@ -1,0 +1,725 @@
+{
+  "schema": "web-doctor.mcp-response",
+  "schemaVersion": 2,
+  "requestId": "req_58d0c5bac5cf3ee6c477e0c7ce296561a2c9d59f89f469db4322807ece3970f5",
+  "tool": "plan_upgrade",
+  "complete": true,
+  "truncated": false,
+  "provenance": {
+    "webDoctor": {
+      "version": "0.1.0",
+      "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "registryDigest": "262558f4290b04a4c98198f0e97dd5a2fb252b366aaec8f3b05c7917f4c45f59",
+      "catalogCommit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "catalogDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    "repoFacts": {
+      "status": "complete",
+      "reason": null,
+      "release": "0.1.0",
+      "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "incompleteCategories": [
+        "served_origins"
+      ]
+    },
+    "extensions": {
+      "release": "web-doctor-extensions/0.1.0",
+      "stateDigest": "240e02ea9505c235c4e31ce0754370a85c42d26de81327d9d078baceb0b24ae7",
+      "indexDigest": "ee64a0668759219f37609cf6a30cf2ecbbc78d144ca44188491a93027c335eed",
+      "incompleteCategories": []
+    },
+    "project": {
+      "root": "/work/orders",
+      "snapshotDigest": "5258257850eaeb97265ef2d78af2ee7985d48ff1990d981ab77af51f41262ad0",
+      "treeDigest": "de9ad457b19730210d387d34d2b0207f522beae6db769d95cddad6a3b0cf63ef"
+    },
+    "policy": null
+  },
+  "update": {
+    "status": "unknown",
+    "installedVersion": "0.1.0",
+    "availableVersion": null,
+    "installationMode": "unknown",
+    "command": null,
+    "reason": "Enterprise package distribution is not configured"
+  },
+  "evidence": [
+    {
+      "path": "src/index.tsx",
+      "line": 4,
+      "column": 1
+    }
+  ],
+  "warnings": [],
+  "data": {
+    "schema": "web-doctor.upgrade-plan",
+    "schemaVersion": 1,
+    "package": "react",
+    "target": "19.0.0",
+    "environment": {
+      "packageManager": {
+        "source": "shared",
+        "category": "package_managers",
+        "key": ".",
+        "state": "observed",
+        "value": "npm",
+        "rule": "manifest.package-manager",
+        "reasoning": null,
+        "evidence": [
+          {
+            "id": "ev_2fc8b454a4c51e90e0140a5a",
+            "path": "package.json",
+            "lines": null,
+            "pointer": "/packageManager",
+            "rule": "manifest.package-manager",
+            "detector": "tooling"
+          },
+          {
+            "id": "ev_beb3e15d2056e69c52eb2606",
+            "path": "package-lock.json",
+            "lines": null,
+            "pointer": null,
+            "rule": "lockfile.package-manager",
+            "detector": "tooling"
+          }
+        ],
+        "candidates": null
+      },
+      "runtimes": [
+        {
+          "source": "shared",
+          "category": "runtime_requirements",
+          "key": "npm",
+          "state": "observed",
+          "value": {
+            "declared": [
+              "10.9.0"
+            ],
+            "range": "10.9.0"
+          },
+          "rule": "manifest.package-manager-version",
+          "reasoning": null,
+          "evidence": [
+            {
+              "id": "ev_6dee2c879f6622354e76ad5e",
+              "path": "package.json",
+              "lines": null,
+              "pointer": "/packageManager",
+              "rule": "manifest.package-manager-version",
+              "detector": "runtime"
+            }
+          ],
+          "candidates": null
+        }
+      ]
+    },
+    "modifiesProject": false,
+    "provenance": {
+      "detectorRelease": "0.1.0",
+      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "extensionStateDigest": "240e02ea9505c235c4e31ce0754370a85c42d26de81327d9d078baceb0b24ae7",
+      "indexDigest": "ee64a0668759219f37609cf6a30cf2ecbbc78d144ca44188491a93027c335eed",
+      "knowledge": {
+        "id": "react",
+        "version": "1.0.0",
+        "digest": "fa20e03098c549ac18c01fec776c0b02936dbf4b641dbdde79540cd42c464cde"
+      }
+    },
+    "current": {
+      "version": "17.0.2",
+      "evidence": {
+        "source": "shared",
+        "category": "resolved_dependencies",
+        "key": "package.json#react",
+        "state": "observed",
+        "value": {
+          "manifest": "package.json",
+          "name": "react",
+          "version": "17.0.2"
+        },
+        "rule": "npm-lock.resolved-version",
+        "reasoning": null,
+        "evidence": [
+          {
+            "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+            "path": "package-lock.json",
+            "lines": null,
+            "pointer": "/packages/node_modules~1react/version",
+            "rule": "npm-lock.resolved-version",
+            "detector": "npm-lock"
+          }
+        ],
+        "candidates": null
+      }
+    },
+    "status": "planned",
+    "unresolved": [],
+    "blockers": [],
+    "stages": [
+      {
+        "order": 0,
+        "id": "react-18.0.0",
+        "version": "18.0.0",
+        "purpose": "Adopt the React 18 root API",
+        "blockedBy": [],
+        "dependencies": [
+          {
+            "package": "react",
+            "field": "dependencies",
+            "from": "17.0.2",
+            "to": "18.0.0",
+            "reason": "The package being upgraded",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "package": "react-dom",
+            "field": "dependencies",
+            "from": "17.0.2",
+            "to": "18.0.0",
+            "reason": "react-dom must match react exactly",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react-dom",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react-dom",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_6c4524fe1624e36da7356c62",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react-dom/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          }
+        ],
+        "changes": [
+          {
+            "change": "react-dom-render",
+            "title": "ReactDOM.render",
+            "status": "removed",
+            "replacement": "createRoot from react-dom/client, then root.render",
+            "detection": "automatic",
+            "occurrences": [
+              {
+                "path": "src/index.tsx",
+                "line": 4,
+                "column": 1,
+                "symbol": null
+              }
+            ]
+          }
+        ],
+        "verification": [
+          {
+            "kind": "install",
+            "description": "Update react, react-dom together and confirm the lockfile resolves one version of each",
+            "command": "npm install react@18.0.0 react-dom@18.0.0",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "kind": "typecheck",
+            "description": "Run the declared typecheck command (tsc --noEmit)",
+            "command": "npm run typecheck",
+            "evidence": {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/typecheck",
+              "state": "observed",
+              "value": {
+                "command": "tsc --noEmit",
+                "context": {
+                  "script": "typecheck",
+                  "via": []
+                },
+                "kinds": [
+                  "typecheck"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_cce32134e1a8ea4cbcdb6649",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/typecheck",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "kind": "test",
+            "description": "Run the declared test command (vitest run)",
+            "command": "npm run test",
+            "evidence": {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/test",
+              "state": "observed",
+              "value": {
+                "command": "vitest run",
+                "context": {
+                  "script": "test",
+                  "via": []
+                },
+                "kinds": [
+                  "test"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3e540f90f80441c8be00c9fb",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/test",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          }
+        ],
+        "review": [
+          "Automatic batching now also batches updates outside React event handlers; check code that reads the DOM or state between updates",
+          "Development StrictMode mounts, unmounts, and remounts components; confirm effects clean up after themselves",
+          "React 18 type definitions no longer add children to component props implicitly; typecheck after upgrading"
+        ],
+        "rollback": "Land this stage's manifest, lockfile, and source changes as one change; reverting it restores react 17.0.2"
+      },
+      {
+        "order": 1,
+        "id": "react-18.3.0",
+        "version": "18.3.0",
+        "purpose": "Surface warnings for APIs React 19 removes",
+        "blockedBy": [],
+        "dependencies": [
+          {
+            "package": "react",
+            "field": "dependencies",
+            "from": "17.0.2",
+            "to": "18.3.0",
+            "reason": "The package being upgraded",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "package": "react-dom",
+            "field": "dependencies",
+            "from": "17.0.2",
+            "to": "18.3.0",
+            "reason": "react-dom must match react exactly",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react-dom",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react-dom",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_6c4524fe1624e36da7356c62",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react-dom/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          }
+        ],
+        "changes": [],
+        "verification": [
+          {
+            "kind": "install",
+            "description": "Update react, react-dom together and confirm the lockfile resolves one version of each",
+            "command": "npm install react@18.3.0 react-dom@18.3.0",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "kind": "typecheck",
+            "description": "Run the declared typecheck command (tsc --noEmit)",
+            "command": "npm run typecheck",
+            "evidence": {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/typecheck",
+              "state": "observed",
+              "value": {
+                "command": "tsc --noEmit",
+                "context": {
+                  "script": "typecheck",
+                  "via": []
+                },
+                "kinds": [
+                  "typecheck"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_cce32134e1a8ea4cbcdb6649",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/typecheck",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "kind": "test",
+            "description": "Run the declared test command (vitest run)",
+            "command": "npm run test",
+            "evidence": {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/test",
+              "state": "observed",
+              "value": {
+                "command": "vitest run",
+                "context": {
+                  "script": "test",
+                  "via": []
+                },
+                "kinds": [
+                  "test"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3e540f90f80441c8be00c9fb",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/test",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          }
+        ],
+        "review": [
+          "React 18.3 warns about APIs React 19 removes; run the tests and the application and resolve every new warning before continuing"
+        ],
+        "rollback": "Land this stage's manifest, lockfile, and source changes as one change; reverting it restores react 18.0.0"
+      },
+      {
+        "order": 2,
+        "id": "react-19.0.0",
+        "version": "19.0.0",
+        "purpose": "Remove APIs React 19 no longer supports",
+        "blockedBy": [],
+        "dependencies": [
+          {
+            "package": "react",
+            "field": "dependencies",
+            "from": "17.0.2",
+            "to": "19.0.0",
+            "reason": "The package being upgraded",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "package": "react-dom",
+            "field": "dependencies",
+            "from": "17.0.2",
+            "to": "19.0.0",
+            "reason": "react-dom must match react exactly",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react-dom",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react-dom",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_6c4524fe1624e36da7356c62",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react-dom/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          }
+        ],
+        "changes": [],
+        "verification": [
+          {
+            "kind": "install",
+            "description": "Update react, react-dom together and confirm the lockfile resolves one version of each",
+            "command": "npm install react@19.0.0 react-dom@19.0.0",
+            "evidence": {
+              "source": "shared",
+              "category": "resolved_dependencies",
+              "key": "package.json#react",
+              "state": "observed",
+              "value": {
+                "manifest": "package.json",
+                "name": "react",
+                "version": "17.0.2"
+              },
+              "rule": "npm-lock.resolved-version",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3d37fd52b2fd0bb1d05d86c6",
+                  "path": "package-lock.json",
+                  "lines": null,
+                  "pointer": "/packages/node_modules~1react/version",
+                  "rule": "npm-lock.resolved-version",
+                  "detector": "npm-lock"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "kind": "typecheck",
+            "description": "Run the declared typecheck command (tsc --noEmit)",
+            "command": "npm run typecheck",
+            "evidence": {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/typecheck",
+              "state": "observed",
+              "value": {
+                "command": "tsc --noEmit",
+                "context": {
+                  "script": "typecheck",
+                  "via": []
+                },
+                "kinds": [
+                  "typecheck"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_cce32134e1a8ea4cbcdb6649",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/typecheck",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          },
+          {
+            "kind": "test",
+            "description": "Run the declared test command (vitest run)",
+            "command": "npm run test",
+            "evidence": {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/test",
+              "state": "observed",
+              "value": {
+                "command": "vitest run",
+                "context": {
+                  "script": "test",
+                  "via": []
+                },
+                "kinds": [
+                  "test"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3e540f90f80441c8be00c9fb",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/test",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          }
+        ],
+        "review": [
+          "React 19 requires the modern JSX transform; confirm the build compiles JSX with the automatic runtime"
+        ],
+        "rollback": "Land this stage's manifest, lockfile, and source changes as one change; reverting it restores react 18.3.0"
+      }
+    ],
+    "manual": [
+      "Automatic batching now also batches updates outside React event handlers; check code that reads the DOM or state between updates",
+      "Development StrictMode mounts, unmounts, and remounts components; confirm effects clean up after themselves",
+      "React 18 type definitions no longer add children to component props implicitly; typecheck after upgrading",
+      "React 18.3 warns about APIs React 19 removes; run the tests and the application and resolve every new warning before continuing",
+      "React 19 requires the modern JSX transform; confirm the build compiles JSX with the automatic runtime",
+      "Confirm that typescript, vitest support react 19.0.0; no fact or guidance establishes it"
+    ],
+    "unestablished": [
+      "typescript",
+      "vitest"
+    ]
+  }
+}

@@ -46,7 +46,7 @@ describe("process registry pinning", () => {
 function snapshot(catalogDigest: string): RegistrySnapshot {
   return {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "c".repeat(40),
     catalogCommit: "d".repeat(40),

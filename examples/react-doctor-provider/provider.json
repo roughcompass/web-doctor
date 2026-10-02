@@ -1,0 +1,4567 @@
+{
+  "schema": "web-doctor.provider-manifest",
+  "schemaVersion": 1,
+  "id": "react-doctor",
+  "version": "1.0.0",
+  "owner": "Web Platform",
+  "adapterVersion": "1.0.0",
+  "engine": "react-doctor",
+  "engineRange": "0.9.14",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "evidenceKinds": [
+    "static"
+  ],
+  "completeness": [
+    "complete",
+    "partial",
+    "unavailable"
+  ],
+  "capabilities": [
+    "filesystem-read",
+    "process-spawn"
+  ],
+  "invocationModes": [
+    "static",
+    "changed-files"
+  ],
+  "rules": [
+    {
+      "id": "active-static-asset",
+      "title": "Active static asset",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "activity-wraps-effect-heavy-subtree",
+      "title": "Activity wraps effect heavy subtree",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "advanced-event-handler-refs",
+      "title": "Advanced event handler refs",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "agent-tool-capability-risk",
+      "title": "Agent tool capability risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "alt-text",
+      "title": "Alt text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "anchor-ambiguous-text",
+      "title": "Anchor ambiguous text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "anchor-has-content",
+      "title": "Anchor has content",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "anchor-is-valid",
+      "title": "Anchor is valid",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "anchor-target-exists",
+      "title": "Anchor target exists",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "aria-activedescendant-has-tabindex",
+      "title": "Aria activedescendant has tabindex",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "aria-braille-equivalent",
+      "title": "Aria braille equivalent",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "aria-props",
+      "title": "Aria props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "aria-proptypes",
+      "title": "Aria proptypes",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "aria-role",
+      "title": "Aria role",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "aria-unsupported-elements",
+      "title": "Aria unsupported elements",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "artifact-baas-authority-surface",
+      "title": "Artifact baas authority surface",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "artifact-env-leak",
+      "title": "Artifact env leak",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "artifact-secret-leak",
+      "title": "Artifact secret leak",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "async-await-in-loop",
+      "title": "Async await in loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "async-defer-await",
+      "title": "Async defer await",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "async-parallel",
+      "title": "Async parallel",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "auth-token-in-web-storage",
+      "title": "Auth token in web storage",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "autocomplete-valid",
+      "title": "Autocomplete valid",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "base-ui-dialog-popup-requires-title",
+      "title": "Base ui dialog popup requires title",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "base-ui-field-requires-label",
+      "title": "Base ui field requires label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "base-ui-tabs-tab-requires-list",
+      "title": "Base ui tabs tab requires list",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "build-pipeline-secret-boundary",
+      "title": "Build pipeline secret boundary",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "button-has-type",
+      "title": "Button has type",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "checked-requires-onchange-or-readonly",
+      "title": "Checked requires onchange or readonly",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "circular-dependency",
+      "title": "Circular dependency",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "class-component-missing-component-will-unmount-teardown",
+      "title": "Class component missing component will unmount teardown",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "click-events-have-key-events",
+      "title": "Click events have key events",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "clickjacking-redirect-risk",
+      "title": "Clickjacking redirect risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "client-localstorage-no-version",
+      "title": "Client localstorage no version",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "client-passive-event-listeners",
+      "title": "Client passive event listeners",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "command-execution-input-risk",
+      "title": "Command execution input risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "context-provider-value-from-unmemoized-local-literal",
+      "title": "Context provider value from unmemoized local literal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "control-has-associated-label",
+      "title": "Control has associated label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "cors-cookie-trust-risk",
+      "title": "Cors cookie trust risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "dangerous-html-sink",
+      "title": "Dangerous html sink",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "data-table-requires-accessible-name",
+      "title": "Data table requires accessible name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "debounce-no-cleanup",
+      "title": "Debounce no cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "design-no-em-dash-in-jsx-text",
+      "title": "Design no em dash in jsx text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "design-no-redundant-padding-axes",
+      "title": "Design no redundant padding axes",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "design-no-redundant-size-axes",
+      "title": "Design no redundant size axes",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "design-no-space-on-flex-children",
+      "title": "Design no space on flex children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "design-no-three-period-ellipsis",
+      "title": "Design no three period ellipsis",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "design-no-vague-button-label",
+      "title": "Design no vague button label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "details-requires-summary",
+      "title": "Details requires summary",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "dialog-has-accessible-name",
+      "title": "Dialog has accessible name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "display-name",
+      "title": "Display name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "duplicate-jsx-subtree",
+      "title": "Duplicate jsx subtree",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "effect-listener-cleanup-mismatch",
+      "title": "Effect listener cleanup mismatch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "effect-listener-cleanup-reference-mismatch",
+      "title": "Effect listener cleanup reference mismatch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "effect-needs-cleanup",
+      "title": "Effect needs cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "effect-observer-needs-disconnect",
+      "title": "Effect observer needs disconnect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "effect-raf-loop-needs-cancel",
+      "title": "Effect raf loop needs cancel",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "effect-remove-listener-inline-handler",
+      "title": "Effect remove listener inline handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "empty-table-header",
+      "title": "Empty table header",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "exhaustive-deps",
+      "title": "Exhaustive deps",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "expo-no-non-inlined-env",
+      "title": "Expo no non inlined env",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "fieldset-requires-legend",
+      "title": "Fieldset requires legend",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "firebase-client-owned-authz-field",
+      "title": "Firebase client owned authz field",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "firebase-permissive-rules",
+      "title": "Firebase permissive rules",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "firebase-query-filter-as-auth",
+      "title": "Firebase query filter as auth",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "forbid-component-props",
+      "title": "Forbid component props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "forbid-dom-props",
+      "title": "Forbid dom props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "forbid-elements",
+      "title": "Forbid elements",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "form-control-requires-name",
+      "title": "Form control requires name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "forward-ref-uses-ref",
+      "title": "Forward ref uses ref",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "git-provider-url-injection-risk",
+      "title": "Git provider url injection risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "heading-has-content",
+      "title": "Heading has content",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "hook-import-rename-loses-use-prefix",
+      "title": "Hook import rename loses use prefix",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "hook-use-state",
+      "title": "Hook use state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "hooks-no-nan-in-deps",
+      "title": "Hooks no nan in deps",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-has-lang",
+      "title": "Html has lang",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-label-has-single-control",
+      "title": "Html label has single control",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-no-invalid-paragraph-child",
+      "title": "Html no invalid paragraph child",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-no-invalid-table-nesting",
+      "title": "Html no invalid table nesting",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-no-nested-form",
+      "title": "Html no nested form",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-no-nested-interactive",
+      "title": "Html no nested interactive",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "html-xml-lang-mismatch",
+      "title": "Html xml lang mismatch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "iframe-has-title",
+      "title": "Iframe has title",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "iframe-missing-sandbox",
+      "title": "Iframe missing sandbox",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "iframe-title-unique",
+      "title": "Iframe title unique",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "img-redundant-alt",
+      "title": "Img redundant alt",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "import-metadata-execution-risk",
+      "title": "Import metadata execution risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-ctrl-c-handler-requires-exit-option",
+      "title": "Ink ctrl c handler requires exit option",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-newline-inside-text",
+      "title": "Ink newline inside text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-bare-process-exit",
+      "title": "Ink no bare process exit",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-direct-raw-mode",
+      "title": "Ink no direct raw mode",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-dom-host-elements",
+      "title": "Ink no dom host elements",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-dom-router",
+      "title": "Ink no dom router",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-focus-in-render",
+      "title": "Ink no focus in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-layout-inside-text",
+      "title": "Ink no layout inside text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-live-hooks-in-render-to-string",
+      "title": "Ink no live hooks in render to string",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-measure-element-in-render",
+      "title": "Ink no measure element in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-multiple-static",
+      "title": "Ink no multiple static",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-raw-text",
+      "title": "Ink no raw text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-no-repeated-render",
+      "title": "Ink no repeated render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-prefer-use-animation",
+      "title": "Ink prefer use animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-prefer-use-paste",
+      "title": "Ink prefer use paste",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-static-is-append-only",
+      "title": "Ink static is append only",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-static-requires-key",
+      "title": "Ink static requires key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-suspense-requires-concurrent",
+      "title": "Ink suspense requires concurrent",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-use-reactive-window-size",
+      "title": "Ink use reactive window size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-use-string-width-for-cursor",
+      "title": "Ink use string width for cursor",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-use-suspend-terminal",
+      "title": "Ink use suspend terminal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "ink-valid-aria-semantics",
+      "title": "Ink valid aria semantics",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "insecure-crypto-risk",
+      "title": "Insecure crypto risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "insecure-session-cookie",
+      "title": "Insecure session cookie",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "interactive-supports-focus",
+      "title": "Interactive supports focus",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jotai-derived-atom-returns-fresh-object",
+      "title": "Jotai derived atom returns fresh object",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jotai-select-atom-in-render-body",
+      "title": "Jotai select atom in render body",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jotai-tq-use-raw-query-atom",
+      "title": "Jotai tq use raw query atom",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-async-reduce-without-awaited-acc",
+      "title": "Js async reduce without awaited acc",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-batch-dom-css",
+      "title": "Js batch dom css",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-cache-property-access",
+      "title": "Js cache property access",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-cache-storage",
+      "title": "Js cache storage",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-combine-iterations",
+      "title": "Js combine iterations",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-early-exit",
+      "title": "Js early exit",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-flatmap-filter",
+      "title": "Js flatmap filter",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-hoist-intl",
+      "title": "Js hoist intl",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-hoist-regexp",
+      "title": "Js hoist regexp",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-index-maps",
+      "title": "Js index maps",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-length-check-first",
+      "title": "Js length check first",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-min-max-loop",
+      "title": "Js min max loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-set-map-lookups",
+      "title": "Js set map lookups",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "js-tosorted-immutable",
+      "title": "Js tosorted immutable",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-boolean-value",
+      "title": "Jsx boolean value",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-curly-brace-presence",
+      "title": "Jsx curly brace presence",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-filename-extension",
+      "title": "Jsx filename extension",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-fragments",
+      "title": "Jsx fragments",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-handler-names",
+      "title": "Jsx handler names",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-key",
+      "title": "Jsx key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-max-depth",
+      "title": "Jsx max depth",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-comment-textnodes",
+      "title": "Jsx no comment textnodes",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-constructed-context-values",
+      "title": "Jsx no constructed context values",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-duplicate-props",
+      "title": "Jsx no duplicate props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-jsx-as-prop",
+      "title": "Jsx no jsx as prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-new-array-as-prop",
+      "title": "Jsx no new array as prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-new-function-as-prop",
+      "title": "Jsx no new function as prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-new-object-as-prop",
+      "title": "Jsx no new object as prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-script-url",
+      "title": "Jsx no script url",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-target-blank",
+      "title": "Jsx no target blank",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-undef",
+      "title": "Jsx no undef",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-no-useless-fragment",
+      "title": "Jsx no useless fragment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-numeric-and-leaked-render",
+      "title": "Jsx numeric and leaked render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-pascal-case",
+      "title": "Jsx pascal case",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-props-no-spread-multi",
+      "title": "Jsx props no spread multi",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jsx-props-no-spreading",
+      "title": "Jsx props no spreading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "jwt-insecure-verification",
+      "title": "Jwt insecure verification",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "key-lifecycle-risk",
+      "title": "Key lifecycle risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "label-has-associated-control",
+      "title": "Label has associated control",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "lang",
+      "title": "Lang",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "loading-action-preserves-trigger",
+      "title": "Loading action preserves trigger",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "local-rpc-native-bridge-risk",
+      "title": "Local rpc native bridge risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "mcp-tool-capability-risk",
+      "title": "Mcp tool capability risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "mdx-ssr-execution-risk",
+      "title": "Mdx ssr execution risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "media-has-caption",
+      "title": "Media has caption",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "mobx-no-make-auto-observable-in-inheritance",
+      "title": "Mobx no make auto observable in inheritance",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "mobx-no-observer-wrapped-memo",
+      "title": "Mobx no observer wrapped memo",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "mobx-reaction-disposer-discarded",
+      "title": "Mobx reaction disposer discarded",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-animate-presence-must-outlive-child",
+      "title": "Motion animate presence must outlive child",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-animate-presence-requires-key",
+      "title": "Motion animate presence requires key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-animate-presence-wait-single-child",
+      "title": "Motion animate presence wait single child",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-create-in-render",
+      "title": "Motion create in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-drag-axis-constraint-mismatch",
+      "title": "Motion drag axis constraint mismatch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-imperative-animation-in-render",
+      "title": "Motion imperative animation in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-keyframe-times-mismatch",
+      "title": "Motion keyframe times mismatch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-layout-on-inline-element",
+      "title": "Motion layout on inline element",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-unstable-layout-id-in-iteration",
+      "title": "Motion unstable layout id in iteration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-use-transform-range-length",
+      "title": "Motion use transform range length",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-value-constructor-in-render",
+      "title": "Motion value constructor in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "motion-value-subscription-in-render",
+      "title": "Motion value subscription in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "mouse-events-have-key-events",
+      "title": "Mouse events have key events",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-async-client-component",
+      "title": "Nextjs async client component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-async-dynamic-api-not-awaited",
+      "title": "Nextjs async dynamic api not awaited",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-error-boundary-missing-use-client",
+      "title": "Nextjs error boundary missing use client",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-global-error-missing-html-body",
+      "title": "Nextjs global error missing html body",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-image-missing-sizes",
+      "title": "Nextjs image missing sizes",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-inline-script-missing-id",
+      "title": "Nextjs inline script missing id",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-metadata-url-consistency",
+      "title": "Nextjs metadata url consistency",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-missing-metadata",
+      "title": "Nextjs missing metadata",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-a-element",
+      "title": "Nextjs no a element",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-client-fetch-for-server-data",
+      "title": "Nextjs no client fetch for server data",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-client-side-redirect",
+      "title": "Nextjs no client side redirect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-css-link",
+      "title": "Nextjs no css link",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-default-export-in-route-handler",
+      "title": "Nextjs no default export in route handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-edge-og-runtime",
+      "title": "Nextjs no edge og runtime",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-font-link",
+      "title": "Nextjs no font link",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-google-analytics-script",
+      "title": "Nextjs no google analytics script",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-head-import",
+      "title": "Nextjs no head import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-img-element",
+      "title": "Nextjs no img element",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-native-script",
+      "title": "Nextjs no native script",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-polyfill-script",
+      "title": "Nextjs no polyfill script",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-redirect-in-try-catch",
+      "title": "Nextjs no redirect in try catch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-script-in-head",
+      "title": "Nextjs no script in head",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-side-effect-in-get-handler",
+      "title": "Nextjs no side effect in get handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-use-search-params-without-suspense",
+      "title": "Nextjs no use search params without suspense",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nextjs-no-vercel-og-import",
+      "title": "Nextjs no vercel og import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-access-key",
+      "title": "No access key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-adjust-state-on-prop-change",
+      "title": "No adjust state on prop change",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-all-caps-body-text",
+      "title": "No all caps body text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-arbitrary-px-font-size",
+      "title": "No arbitrary px font size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-aria-hidden-on-body",
+      "title": "No aria hidden on body",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-aria-hidden-on-focusable",
+      "title": "No aria hidden on focusable",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-aria-invalid-without-description",
+      "title": "No aria invalid without description",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-arithmetic-on-optional-chained-operand",
+      "title": "No arithmetic on optional chained operand",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-array-find-result-member-access-without-guard",
+      "title": "No array find result member access without guard",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-array-index-as-key",
+      "title": "No array index as key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-array-index-deref-without-bounds-or-empty-guard",
+      "title": "No array index deref without bounds or empty guard",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-array-index-key",
+      "title": "No array index key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-assertive-status",
+      "title": "No assertive status",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-async-effect-callback",
+      "title": "No async effect callback",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-async-event-handler-without-reentry-guard",
+      "title": "No async event handler without reentry guard",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-auto-scrolling-content",
+      "title": "No auto scrolling content",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-autofocus",
+      "title": "No autofocus",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-autoplay-without-muted",
+      "title": "No autoplay without muted",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-barrel-import",
+      "title": "No barrel import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-blocked-paste",
+      "title": "No blocked paste",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-boolean-toggle-without-functional-update",
+      "title": "No boolean toggle without functional update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-broken-image-source",
+      "title": "No broken image source",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-call-component-as-function",
+      "title": "No call component as function",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-cascading-set-state",
+      "title": "No cascading set state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-chain-state-updates",
+      "title": "No chain state updates",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-children-prop",
+      "title": "No children prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-clipped-overlay",
+      "title": "No clipped overlay",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-clone-element",
+      "title": "No clone element",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-collapse-request-error-to-empty-state",
+      "title": "No collapse request error to empty state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-collapsed-literal-or-chain-as-value",
+      "title": "No collapsed literal or chain as value",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-common-root-font",
+      "title": "No common root font",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-conflicting-spring-options",
+      "title": "No conflicting spring options",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-controlled-input-value-without-state-update",
+      "title": "No controlled input value without state update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-controlled-selection-focus-effect",
+      "title": "No controlled selection focus effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-cramped-container-padding",
+      "title": "No cramped container padding",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-create-context-in-render",
+      "title": "No create context in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-create-object-url-in-render",
+      "title": "No create object url in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-create-object-url-without-revoke",
+      "title": "No create object url without revoke",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-create-ref-in-function-component",
+      "title": "No create ref in function component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-create-store-in-render",
+      "title": "No create store in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-crushed-letter-spacing",
+      "title": "No crushed letter spacing",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-danger",
+      "title": "No danger",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-danger-with-children",
+      "title": "No danger with children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-dark-mode-glow",
+      "title": "No dark mode glow",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-decorative-blur-orb",
+      "title": "No decorative blur orb",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-decorative-grid-background",
+      "title": "No decorative grid background",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-decorative-pulse",
+      "title": "No decorative pulse",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-decorative-radial-spotlight",
+      "title": "No decorative radial spotlight",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-default-props",
+      "title": "No default props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-default-purple-page-gradient",
+      "title": "No default purple page gradient",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-default-warm-page-surface",
+      "title": "No default warm page surface",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-deprecated-keyboard-event-keycode-which",
+      "title": "No deprecated keyboard event keycode which",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-deprecated-tailwind-class",
+      "title": "No deprecated tailwind class",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-derived-state",
+      "title": "No derived state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-derived-state-effect",
+      "title": "No derived state effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-derived-usestate",
+      "title": "No derived useState",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-did-mount-set-state",
+      "title": "No did mount set state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-did-update-set-state",
+      "title": "No did update set state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-direct-mutation-state",
+      "title": "No direct mutation state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-direct-state-mutation",
+      "title": "No direct state mutation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-disabled-zoom",
+      "title": "No disabled zoom",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-distracting-elements",
+      "title": "No distracting elements",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-document-start-view-transition",
+      "title": "No document start view transition",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-document-write",
+      "title": "No document write",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-duplicate-static-id-reference",
+      "title": "No duplicate static id reference",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-dynamic-import-path",
+      "title": "No dynamic import path",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-dynamic-tailwind-class-fragment",
+      "title": "No dynamic tailwind class fragment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-eager-new-in-use-state-initializer",
+      "title": "No eager new in use state initializer",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-ease-in-motion",
+      "title": "No ease in motion",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-effect-chain",
+      "title": "No effect chain",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-effect-event-handler",
+      "title": "No effect event handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-effect-event-in-deps",
+      "title": "No effect event in deps",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-effect-with-fresh-deps",
+      "title": "No effect with fresh deps",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-effect-wrapper-discards-callback-cleanup-return",
+      "title": "No effect wrapper discards callback cleanup return",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-emoji-heading-decoration",
+      "title": "No emoji heading decoration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-empty-card-shell",
+      "title": "No empty card shell",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-enter-submit-without-ime-composition-guard",
+      "title": "No enter submit without ime composition guard",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-eval",
+      "title": "No eval",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-event-handler",
+      "title": "No event handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-event-trigger-state",
+      "title": "No event trigger state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-excessive-card-surfaces",
+      "title": "No excessive card surfaces",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-excessive-centered-copy",
+      "title": "No excessive centered copy",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-excessive-font-families",
+      "title": "No excessive font families",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-excessive-motion-stagger",
+      "title": "No excessive motion stagger",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-excessive-pill-treatment",
+      "title": "No excessive pill treatment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-fake-browser-chrome",
+      "title": "No fake browser chrome",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-fetch-in-effect",
+      "title": "No fetch in effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-fetch-response-used-without-status-check",
+      "title": "No fetch response used without status check",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-fill-map-element-as-key",
+      "title": "No fill map element as key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-find-dom-node",
+      "title": "No find dom node",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-fixed-inside-transformed-ancestor",
+      "title": "No fixed inside transformed ancestor",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-flat-page-type-scale",
+      "title": "No flat page type scale",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-floating-then-in-jsx-handler",
+      "title": "No floating then in jsx handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-flush-sync",
+      "title": "No flush sync",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-focus-in-animation-completion-handler",
+      "title": "No focus in animation completion handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-focusable-content-in-aria-hidden",
+      "title": "No focusable content in aria hidden",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-focusable-content-in-role-text",
+      "title": "No focusable content in role text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-full-lodash-import",
+      "title": "No full lodash import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-full-viewport-centered-hero",
+      "title": "No full viewport centered hero",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-full-viewport-width",
+      "title": "No full viewport width",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-generic-handler-names",
+      "title": "No generic handler names",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-generic-marketing-copy",
+      "title": "No generic marketing copy",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-generic-purple-blue-icon-gradient",
+      "title": "No generic purple blue icon gradient",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-giant-component",
+      "title": "No giant component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-global-css-variable-animation",
+      "title": "No global css variable animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-gradient-text",
+      "title": "No gradient text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-gray-on-colored-background",
+      "title": "No gray on colored background",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-hairline-border-wide-shadow",
+      "title": "No hairline border wide shadow",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-hero-eyebrow-chip",
+      "title": "No hero eyebrow chip",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-high-complexity-react-function",
+      "title": "No high complexity react function",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-hover-only-reveal",
+      "title": "No hover only reveal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-hydration-branch-on-browser-global",
+      "title": "No hydration branch on browser global",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-icon-tile-heading-stack",
+      "title": "No icon tile heading stack",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-image-hover-transform",
+      "title": "No image hover transform",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-img-lazy-with-high-fetchpriority",
+      "title": "No img lazy with high fetchpriority",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-img-without-dimensions",
+      "title": "No img without dimensions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-impure-call-at-module-scope",
+      "title": "No impure call at module scope",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-impure-state-updater",
+      "title": "No impure state updater",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-indeterminate-attribute",
+      "title": "No indeterminate attribute",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-inert-pointer-affordance",
+      "title": "No inert pointer affordance",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-inert-sticky-position",
+      "title": "No inert sticky position",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-initialize-state",
+      "title": "No initialize state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-inline-bounce-easing",
+      "title": "No inline bounce easing",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-inline-exhaustive-style",
+      "title": "No inline exhaustive style",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-inline-hoc-on-component",
+      "title": "No inline hoc on component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-inline-prop-on-memo-component",
+      "title": "No inline prop on memo component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-interactive-element-to-noninteractive-role",
+      "title": "No interactive element to noninteractive role",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-invalid-progress-range",
+      "title": "No invalid progress range",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-invisible-focus-control",
+      "title": "No invisible focus control",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-is-mounted",
+      "title": "No is mounted",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-italic-serif-display-heading",
+      "title": "No italic serif display heading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-json-parse-stringify-clone",
+      "title": "No json parse stringify clone",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-jsx-element-type",
+      "title": "No jsx element type",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-justified-text",
+      "title": "No justified text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-large-animated-blur",
+      "title": "No large animated blur",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-layout-property-animation",
+      "title": "No layout property animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-layout-shifting-interaction-state",
+      "title": "No layout shifting interaction state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-layout-transition-inline",
+      "title": "No layout transition inline",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-legacy-class-lifecycles",
+      "title": "No legacy class lifecycles",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-legacy-context-api",
+      "title": "No legacy context api",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-loading-flag-reset-outside-finally",
+      "title": "No loading flag reset outside finally",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-locale-format-in-render",
+      "title": "No locale format in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-long-transition-duration",
+      "title": "No long transition duration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-low-contrast-inline-style",
+      "title": "No low contrast inline style",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-manufactured-contrast-copy",
+      "title": "No manufactured contrast copy",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-many-boolean-props",
+      "title": "No many boolean props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-match-media-in-state-initializer",
+      "title": "No match media in state initializer",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mirror-prop-effect",
+      "title": "No mirror prop effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mixed-animation-owners",
+      "title": "No mixed animation owners",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mixed-icon-libraries",
+      "title": "No mixed icon libraries",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mixed-srcset-descriptors",
+      "title": "No mixed srcset descriptors",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-moment",
+      "title": "No moment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-monotonous-page-spacing",
+      "title": "No monotonous page spacing",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-multi-comp",
+      "title": "No multi comp",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-multi-component-file",
+      "title": "No multi component file",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-multiple-main-landmarks",
+      "title": "No multiple main landmarks",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-multiple-unlabeled-navigation-landmarks",
+      "title": "No multiple unlabeled navigation landmarks",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mutable-in-deps",
+      "title": "No mutable in deps",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mutate-queried-dom-node-in-component",
+      "title": "No mutate queried dom node in component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mutate-then-set-or-return-same-reference",
+      "title": "No mutate then set or return same reference",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mutating-array-method-on-prop-or-hook-result",
+      "title": "No mutating array method on prop or hook result",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-mutating-reducer-state",
+      "title": "No mutating reducer state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-namespace",
+      "title": "No namespace",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-nested-card-surface",
+      "title": "No nested card surface",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-nested-component-definition",
+      "title": "No nested component definition",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-non-literal-selector-query-without-try-catch",
+      "title": "No non literal selector query without try catch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-non-null-assertion-on-maybe-undefined-result",
+      "title": "No non null assertion on maybe undefined result",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-nondeterministic-id-value-in-render-body",
+      "title": "No nondeterministic id value in render body",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-noninteractive-element-interactions",
+      "title": "No noninteractive element interactions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-noninteractive-element-to-interactive-role",
+      "title": "No noninteractive element to interactive role",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-noninteractive-tabindex",
+      "title": "No noninteractive tabindex",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-nonresizable-textarea",
+      "title": "No nonresizable textarea",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-nullish-coalescing-arithmetic-precedence",
+      "title": "No nullish coalescing arithmetic precedence",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-numbered-section-markers",
+      "title": "No numbered section markers",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-object-keys-values-entries-on-maybe-undefined",
+      "title": "No object keys values entries on maybe undefined",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-object-or-array-coerced-to-string-in-template-literal",
+      "title": "No object or array coerced to string in template literal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-outline-none",
+      "title": "No outline none",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-overloaded-hover-state",
+      "title": "No overloaded hover state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-oversized-long-heading",
+      "title": "No oversized long heading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-overwide-text-measure",
+      "title": "No overwide text measure",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pass-data-to-parent",
+      "title": "No pass data to parent",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pass-live-state-to-parent",
+      "title": "No pass live state to parent",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-passive-request-owner-ref",
+      "title": "No passive request owner ref",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-path-prefix-containment",
+      "title": "No path prefix containment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-permanent-will-change",
+      "title": "No permanent will change",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pill-navigation-count",
+      "title": "No pill navigation count",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-placeholder-only-field",
+      "title": "No placeholder only field",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-placeholder-persona-copy",
+      "title": "No placeholder persona copy",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pointer-disabled-enabled-control",
+      "title": "No pointer disabled enabled control",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-polymorphic-children",
+      "title": "No polymorphic children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-predicate-function-reference-in-boolean-position",
+      "title": "No predicate function reference in boolean position",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-presentation-role-conflict",
+      "title": "No presentation role conflict",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-prevent-default",
+      "title": "No prevent default",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-promise-then-side-effect-in-effect-without-catch",
+      "title": "No promise then side effect in effect without catch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-prop-callback-in-effect",
+      "title": "No prop callback in effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-prop-callback-in-render",
+      "title": "No prop callback in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-prop-types",
+      "title": "No prop types",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pulsing-status-dot",
+      "title": "No pulsing status dot",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pure-black-background",
+      "title": "No pure black background",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-pure-black-shadow",
+      "title": "No pure black shadow",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-radial-halo",
+      "title": "No radial halo",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-random-key",
+      "title": "No random key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-react-children",
+      "title": "No react children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-react-dom-deprecated-apis",
+      "title": "No react dom deprecated apis",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-react19-deprecated-apis",
+      "title": "No react19 deprecated apis",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-reduced-motion-content-removal",
+      "title": "No reduced motion content removal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-redundant-display-class",
+      "title": "No redundant display class",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-redundant-roles",
+      "title": "No redundant roles",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-redundant-should-component-update",
+      "title": "No redundant should component update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-redundant-title-tooltip",
+      "title": "No redundant title tooltip",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-ref-callback-cleanup-before-react-19",
+      "title": "No ref callback cleanup before react 19",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-ref-current-in-render",
+      "title": "No ref current in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-render-in-render",
+      "title": "No render in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-render-prop-children",
+      "title": "No render prop children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-render-return-value",
+      "title": "No render return value",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-container-text",
+      "title": "No repeated container text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-emoji-tiles",
+      "title": "No repeated emoji tiles",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-glass-surfaces",
+      "title": "No repeated glass surfaces",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-hover-scale",
+      "title": "No repeated hover scale",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-kicker-labels",
+      "title": "No repeated kicker labels",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-placeholder-navigation",
+      "title": "No repeated placeholder navigation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeated-section-shells",
+      "title": "No repeated section shells",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-repeating-gradient-decoration",
+      "title": "No repeating gradient decoration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-reset-all-state-on-prop-change",
+      "title": "No reset all state on prop change",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-responsive-hidden-accessible-name",
+      "title": "No responsive hidden accessible name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-scale-from-zero",
+      "title": "No scale from zero",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-secrets-in-client-code",
+      "title": "No secrets in client code",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-self-updating-effect",
+      "title": "No self updating effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-server-side-image-map",
+      "title": "No server side image map",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-set-state",
+      "title": "No set state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-set-state-after-await-in-effect",
+      "title": "No set state after await in effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-set-state-in-render",
+      "title": "No set state in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-shape-assembled-illustration",
+      "title": "No shape assembled illustration",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-side-effect-in-state-updater-function",
+      "title": "No side effect in state updater function",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-side-tab-border",
+      "title": "No side tab border",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-skipped-heading-level",
+      "title": "No skipped heading level",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-small-form-control-text",
+      "title": "No small form control text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-smooth-scroll-without-reduced-motion",
+      "title": "No smooth scroll without reduced motion",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-spread-accumulator-in-reduce",
+      "title": "No spread accumulator in reduce",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-spread-props-over-defaults-clobbers-with-undefined",
+      "title": "No spread props over defaults clobbers with undefined",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-srcset-without-sizes",
+      "title": "No srcset without sizes",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-stale-timer-ref",
+      "title": "No stale timer ref",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-static-element-interactions",
+      "title": "No static element interactions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-static-motion-config-never",
+      "title": "No static motion config never",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-string-false-on-boolean-attribute",
+      "title": "No string false on boolean attribute",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-string-refs",
+      "title": "No string refs",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-svg-currentcolor-with-fill-class",
+      "title": "No svg currentcolor with fill class",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-symmetric-text-button-padding",
+      "title": "No symmetric text button padding",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-sync-xhr",
+      "title": "No sync xhr",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-tailwind-layout-transition",
+      "title": "No tailwind layout transition",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-this-in-sfc",
+      "title": "No this in sfc",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-tight-all-caps-heading",
+      "title": "No tight all caps heading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-tight-body-leading",
+      "title": "No tight body leading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-tight-display-tracking",
+      "title": "No tight display tracking",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-tiny-text",
+      "title": "No tiny text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-tiny-uppercase-tracked-label",
+      "title": "No tiny uppercase tracked label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-transition-all",
+      "title": "No transition all",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-transitioned-composite-widget-state",
+      "title": "No transitioned composite widget state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-transitioned-focus-ring",
+      "title": "No transitioned focus ring",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unbounded-animation-frame-loop",
+      "title": "No unbounded animation frame loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-uncontrolled-input",
+      "title": "No uncontrolled input",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-undeferred-third-party",
+      "title": "No undeferred third party",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-undersized-icon-button",
+      "title": "No undersized icon button",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unescaped-dynamic-string-in-regexp",
+      "title": "No unescaped dynamic string in regexp",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unescaped-entities",
+      "title": "No unescaped entities",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-ungated-tailwind-animation",
+      "title": "No ungated tailwind animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unguarded-browser-global-at-module-scope",
+      "title": "No unguarded browser global at module scope",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unguarded-browser-global-in-render-or-hook-init",
+      "title": "No unguarded browser global in render or hook init",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unguarded-numeric-input-parse",
+      "title": "No unguarded numeric input parse",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unguarded-throwing-parse-call",
+      "title": "No unguarded throwing parse call",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-uniform-feature-card-grid",
+      "title": "No uniform feature card grid",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-uninformative-aria-label",
+      "title": "No uninformative aria label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unknown-property",
+      "title": "No unknown property",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unowned-async-error-clear",
+      "title": "No unowned async error clear",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unsafe",
+      "title": "No unsafe",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unsafe-json-parse",
+      "title": "No unsafe json parse",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unstable-nested-components",
+      "title": "No unstable nested components",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-unthrottled-scroll-mutation",
+      "title": "No unthrottled scroll mutation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-uppercase-mono-label",
+      "title": "No uppercase mono label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-uppercase-tracked-navigation-label",
+      "title": "No uppercase tracked navigation label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-usememo-simple-expression",
+      "title": "No usememo simple expression",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-whole-object-default-losing-per-key-defaults",
+      "title": "No whole object default losing per key defaults",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-whole-object-dep-with-member-reads",
+      "title": "No whole object dep with member reads",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-wide-letter-spacing",
+      "title": "No wide letter spacing",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-will-update-set-state",
+      "title": "No will update set state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "no-z-index-9999",
+      "title": "No z index 9999",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "nosql-injection-risk",
+      "title": "Nosql injection risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "only-export-components",
+      "title": "Only export components",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "package-metadata-secret",
+      "title": "Package metadata secret",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "path-traversal-risk",
+      "title": "Path traversal risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "plugin-update-trust-risk",
+      "title": "Plugin update trust risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "pointer-capture-needs-cancel-handler",
+      "title": "Pointer capture needs cancel handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "postmessage-origin-risk",
+      "title": "Postmessage origin risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "preact-no-children-length",
+      "title": "Preact no children length",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "preact-no-react-hooks-import",
+      "title": "Preact no react hooks import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "preact-no-render-arguments",
+      "title": "Preact no render arguments",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "preact-prefer-ondblclick",
+      "title": "Preact prefer ondblclick",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "preact-prefer-oninput",
+      "title": "Preact prefer oninput",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-dvh-over-vh",
+      "title": "Prefer dvh over vh",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-dynamic-import",
+      "title": "Prefer dynamic import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-es6-class",
+      "title": "Prefer es6 class",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-explicit-variants",
+      "title": "Prefer explicit variants",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-function-component",
+      "title": "Prefer function component",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-html-dialog",
+      "title": "Prefer html dialog",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-module-scope-pure-function",
+      "title": "Prefer module scope pure function",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-module-scope-static-value",
+      "title": "Prefer module scope static value",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-motion-transform-property",
+      "title": "Prefer motion transform property",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-stable-empty-fallback",
+      "title": "Prefer stable empty fallback",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-tabular-numeric-data",
+      "title": "Prefer tabular numeric data",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-tag-over-role",
+      "title": "Prefer tag over role",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-truncate-shorthand",
+      "title": "Prefer truncate shorthand",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-use-effect-event",
+      "title": "Prefer use effect event",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-use-sync-external-store",
+      "title": "Prefer use sync external store",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "prefer-usereducer",
+      "title": "Prefer useReducer",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "public-debug-artifact",
+      "title": "Public debug artifact",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "public-env-secret-name",
+      "title": "Public env secret name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-destructure-result",
+      "title": "Query destructure result",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-floating-mutate-async",
+      "title": "Query floating mutate async",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-mutation-missing-invalidation",
+      "title": "Query mutation missing invalidation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-no-mutation-in-effect-as-read",
+      "title": "Query no mutation in effect as read",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-no-query-in-effect",
+      "title": "Query no query in effect",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-no-rest-destructuring",
+      "title": "Query no rest destructuring",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-no-usequery-for-mutation",
+      "title": "Query no usequery for mutation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-no-void-query-fn",
+      "title": "Query no void query fn",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "query-stable-query-client",
+      "title": "Query stable query client",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-cap-device-pixel-ratio",
+      "title": "R3f cap device pixel ratio",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-limit-shadowed-point-lights",
+      "title": "R3f limit shadowed point lights",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-advancing-clock-in-use-frame",
+      "title": "R3f no advancing clock in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-allocation-in-pointer-move",
+      "title": "R3f no allocation in pointer move",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-async-use-frame",
+      "title": "R3f no async use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-clone-in-use-frame",
+      "title": "R3f no clone in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-compile-in-use-frame",
+      "title": "R3f no compile in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-deep-use-three-selector",
+      "title": "R3f no deep use three selector",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-dispose-loader-cache",
+      "title": "R3f no dispose loader cache",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-duplicate-primitive-object",
+      "title": "R3f no duplicate primitive object",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-extend-in-render",
+      "title": "R3f no extend in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-extend-three-namespace",
+      "title": "R3f no extend three namespace",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-fresh-portal-container",
+      "title": "R3f no fresh portal container",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-fresh-use-three-selector",
+      "title": "R3f no fresh use three selector",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-ignored-basic-material-properties",
+      "title": "R3f no ignored basic material properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-ignored-linewidth",
+      "title": "R3f no ignored linewidth",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-imperative-attach-of-managed-ref",
+      "title": "R3f no imperative attach of managed ref",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-inline-primitive-object",
+      "title": "R3f no inline primitive object",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-inline-resource-prop",
+      "title": "R3f no inline resource prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-internal-imports",
+      "title": "R3f no internal imports",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-manual-canvas-resize",
+      "title": "R3f no manual canvas resize",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-mutate-loader-cache",
+      "title": "R3f no mutate loader cache",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-mutate-uniform-prop-source-in-use-frame",
+      "title": "R3f no mutate uniform prop source in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-mutating-pointer-event-data",
+      "title": "R3f no mutating pointer event data",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-new-in-use-frame",
+      "title": "R3f no new in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-normalized-float-buffer-attribute",
+      "title": "R3f no normalized float buffer attribute",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-null-loader-input",
+      "title": "R3f no null loader input",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-object-pointer-capture",
+      "title": "R3f no object pointer capture",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-recursive-raf-with-use-frame",
+      "title": "R3f no recursive raf with use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-shader-configuration-mutation-in-use-frame",
+      "title": "R3f no shader configuration mutation in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-shadows-on-unsupported-light",
+      "title": "R3f no shadows on unsupported light",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-state-in-pointer-move",
+      "title": "R3f no state in pointer move",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-state-in-use-frame",
+      "title": "R3f no state in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-sync-readback-in-use-frame",
+      "title": "R3f no sync readback in use frame",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-unstable-args",
+      "title": "R3f no unstable args",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-no-use-frame-dependency-array",
+      "title": "R3f no use frame dependency array",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-prefer-gpu-instanced-animation",
+      "title": "R3f prefer gpu instanced animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-prefer-gpu-position-animation",
+      "title": "R3f prefer gpu position animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-prefer-instanced-mesh",
+      "title": "R3f prefer instanced mesh",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-prefer-use-loader",
+      "title": "R3f prefer use loader",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-animation-mixer-update",
+      "title": "R3f require animation mixer update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-data-texture-update",
+      "title": "R3f require data texture update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-dynamic-buffer-usage",
+      "title": "R3f require dynamic buffer usage",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-environment-for-metal",
+      "title": "R3f require environment for metal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-frame-delta",
+      "title": "R3f require frame delta",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-global-effect-cleanup",
+      "title": "R3f require global effect cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-instanced-buffer-update",
+      "title": "R3f require instanced buffer update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-lighting-for-pbr",
+      "title": "R3f require lighting for pbr",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-lit-material-normals",
+      "title": "R3f require lit material normals",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-owned-texture-cleanup",
+      "title": "R3f require owned texture cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-position-buffer-update",
+      "title": "R3f require position buffer update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-projection-matrix-update",
+      "title": "R3f require projection matrix update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-render-target-reset",
+      "title": "R3f require render target reset",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-render-with-positive-priority",
+      "title": "R3f require render with positive priority",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-root-unmount",
+      "title": "R3f require root unmount",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-shadows-enabled",
+      "title": "R3f require shadows enabled",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-transparent-for-opacity",
+      "title": "R3f require transparent for opacity",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-require-uv-for-texture-map",
+      "title": "R3f require uv for texture map",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-texture-repeat-requires-wrapping",
+      "title": "R3f texture repeat requires wrapping",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-buffer-attribute-array-length",
+      "title": "R3f valid buffer attribute array length",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-buffer-attribute-item-size",
+      "title": "R3f valid buffer attribute item size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-fog-parameters",
+      "title": "R3f valid fog parameters",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-material-opacity",
+      "title": "R3f valid material opacity",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-orthographic-camera",
+      "title": "R3f valid orthographic camera",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-pbr-material-properties",
+      "title": "R3f valid pbr material properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-perspective-camera",
+      "title": "R3f valid perspective camera",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-physical-material-properties",
+      "title": "R3f valid physical material properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-raycaster-range",
+      "title": "R3f valid raycaster range",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-shadow-map-size",
+      "title": "R3f valid shadow map size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-spot-light-properties",
+      "title": "R3f valid spot light properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-valid-texture-color-space",
+      "title": "R3f valid texture color space",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-canvas-prop-compatibility",
+      "title": "R3f webgpu canvas prop compatibility",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-no-gl-state",
+      "title": "R3f webgpu no gl state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-no-high-precision-instancing",
+      "title": "R3f webgpu no high precision instancing",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-no-js-uniform-branch",
+      "title": "R3f webgpu no js uniform branch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-no-legacy-effect-composer",
+      "title": "R3f webgpu no legacy effect composer",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-no-legacy-material-api",
+      "title": "R3f webgpu no legacy material api",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-no-unregistered-pipeline-pass",
+      "title": "R3f webgpu no unregistered pipeline pass",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "r3f-webgpu-require-async-init",
+      "title": "R3f webgpu require async init",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "radio-input-missing-name",
+      "title": "Radio input missing name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "radix-dialog-content-requires-title",
+      "title": "Radix dialog content requires title",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "radix-tabs-trigger-requires-list",
+      "title": "Radix tabs trigger requires list",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "raw-sql-injection-risk",
+      "title": "Raw sql injection risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-aria-dialog-requires-heading",
+      "title": "React aria dialog requires heading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-compiler-no-manual-memoization",
+      "title": "React compiler no manual memoization",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-in-jsx-scope",
+      "title": "React in jsx scope",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-markdown-unsanitized-raw-html",
+      "title": "React markdown unsanitized raw html",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-csp-nonce-consistency",
+      "title": "React router csp nonce consistency",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-descendant-routes-require-splat",
+      "title": "React router descendant routes require splat",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-guard-aborted-handle-error",
+      "title": "React router guard aborted handle error",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-internal-route-anchor",
+      "title": "React router internal route anchor",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-loader-fetch-forwards-signal",
+      "title": "React router loader fetch forwards signal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-loader-parallel-fetch",
+      "title": "React router loader parallel fetch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-nested-route-requires-outlet",
+      "title": "React router nested route requires outlet",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-catch-middleware-next",
+      "title": "React router no catch middleware next",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-client-module-in-server-render",
+      "title": "React router no client module in server render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-duplicate-route-id",
+      "title": "React router no duplicate route id",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-empty-leaf-route",
+      "title": "React router no empty leaf route",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-invalid-absolute-child-path",
+      "title": "React router no invalid absolute child path",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-invalid-lazy-route-properties",
+      "title": "React router no invalid lazy route properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-invalid-splat-path",
+      "title": "React router no invalid splat path",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-loader-request-body",
+      "title": "React router no loader request body",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-middleware-response-body-consumption",
+      "title": "React router no middleware response body consumption",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-multiple-blockers",
+      "title": "React router no multiple blockers",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-multiple-middleware-next",
+      "title": "React router no multiple middleware next",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-multiple-set-search-params-in-tick",
+      "title": "React router no multiple set search params in tick",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-navigate-in-render",
+      "title": "React router no navigate in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-nested-router",
+      "title": "React router no nested router",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-redirect-in-try-catch",
+      "title": "React router no redirect in try catch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-route-module-environment-suffix",
+      "title": "React router no route module environment suffix",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-router-in-render",
+      "title": "React router no router in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-session-mutation-in-loader",
+      "title": "React router no session mutation in loader",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-static-cookie-expires",
+      "title": "React router no static cookie expires",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-unsynchronized-search-params-mutation",
+      "title": "React router no unsynchronized search params mutation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-no-use-loader-data-in-error-ui",
+      "title": "React router no use loader data in error ui",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-prefer-route-lazy",
+      "title": "React router prefer route lazy",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-require-root-error-boundary",
+      "title": "React router require root error boundary",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-resource-link-requires-reload",
+      "title": "React router resource link requires reload",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-return-navigation-promise-in-transition",
+      "title": "React router return navigation promise in transition",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-server-middleware-return-response",
+      "title": "React router server middleware return response",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-session-mutation-requires-commit",
+      "title": "React router session mutation requires commit",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-v8-no-meta-data-field",
+      "title": "React router v8 no meta data field",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-v8-no-react-router-dom-import",
+      "title": "React router v8 no react router dom import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-v8-no-removed-future-flags",
+      "title": "React router v8 no removed future flags",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "react-router-valid-route-object",
+      "title": "React router valid route object",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "redux-useselector-inline-derivation",
+      "title": "Redux useselector inline derivation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "redux-useselector-returns-new-collection",
+      "title": "Redux useselector returns new collection",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-calculate-metadata-fetch-signal",
+      "title": "Remotion calculate metadata fetch signal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-deterministic-randomness",
+      "title": "Remotion deterministic randomness",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-no-css-animation",
+      "title": "Remotion no css animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-no-css-transition",
+      "title": "Remotion no css transition",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-no-css-url-assets",
+      "title": "Remotion no css url assets",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-no-module-scope-delay-render",
+      "title": "Remotion no module scope delay render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-no-native-media-elements",
+      "title": "Remotion no native media elements",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-no-next-image",
+      "title": "Remotion no next image",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "remotion-stable-delay-render-handle",
+      "title": "Remotion stable delay render handle",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-animate-svg-wrapper",
+      "title": "Rendering animate svg wrapper",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-conditional-render",
+      "title": "Rendering conditional render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-hoist-jsx",
+      "title": "Rendering hoist jsx",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-hydration-mismatch-time",
+      "title": "Rendering hydration mismatch time",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-hydration-no-flicker",
+      "title": "Rendering hydration no flicker",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-script-defer-async",
+      "title": "Rendering script defer async",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-svg-precision",
+      "title": "Rendering svg precision",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rendering-usetransition-loading",
+      "title": "Rendering usetransition loading",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "repository-secret-file",
+      "title": "Repository secret file",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "request-body-mass-assignment",
+      "title": "Request body mass assignment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "require-autoplay-video-poster",
+      "title": "Require autoplay video poster",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "require-render-return",
+      "title": "Require render return",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "require-scale-reveal-transform-origin",
+      "title": "Require scale reveal transform origin",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-defer-reads-hook",
+      "title": "Rerender defer reads hook",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-dependencies",
+      "title": "Rerender dependencies",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-derived-state-from-hook",
+      "title": "Rerender derived state from hook",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-functional-setstate",
+      "title": "Rerender functional setstate",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-lazy-ref-init",
+      "title": "Rerender lazy ref init",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-lazy-state-init",
+      "title": "Rerender lazy state init",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-memo-before-early-return",
+      "title": "Rerender memo before early return",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-memo-with-default-value",
+      "title": "Rerender memo with default value",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-state-only-in-handlers",
+      "title": "Rerender state only in handlers",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rerender-transitions-scroll",
+      "title": "Rerender transitions scroll",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-animate-layout-property",
+      "title": "Rn animate layout property",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-animation-reaction-as-derived",
+      "title": "Rn animation reaction as derived",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-bottom-sheet-no-ignored-scroll-prop",
+      "title": "Rn bottom sheet no ignored scroll prop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-bottom-sheet-no-state-in-on-animate",
+      "title": "Rn bottom sheet no state in on animate",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-bottom-sheet-prefer-native",
+      "title": "Rn bottom sheet prefer native",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-bottom-sheet-use-integrated-scrollable",
+      "title": "Rn bottom sheet use integrated scrollable",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-detox-missing-await",
+      "title": "Rn detox missing await",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-list-callback-per-row",
+      "title": "Rn list callback per row",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-list-data-mapped",
+      "title": "Rn list data mapped",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-list-missing-estimated-item-size",
+      "title": "Rn list missing estimated item size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-list-recyclable-without-types",
+      "title": "Rn list recyclable without types",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-deep-imports",
+      "title": "Rn no deep imports",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-deprecated-modules",
+      "title": "Rn no deprecated modules",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-dimensions-get",
+      "title": "Rn no dimensions get",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-falsy-and-render",
+      "title": "Rn no falsy and render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-image-children",
+      "title": "Rn no image children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-inline-flatlist-renderitem",
+      "title": "Rn no inline flatlist renderitem",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-inline-object-in-list-item",
+      "title": "Rn no inline object in list item",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-legacy-expo-packages",
+      "title": "Rn no legacy expo packages",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-legacy-shadow-styles",
+      "title": "Rn no legacy shadow styles",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-non-native-navigator",
+      "title": "Rn no non native navigator",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-panresponder",
+      "title": "Rn no panresponder",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-raw-text",
+      "title": "Rn no raw text",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-renderitem-key",
+      "title": "Rn no renderitem key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-scroll-state",
+      "title": "Rn no scroll state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-scrollview-mapped-list",
+      "title": "Rn no scrollview mapped list",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-set-native-props",
+      "title": "Rn no set native props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-no-single-element-style-array",
+      "title": "Rn no single element style array",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-platform-shaking-use-direct-import",
+      "title": "Rn platform shaking use direct import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-prefer-content-inset-adjustment",
+      "title": "Rn prefer content inset adjustment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-prefer-expo-image",
+      "title": "Rn prefer expo image",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-prefer-pressable",
+      "title": "Rn prefer pressable",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-prefer-pressable-over-gesture-detector",
+      "title": "Rn prefer pressable over gesture detector",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-prefer-reanimated",
+      "title": "Rn prefer reanimated",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-pressable-shared-value-mutation",
+      "title": "Rn pressable shared value mutation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-reanimated-4-no-legacy-spring-thresholds",
+      "title": "Rn reanimated 4 no legacy spring thresholds",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-reanimated-4-no-removed-api",
+      "title": "Rn reanimated 4 no removed api",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-reanimated-4-use-worklets-scheduler",
+      "title": "Rn reanimated 4 use worklets scheduler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-scrollview-dynamic-padding",
+      "title": "Rn scrollview dynamic padding",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-scrollview-flex-in-content-container",
+      "title": "Rn scrollview flex in content container",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rn-style-prefer-boxshadow",
+      "title": "Rn style prefer boxshadow",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "role-button-requires-complete-keyboard-activation",
+      "title": "Role button requires complete keyboard activation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "role-has-required-aria-props",
+      "title": "Role has required aria props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "role-supports-aria-props",
+      "title": "Role supports aria props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "rules-of-hooks",
+      "title": "Rules of hooks",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "scope",
+      "title": "Scope",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "secret-in-fallback",
+      "title": "Secret in fallback",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "self-closing-comp",
+      "title": "Self closing comp",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-after-nonblocking",
+      "title": "Server after nonblocking",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-auth-actions",
+      "title": "Server auth actions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-cache-with-object-literal",
+      "title": "Server cache with object literal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-dedup-props",
+      "title": "Server dedup props",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-fetch-without-revalidate",
+      "title": "Server fetch without revalidate",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-hoist-static-io",
+      "title": "Server hoist static io",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-no-mutable-module-state",
+      "title": "Server no mutable module state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "server-sequential-independent-await",
+      "title": "Server sequential independent await",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "shadcn-command-item-state-variant-requires-value",
+      "title": "Shadcn command item state variant requires value",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "shadcn-dialog-content-requires-title",
+      "title": "Shadcn dialog content requires title",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "shadcn-form-item-requires-label",
+      "title": "Shadcn form item requires label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "shadcn-icon-button-requires-label",
+      "title": "Shadcn icon button requires label",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "shadcn-input-group-no-raw-controls",
+      "title": "Shadcn input group no raw controls",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "shadcn-tabs-trigger-requires-list",
+      "title": "Shadcn tabs trigger requires list",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "state-in-constructor",
+      "title": "State in constructor",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "style-prop-object",
+      "title": "Style prop object",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "styled-components-duplicate-css-property-in-block",
+      "title": "Styled components duplicate css property in block",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "styled-components-non-transient-custom-prop-on-intrinsic-element",
+      "title": "Styled components non transient custom prop on intrinsic element",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "supabase-client-owned-authz-field",
+      "title": "Supabase client owned authz field",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "supabase-rls-policy-risk",
+      "title": "Supabase rls policy risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "supabase-table-missing-rls",
+      "title": "Supabase table missing rls",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "svg-filter-clickjacking-risk",
+      "title": "Svg filter clickjacking risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tabindex-no-positive",
+      "title": "Tabindex no positive",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-form-on-submit-requires-prevent-default",
+      "title": "Tanstack form on submit requires prevent default",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-get-mutation",
+      "title": "Tanstack start get mutation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-loader-parallel-fetch",
+      "title": "Tanstack start loader parallel fetch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-missing-head-content",
+      "title": "Tanstack start missing head content",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-missing-scripts",
+      "title": "Tanstack start missing scripts",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-anchor-element",
+      "title": "Tanstack start no anchor element",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-direct-fetch-in-loader",
+      "title": "Tanstack start no direct fetch in loader",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-dynamic-server-fn-import",
+      "title": "Tanstack start no dynamic server fn import",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-navigate-in-render",
+      "title": "Tanstack start no navigate in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-secrets-in-loader",
+      "title": "Tanstack start no secrets in loader",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-use-server-in-handler",
+      "title": "Tanstack start no use server in handler",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-no-useeffect-fetch",
+      "title": "Tanstack start no useeffect fetch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-redirect-in-try-catch",
+      "title": "Tanstack start redirect in try catch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-route-property-order",
+      "title": "Tanstack start route property order",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-server-fn-method-order",
+      "title": "Tanstack start server fn method order",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-start-server-fn-validate-input",
+      "title": "Tanstack start server fn validate input",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-table-no-unstable-data-or-columns",
+      "title": "Tanstack table no unstable data or columns",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tanstack-virtual-measure-element-requires-data-index",
+      "title": "Tanstack virtual measure element requires data index",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "tenant-static-proxy-risk",
+      "title": "Tenant static proxy risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-cap-device-pixel-ratio",
+      "title": "Three cap device pixel ratio",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-effect-composer-output-pass-last",
+      "title": "Three effect composer output pass last",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-effect-composer-require-size-on-resize",
+      "title": "Three effect composer require size on resize",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-gpu-computation-handle-init-error",
+      "title": "Three gpu computation handle init error",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-gpu-computation-require-init-before-compute",
+      "title": "Three gpu computation require init before compute",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-gpu-computation-valid-variable-name",
+      "title": "Three gpu computation valid variable name",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-limit-shadowed-point-lights",
+      "title": "Three limit shadowed point lights",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-allocation-in-pointer-move",
+      "title": "Three no allocation in pointer move",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-async-animation-loop",
+      "title": "Three no async animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-clone-in-animation-loop",
+      "title": "Three no clone in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-compile-in-animation-loop",
+      "title": "Three no compile in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-ignored-basic-material-properties",
+      "title": "Three no ignored basic material properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-ignored-linewidth",
+      "title": "Three no ignored linewidth",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-material-recompile-in-animation-loop",
+      "title": "Three no material recompile in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-new-in-animation-loop",
+      "title": "Three no new in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-normalized-float-buffer-attribute",
+      "title": "Three no normalized float buffer attribute",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-object-construction-in-render",
+      "title": "Three no object construction in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-redundant-uniforms-need-update",
+      "title": "Three no redundant uniforms need update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-shader-configuration-mutation-in-animation-loop",
+      "title": "Three no shader configuration mutation in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-shadows-on-unsupported-light",
+      "title": "Three no shadows on unsupported light",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-state-in-animation-loop",
+      "title": "Three no state in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-state-in-pointer-move",
+      "title": "Three no state in pointer move",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-sync-readback-in-animation-loop",
+      "title": "Three no sync readback in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-no-unconditional-renderer-resize-in-animation-loop",
+      "title": "Three no unconditional renderer resize in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-on-before-compile-require-program-cache-key",
+      "title": "Three on before compile require program cache key",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-prefer-gpu-instanced-animation",
+      "title": "Three prefer gpu instanced animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-prefer-gpu-position-animation",
+      "title": "Three prefer gpu position animation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-prefer-instanced-mesh",
+      "title": "Three prefer instanced mesh",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-prefer-set-animation-loop",
+      "title": "Three prefer set animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-raw-shader-require-fragment-float-precision",
+      "title": "Three raw shader require fragment float precision",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-raw-shader-require-glsl3-version",
+      "title": "Three raw shader require glsl3 version",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-animation-mixer-cleanup",
+      "title": "Three require animation mixer cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-animation-mixer-update",
+      "title": "Three require animation mixer update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-camera-aspect-on-resize",
+      "title": "Three require camera aspect on resize",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-controls-cleanup",
+      "title": "Three require controls cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-controls-update",
+      "title": "Three require controls update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-data-texture-update",
+      "title": "Three require data texture update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-dynamic-buffer-usage",
+      "title": "Three require dynamic buffer usage",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-environment-for-metal",
+      "title": "Three require environment for metal",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-frame-delta",
+      "title": "Three require frame delta",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-gpu-computation-cleanup",
+      "title": "Three require gpu computation cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-instanced-buffer-update",
+      "title": "Three require instanced buffer update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-ktx2-detect-support",
+      "title": "Three require ktx2 detect support",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-lighting-for-pbr",
+      "title": "Three require lighting for pbr",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-lit-material-normals",
+      "title": "Three require lit material normals",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-loader-error-handling",
+      "title": "Three require loader error handling",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-owned-geometry-cleanup",
+      "title": "Three require owned geometry cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-owned-material-cleanup",
+      "title": "Three require owned material cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-owned-texture-cleanup",
+      "title": "Three require owned texture cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-position-buffer-update",
+      "title": "Three require position buffer update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-postprocessing-cleanup",
+      "title": "Three require postprocessing cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-projection-matrix-update",
+      "title": "Three require projection matrix update",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-render-in-animation-loop",
+      "title": "Three require render in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-render-target-cleanup",
+      "title": "Three require render target cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-render-target-reset",
+      "title": "Three require render target reset",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-renderer-cleanup",
+      "title": "Three require renderer cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-renderer-dom-attachment",
+      "title": "Three require renderer dom attachment",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-renderer-size",
+      "title": "Three require renderer size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-shadows-enabled",
+      "title": "Three require shadows enabled",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-texture-update-after-wrapping-change",
+      "title": "Three require texture update after wrapping change",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-transparent-for-opacity",
+      "title": "Three require transparent for opacity",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-uv-for-texture-map",
+      "title": "Three require uv for texture map",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-require-worker-loader-cleanup",
+      "title": "Three require worker loader cleanup",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-constant-out-of-bounds-index",
+      "title": "Three shader no constant out of bounds index",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-derivatives-in-nonuniform-flow",
+      "title": "Three shader no derivatives in nonuniform flow",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-glsl1-syntax-with-glsl3",
+      "title": "Three shader no glsl1 syntax with glsl3",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-invalid-clamp-bounds",
+      "title": "Three shader no invalid clamp bounds",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-invalid-constant-bit-operations",
+      "title": "Three shader no invalid constant bit operations",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-invalid-constant-math",
+      "title": "Three shader no invalid constant math",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-invalid-smoothstep-edges",
+      "title": "Three shader no invalid smoothstep edges",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-inverse-of-uniform",
+      "title": "Three shader no inverse of uniform",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-redeclared-builtins",
+      "title": "Three shader no redeclared builtins",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-redundant-frag-depth",
+      "title": "Three shader no redundant frag depth",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-reserved-identifiers",
+      "title": "Three shader no reserved identifiers",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-no-version-directive",
+      "title": "Three shader no version directive",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-prefer-small-integer-pow",
+      "title": "Three shader prefer small integer pow",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-prefer-squared-distance-comparison",
+      "title": "Three shader prefer squared distance comparison",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-require-compatible-uniform-values",
+      "title": "Three shader require compatible uniform values",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-require-fragment-output-on-all-paths",
+      "title": "Three shader require fragment output on all paths",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-require-matching-uniforms",
+      "title": "Three shader require matching uniforms",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-require-matching-varyings",
+      "title": "Three shader require matching varyings",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-require-position-on-all-paths",
+      "title": "Three shader require position on all paths",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-require-uniform-bindings",
+      "title": "Three shader require uniform bindings",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-valid-global-initializers",
+      "title": "Three shader valid global initializers",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-shader-valid-uniform-definitions",
+      "title": "Three shader valid uniform definitions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-texture-repeat-requires-wrapping",
+      "title": "Three texture repeat requires wrapping",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-tsl-no-js-uniform-branch",
+      "title": "Three tsl no js uniform branch",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-buffer-attribute-array-length",
+      "title": "Three valid buffer attribute array length",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-buffer-attribute-item-size",
+      "title": "Three valid buffer attribute item size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-data-texture-data-length",
+      "title": "Three valid data texture data length",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-data-texture-dimensions",
+      "title": "Three valid data texture dimensions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-fog-parameters",
+      "title": "Three valid fog parameters",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-gpu-computation-dimensions",
+      "title": "Three valid gpu computation dimensions",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-material-opacity",
+      "title": "Three valid material opacity",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-orthographic-camera",
+      "title": "Three valid orthographic camera",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-pbr-material-properties",
+      "title": "Three valid pbr material properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-perspective-camera",
+      "title": "Three valid perspective camera",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-physical-material-properties",
+      "title": "Three valid physical material properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-raycaster-range",
+      "title": "Three valid raycaster range",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-shadow-map-size",
+      "title": "Three valid shadow map size",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-spot-light-properties",
+      "title": "Three valid spot light properties",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-valid-texture-color-space",
+      "title": "Three valid texture color space",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-webgpu-no-high-precision-instancing",
+      "title": "Three webgpu no high precision instancing",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-webgpu-no-legacy-effect-composer",
+      "title": "Three webgpu no legacy effect composer",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-webgpu-no-legacy-material-api",
+      "title": "Three webgpu no legacy material api",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "three-webgpu-require-init-before-sync-operation",
+      "title": "Three webgpu require init before sync operation",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "unsafe-json-in-html",
+      "title": "Unsafe json in html",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "untrusted-redirect-following",
+      "title": "Untrusted redirect following",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "unused-dependency",
+      "title": "Unused dependency",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "unused-dev-dependency",
+      "title": "Unused dev dependency",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "unused-export",
+      "title": "Unused export",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "unused-file",
+      "title": "Unused file",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "unused-type",
+      "title": "Unused type",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "url-prefilled-privileged-action",
+      "title": "Url prefilled privileged action",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "use-lazy-motion",
+      "title": "Use lazy motion",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "valtio-no-proxy-read-in-render",
+      "title": "Valtio no proxy read in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "valtio-no-snapshot-in-callback",
+      "title": "Valtio no snapshot in callback",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "void-dom-elements-no-children",
+      "title": "Void dom elements no children",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "waapi-animation-in-render",
+      "title": "Waapi animation in render",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "web-animation-offsets-valid",
+      "title": "Web animation offsets valid",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "webgl-no-sync-readback-in-animation-loop",
+      "title": "Webgl no sync readback in animation loop",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "webhook-signature-risk",
+      "title": "Webhook signature risk",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "window-open-without-noopener",
+      "title": "Window open without noopener",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zod-v4-no-deprecated-error-apis",
+      "title": "Zod v4 no deprecated error apis",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zod-v4-no-deprecated-error-customization",
+      "title": "Zod v4 no deprecated error customization",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zod-v4-no-deprecated-schema-apis",
+      "title": "Zod v4 no deprecated schema apis",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zod-v4-prefer-top-level-string-formats",
+      "title": "Zod v4 prefer top level string formats",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zustand-no-fresh-selector-result",
+      "title": "Zustand no fresh selector result",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zustand-no-get-during-initialization",
+      "title": "Zustand no get during initialization",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zustand-no-mutating-state",
+      "title": "Zustand no mutating state",
+      "evidenceKind": "static"
+    },
+    {
+      "id": "zustand-no-whole-store-destructure",
+      "title": "Zustand no whole store destructure",
+      "evidenceKind": "static"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "rules.json",
+      "digest": "8cabc6f6229d11b373bf633d92143c4fb5a8f4da86b45b8c67a899c96613349b"
+    }
+  ]
+}

@@ -113,7 +113,7 @@ function packageFixture(name: string, version: string, manifest: string, scripts
       "web-doctor.json": manifest,
       "policy.json": JSON.stringify({
         schema: "web-doctor.policy-pack",
-        schemaVersion: 1,
+        schemaVersion: 2,
         id: "fixture/policy",
         version: "1.0.0",
         owner: "Fixture Team",

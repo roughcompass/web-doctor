@@ -27,7 +27,7 @@ describe("effective policy snapshots", () => {
 function snapshot(): RegistrySnapshot {
   const policies: PolicyPack[] = ["advisor", "wealth"].map((portal) => ({
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: `${portal}/policy`,
     version: "1.0.0",
     owner: `${portal} team`,
@@ -48,7 +48,7 @@ function snapshot(): RegistrySnapshot {
   }));
   return {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "a".repeat(40),
     catalogCommit: "b".repeat(40),

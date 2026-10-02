@@ -1,0 +1,503 @@
+{
+  "schema": "web-doctor.mcp-response",
+  "schemaVersion": 2,
+  "requestId": "req_01100220c9ffba4067e4f0728406f0985900d648ec5d254d0b4b8604846b69bb",
+  "tool": "explain_finding",
+  "complete": true,
+  "truncated": false,
+  "provenance": {
+    "webDoctor": {
+      "version": "0.1.0",
+      "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "registryDigest": "262558f4290b04a4c98198f0e97dd5a2fb252b366aaec8f3b05c7917f4c45f59",
+      "catalogCommit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "catalogDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    "repoFacts": {
+      "status": "complete",
+      "reason": null,
+      "release": "0.1.0",
+      "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "incompleteCategories": [
+        "served_origins"
+      ]
+    },
+    "extensions": {
+      "release": "web-doctor-extensions/0.1.0",
+      "stateDigest": "240e02ea9505c235c4e31ce0754370a85c42d26de81327d9d078baceb0b24ae7",
+      "indexDigest": "ee64a0668759219f37609cf6a30cf2ecbbc78d144ca44188491a93027c335eed",
+      "incompleteCategories": []
+    },
+    "project": {
+      "root": "/work/orders",
+      "snapshotDigest": "5258257850eaeb97265ef2d78af2ee7985d48ff1990d981ab77af51f41262ad0",
+      "treeDigest": "de9ad457b19730210d387d34d2b0207f522beae6db769d95cddad6a3b0cf63ef"
+    },
+    "policy": {
+      "digest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "portals": [
+        "wealth"
+      ]
+    }
+  },
+  "update": {
+    "status": "unknown",
+    "installedVersion": "0.1.0",
+    "availableVersion": null,
+    "installationMode": "unknown",
+    "command": null,
+    "reason": "Enterprise package distribution is not configured"
+  },
+  "evidence": [
+    {
+      "path": "src/SaveButton.tsx",
+      "line": 2,
+      "column": 33,
+      "endLine": 2
+    }
+  ],
+  "warnings": [],
+  "data": {
+    "finding": {
+      "schema": "web-doctor.finding",
+      "schemaVersion": 2,
+      "id": "finding_5a445e4645d7b961fec31813cc05a1b6c7f9e5e8ff6d383cf1b25191f5e2f1a7",
+      "fingerprint": "393847dc300949f244a7aee357133268a6583f206f44a9cb41aa6ae3ea9154ef",
+      "provider": {
+        "id": "eslint",
+        "version": "9.39.5",
+        "engine": "eslint",
+        "engineVersion": "9.39.5",
+        "contribution": null
+      },
+      "rule": "no-alert",
+      "evidenceKind": "static",
+      "locations": [
+        {
+          "kind": "source",
+          "path": "src/SaveButton.tsx",
+          "line": 2,
+          "column": 33,
+          "endLine": 2,
+          "endColumn": 47
+        }
+      ],
+      "severity": "error",
+      "certainty": "observed",
+      "classification": "risk",
+      "message": "Unexpected alert.",
+      "controls": [
+        "firm/ux/no-blocking-dialogs",
+        "wealth/design/dialog"
+      ],
+      "obligations": [
+        {
+          "control": "firm/ux/no-blocking-dialogs",
+          "title": "Pages do not block with browser dialogs",
+          "strength": "required",
+          "layer": "firmwide",
+          "policy": "firm/ux",
+          "contribution": "firm/ux",
+          "remediation": "Replace the browser dialog with an in-page dialog.",
+          "verification": [
+            {
+              "kind": "eslint",
+              "description": "Run no-alert on the changed files."
+            }
+          ]
+        },
+        {
+          "control": "wealth/design/dialog",
+          "title": "Wealth pages use the approved dialog",
+          "strength": "required",
+          "layer": "portal",
+          "policy": "wealth/design",
+          "contribution": "wealth/design",
+          "remediation": "Use the Wealth Dialog.",
+          "verification": [
+            {
+              "kind": "keyboard",
+              "description": "Open and close the dialog with the keyboard only."
+            },
+            {
+              "kind": "eslint",
+              "description": "Run no-alert on the changed files."
+            },
+            {
+              "kind": "test",
+              "description": "Run the component tests for the changed components."
+            }
+          ]
+        }
+      ],
+      "remediation": [
+        "Replace the browser dialog with an in-page dialog.",
+        "Use the Wealth Dialog."
+      ],
+      "verification": [
+        {
+          "kind": "eslint",
+          "description": "Run no-alert on the changed files."
+        },
+        {
+          "kind": "keyboard",
+          "description": "Open and close the dialog with the keyboard only."
+        },
+        {
+          "kind": "test",
+          "description": "Run the component tests for the changed components."
+        }
+      ],
+      "fix": {
+        "available": false,
+        "description": null,
+        "applied": false
+      },
+      "suppression": null,
+      "baseline": "unknown",
+      "original": {
+        "engine": "eslint",
+        "ruleId": "no-alert",
+        "messageId": "unexpected",
+        "severity": 2,
+        "suggestions": []
+      },
+      "completeness": "complete",
+      "registryDigest": "262558f4290b04a4c98198f0e97dd5a2fb252b366aaec8f3b05c7917f4c45f59",
+      "policyDigest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d"
+    },
+    "controls": [
+      {
+        "control": "firm/ux/no-blocking-dialogs",
+        "title": "Pages do not block with browser dialogs",
+        "strength": "required",
+        "layer": "firmwide",
+        "status": "not_met",
+        "evidence": [
+          {
+            "provider": "eslint",
+            "rule": "no-alert",
+            "kind": "static",
+            "required": true,
+            "status": "complete",
+            "findings": 1
+          }
+        ],
+        "findings": [
+          "finding_5a445e4645d7b961fec31813cc05a1b6c7f9e5e8ff6d383cf1b25191f5e2f1a7"
+        ],
+        "reasons": [],
+        "limitations": [],
+        "obligations": []
+      },
+      {
+        "control": "wealth/design/dialog",
+        "title": "Wealth pages use the approved dialog",
+        "strength": "required",
+        "layer": "portal",
+        "status": "not_met",
+        "evidence": [
+          {
+            "provider": "design-review",
+            "rule": null,
+            "kind": "manual",
+            "required": true,
+            "status": "manual",
+            "findings": 0
+          },
+          {
+            "provider": "eslint",
+            "rule": "no-alert",
+            "kind": "static",
+            "required": true,
+            "status": "complete",
+            "findings": 1
+          }
+        ],
+        "findings": [
+          "finding_5a445e4645d7b961fec31813cc05a1b6c7f9e5e8ff6d383cf1b25191f5e2f1a7"
+        ],
+        "reasons": [],
+        "limitations": [],
+        "obligations": [
+          {
+            "kind": "keyboard",
+            "description": "Open and close the dialog with the keyboard only.",
+            "source": "wealth/design/dialog"
+          },
+          {
+            "kind": "test",
+            "description": "Run the component tests for the changed components.",
+            "source": "wealth/design/dialog"
+          }
+        ]
+      }
+    ],
+    "recommendation": {
+      "finding": "finding_5a445e4645d7b961fec31813cc05a1b6c7f9e5e8ff6d383cf1b25191f5e2f1a7",
+      "obligations": [
+        {
+          "control": "firm/ux/no-blocking-dialogs",
+          "title": "Pages do not block with browser dialogs",
+          "strength": "required",
+          "layer": "firmwide",
+          "policy": "firm/ux",
+          "contribution": "firm/ux",
+          "remediation": "Replace the browser dialog with an in-page dialog.",
+          "verification": [
+            {
+              "kind": "eslint",
+              "description": "Run no-alert on the changed files."
+            }
+          ]
+        },
+        {
+          "control": "wealth/design/dialog",
+          "title": "Wealth pages use the approved dialog",
+          "strength": "required",
+          "layer": "portal",
+          "policy": "wealth/design",
+          "contribution": "wealth/design",
+          "remediation": "Use the Wealth Dialog.",
+          "verification": [
+            {
+              "kind": "keyboard",
+              "description": "Open and close the dialog with the keyboard only."
+            },
+            {
+              "kind": "eslint",
+              "description": "Run no-alert on the changed files."
+            },
+            {
+              "kind": "test",
+              "description": "Run the component tests for the changed components."
+            }
+          ]
+        }
+      ],
+      "policyDigest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "modifiesProject": false,
+      "status": "approved",
+      "reason": "Approved Dialog from wealth/design/dialog replaces generic remediation",
+      "approved": [
+        {
+          "kind": "component",
+          "name": "Dialog",
+          "module": "@wealth/ui",
+          "usage": "Render <Dialog open onClose={...} title={...}> and move focus to its first control.",
+          "replaces": {
+            "modules": [
+              "react-modal"
+            ],
+            "terms": []
+          },
+          "role": "substitute",
+          "mandatory": true,
+          "sources": [
+            {
+              "control": "wealth/design/dialog",
+              "layer": "portal",
+              "strength": "required",
+              "policy": "wealth/design"
+            }
+          ],
+          "occurrences": []
+        }
+      ],
+      "conflicts": [],
+      "generic": {
+        "remediation": [
+          "Replace the browser dialog with an in-page dialog."
+        ],
+        "replaced": true
+      },
+      "mandatory": true
+    },
+    "impact": null,
+    "guidance": [],
+    "verification": {
+      "items": [
+        {
+          "type": "static",
+          "controls": [
+            "firm/ux/no-blocking-dialogs",
+            "wealth/design/dialog"
+          ],
+          "evidenceKind": "static",
+          "provider": "eslint",
+          "rule": "no-alert",
+          "required": true,
+          "description": "Run eslint no-alert",
+          "command": "web-doctor check",
+          "targets": [],
+          "status": "failed",
+          "reason": "The last run reported findings for this evidence",
+          "evidence": [],
+          "id": "verify_e42a44d7ed518a0a7fae5b446b03df368d77090d7427ca4bc92ece1d5d889afb"
+        },
+        {
+          "type": "component-test",
+          "controls": [
+            "wealth/design/dialog"
+          ],
+          "evidenceKind": null,
+          "provider": null,
+          "rule": null,
+          "required": false,
+          "description": "Run the component tests for the changed components.",
+          "command": "npm run test",
+          "targets": [
+            "src/SaveButton.test.tsx"
+          ],
+          "status": "remaining",
+          "reason": "Web Doctor names tests but does not run them",
+          "evidence": [
+            {
+              "source": "extension",
+              "category": "web-doctor.tests",
+              "key": "src/SaveButton.test.tsx",
+              "state": "inferred",
+              "value": {
+                "path": "src/SaveButton.test.tsx",
+                "frameworks": [
+                  "vitest"
+                ],
+                "imports_framework": "vitest",
+                "subjects": [
+                  "src/SaveButton.tsx"
+                ],
+                "symbols": [
+                  "src/SaveButton.tsx#SaveButton"
+                ],
+                "commands": [
+                  "package.json#scripts/test"
+                ]
+              },
+              "rule": "web-doctor.test-file",
+              "reasoning": "The file uses the .test suffix that test runners collect, and it imports vitest",
+              "evidence": [
+                {
+                  "id": "ev_3f114ad3d1dfd01098af8944",
+                  "path": "src/SaveButton.test.tsx",
+                  "lines": null,
+                  "pointer": null,
+                  "rule": "web-doctor.test-file",
+                  "detector": "web-doctor.tests"
+                }
+              ],
+              "candidates": null
+            },
+            {
+              "source": "shared",
+              "category": "verification_commands",
+              "key": "package.json#scripts/test",
+              "state": "observed",
+              "value": {
+                "command": "vitest run",
+                "context": {
+                  "script": "test",
+                  "via": []
+                },
+                "kinds": [
+                  "test"
+                ],
+                "source": "package.json"
+              },
+              "rule": "manifest.verification-script",
+              "reasoning": null,
+              "evidence": [
+                {
+                  "id": "ev_3e540f90f80441c8be00c9fb",
+                  "path": "package.json",
+                  "lines": null,
+                  "pointer": "/scripts/test",
+                  "rule": "manifest.verification-script",
+                  "detector": "ci"
+                }
+              ],
+              "candidates": null
+            }
+          ],
+          "id": "verify_07187b870f9e9424b788074988b3127b7f2393b4cd50dfee918ad5ee254ed4bd"
+        },
+        {
+          "type": "manual",
+          "controls": [
+            "wealth/design/dialog"
+          ],
+          "evidenceKind": "manual",
+          "provider": "design-review",
+          "rule": null,
+          "required": true,
+          "description": "Review by design-review",
+          "command": null,
+          "targets": [],
+          "status": "remaining",
+          "reason": "Manual review cannot be satisfied by automated checks or tests",
+          "evidence": [],
+          "id": "verify_38bdf6aac90f260b533e607eea7f1873947ee5af689c3b4c308d348c935c8527"
+        },
+        {
+          "type": "manual",
+          "controls": [
+            "wealth/design/dialog"
+          ],
+          "evidenceKind": "manual",
+          "provider": null,
+          "rule": null,
+          "required": false,
+          "description": "Open and close the dialog with the keyboard only.",
+          "command": null,
+          "targets": [],
+          "status": "remaining",
+          "reason": "Manual review cannot be satisfied by automated checks or tests",
+          "evidence": [],
+          "id": "verify_ecde3fec986f89a544371b7942c9236cf902071d6ef532f2f1fe03a811393fb8"
+        }
+      ],
+      "controls": [
+        {
+          "control": "firm/ux/no-blocking-dialogs",
+          "title": "Pages do not block with browser dialogs",
+          "strength": "required",
+          "layer": "firmwide",
+          "requires": [
+            "static"
+          ],
+          "satisfied": [],
+          "status": "failed",
+          "remaining": [
+            "verify_e42a44d7ed518a0a7fae5b446b03df368d77090d7427ca4bc92ece1d5d889afb"
+          ]
+        },
+        {
+          "control": "wealth/design/dialog",
+          "title": "Wealth pages use the approved dialog",
+          "strength": "required",
+          "layer": "portal",
+          "requires": [
+            "manual",
+            "static"
+          ],
+          "satisfied": [],
+          "status": "failed",
+          "remaining": [
+            "verify_38bdf6aac90f260b533e607eea7f1873947ee5af689c3b4c308d348c935c8527",
+            "verify_e42a44d7ed518a0a7fae5b446b03df368d77090d7427ca4bc92ece1d5d889afb",
+            "verify_ecde3fec986f89a544371b7942c9236cf902071d6ef532f2f1fe03a811393fb8",
+            "verify_07187b870f9e9424b788074988b3127b7f2393b4cd50dfee918ad5ee254ed4bd"
+          ]
+        }
+      ],
+      "complete": false,
+      "statement": "2 of 2 Controls still need evidence, including manual review for 1; passing automated checks does not establish conformance",
+      "policyDigest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "reportDigest": "38c1e4d17a1497a83ea25295c7fa092cd5b02f18164acf210d626b698f58b832",
+      "modifiesProject": false
+    },
+    "reportDigest": "38c1e4d17a1497a83ea25295c7fa092cd5b02f18164acf210d626b698f58b832",
+    "modifiesProject": false
+  }
+}

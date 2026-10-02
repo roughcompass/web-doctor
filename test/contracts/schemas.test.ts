@@ -1,8 +1,13 @@
 import { describe, expect, it } from "vitest";
+import diagnosticsReportExample from "../../examples/contracts/diagnostics-report.json" with { type: "json" };
+import findingExample from "../../examples/contracts/finding.json" with { type: "json" };
+import profileEvidenceExample from "../../examples/contracts/profile-evidence.json" with { type: "json" };
+import providerApprovalExample from "../../examples/contracts/provider-approval.json" with { type: "json" };
 import {
   UnsupportedSchemaVersionError,
   contractSchemas,
   parseContract,
+  supportedSchemaVersions,
   type ContractKind,
 } from "../../src/contracts/index.js";
 
@@ -83,7 +88,7 @@ const fixtures = {
   },
   policyPack: {
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: "firm/accessibility",
     version: "1.0.0",
     owner: "Enterprise Accessibility",
@@ -136,7 +141,7 @@ const fixtures = {
   },
   registrySnapshot: {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: COMMIT,
     catalogCommit: COMMIT,
@@ -149,38 +154,21 @@ const fixtures = {
   },
   effectivePolicySnapshot: {
     schema: "web-doctor.effective-policy",
-    schemaVersion: 1,
+    schemaVersion: 3,
     digest: DIGEST,
+    webDoctorVersion: "0.1.0",
     registryDigest: DIGEST,
     resolverVersion: "0.1.0",
     portals: ["wealth"],
     capabilities: { react: "observed" },
+    facts: { status: "complete", detectorRelease: "0.1.0", configurationDigest: DIGEST, factDocumentDigest: DIGEST, extensionStateDigest: DIGEST },
     contributions: [contributionReference],
     controls: [{ control, policyContribution: contributionReference }],
     exceptions: [],
     conflicts: [],
     unresolvedApplicability: [],
   },
-  normalizedFinding: {
-    schema: "web-doctor.finding",
-    schemaVersion: 1,
-    id: "finding/button-name",
-    provider: "axe",
-    providerVersion: "4.13.0",
-    rule: "button-name",
-    evidenceKind: "rendered",
-    locations: [location],
-    severity: "error",
-    certainty: "observed",
-    classification: "defect",
-    message: "Button has no accessible name.",
-    controls: ["firm/accessibility/button-name"],
-    remediation: ["Give the button an accessible name."],
-    verification: [verification],
-    completeness: "complete",
-    registryDigest: DIGEST,
-    policyDigest: DIGEST,
-  },
+  normalizedFinding: findingExample,
   guidanceEntry: {
     schema: "web-doctor.guidance-entry",
     schemaVersion: 1,
@@ -198,15 +186,34 @@ const fixtures = {
   },
   mcpResponse: {
     schema: "web-doctor.mcp-response",
-    schemaVersion: 1,
+    schemaVersion: 2,
     requestId: "request-1",
     tool: "project_overview",
     complete: true,
     truncated: false,
-    registryDigest: DIGEST,
+    provenance: {
+      webDoctor: { version: "0.1.0", commit: COMMIT, registryDigest: DIGEST, catalogCommit: COMMIT, catalogDigest: DIGEST },
+      repoFacts: { status: "complete", reason: null, release: "0.1.0", commit: COMMIT, configurationDigest: DIGEST, factDocumentDigest: DIGEST, incompleteCategories: [] },
+      extensions: { release: "web-doctor-extensions/0.1.0", stateDigest: DIGEST, indexDigest: DIGEST, incompleteCategories: [] },
+      project: { root: "/work/orders", snapshotDigest: DIGEST, treeDigest: DIGEST },
+      policy: null,
+    },
+    update: null,
     evidence: [location],
     warnings: [],
     data: { framework: "vite" },
+  },
+  diagnosticsReport: diagnosticsReportExample,
+  profileEvidence: profileEvidenceExample,
+  providerApproval: providerApprovalExample,
+  repositoryConfig: {
+    schema: "web-doctor.repository-config",
+    schemaVersion: 1,
+    portals: ["wealth", "advisor"],
+    applicationMetadata: { managed: true },
+    protectedDirectories: ["fixtures-private"],
+    exceptions: [{ controlId: "firm/accessibility/button-name", exceptionId: "exception/legacy-button", authorization: "accessibility-review" }],
+    ci: { gate: "required", requirePortal: true },
   },
 } as const;
 
@@ -221,7 +228,7 @@ describe("contract schemas", () => {
   it("reports unsupported versions before structural validation", () => {
     for (const [kind, fixture] of Object.entries(fixtures) as [ContractKind, Record<string, unknown>][]) {
       expect(() => parseContract(kind, { ...fixture, schemaVersion: 99 })).toThrow(
-        new UnsupportedSchemaVersionError(kind, 99, [1]),
+        new UnsupportedSchemaVersionError(kind, 99, supportedSchemaVersions(kind)),
       );
     }
   });

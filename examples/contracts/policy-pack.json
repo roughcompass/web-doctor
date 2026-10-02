@@ -1,6 +1,6 @@
 {
   "schema": "web-doctor.policy-pack",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "firm/accessibility",
   "version": "1.0.0",
   "owner": "Enterprise Accessibility",
@@ -23,10 +23,24 @@
           "required": true
         }
       ],
+      "remediation": "Give the button an accessible name.",
       "verification": [
         {
           "kind": "axe",
           "description": "Run axe against the rendered state."
+        }
+      ],
+      "patterns": [
+        {
+          "kind": "component",
+          "name": "IconButton",
+          "module": "@firm/ui",
+          "usage": "Render icon-only actions as <IconButton icon={...} label={...} />; label becomes the accessible name.",
+          "replaces": {
+            "modules": [
+              "@mui/material/IconButton"
+            ]
+          }
         }
       ]
     }

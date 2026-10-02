@@ -60,7 +60,7 @@ async function buildFixture() {
   const artifactDigest = crypto.createHash("sha256").update(artifactContents).digest("hex");
   const policy: PolicyPack = {
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: "firm/example",
     version: "1.0.0",
     owner: "Fixture Team",
@@ -104,7 +104,7 @@ async function buildFixture() {
   }), "utf8");
   const snapshot: RegistrySnapshot = {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "a".repeat(40),
     catalogCommit: "b".repeat(40),

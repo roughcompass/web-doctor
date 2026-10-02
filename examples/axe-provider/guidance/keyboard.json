@@ -1,0 +1,22 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "accessibility/runtime/keyboard",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "applicability": {},
+  "evidencePrerequisites": [
+    "rendered"
+  ],
+  "classification": "manual_review",
+  "explanation": "Operate every interactive element with the keyboard alone: reach it with Tab, activate it with Enter or Space, and leave it without a trap.",
+  "alternatives": [],
+  "tradeoffs": [],
+  "verification": [
+    {
+      "kind": "keyboard",
+      "description": "Complete the tested task using only the keyboard, including dismissing dialogs and menus."
+    }
+  ],
+  "controls": []
+}

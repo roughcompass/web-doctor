@@ -17,7 +17,7 @@ describe("policy validate", () => {
     const policyPath = path.join(directory, "policy.json");
     await fs.writeFile(policyPath, JSON.stringify({
       schema: "web-doctor.policy-pack",
-      schemaVersion: 1,
+      schemaVersion: 2,
       id: "firm/example",
       version: "1.0.0",
       owner: "Fixture Team",
@@ -97,7 +97,7 @@ describe("policy validate", () => {
 function validPolicy() {
   return {
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: "firm/example",
     version: "1.0.0",
     owner: "Fixture Team",
@@ -135,3 +135,27 @@ async function invoke(args: readonly string[]) {
   });
   return { exitCode, stdout, stderr };
 }
+describe("built-in ESLint and manual evidence", () => {
+  it("accepts ESLint core rules and manual reviewers without provider manifests, and rejects what diagnostics could not run", async () => {
+    const { validatePolicyAuthoring } = await import("../../src/authoring/policy.js");
+    const directory = await fs.mkdtemp(path.join(os.tmpdir(), "web-doctor-policy-builtin-"));
+    temporaryDirectories.push(directory);
+    const policyPath = path.join(directory, "policy.json");
+    const control = (id: string, evidence: object[]) => ({ id: `firm/code/${id}`, title: id, rationale: "Fixture", strength: "required", applicability: {}, evidence, verification: [{ kind: "review", description: "Review." }] });
+    await fs.writeFile(policyPath, JSON.stringify({
+      schema: "web-doctor.policy-pack", schemaVersion: 2, id: "firm/code", version: "1.0.0", owner: "Fixture", layer: "firmwide", compatibility: { webDoctor: ">=0.1.0" },
+      controls: [
+        control("core", [{ provider: "eslint", rule: "no-debugger", kind: "static", required: true }, { provider: "keyboard-review", kind: "manual", required: true }]),
+        control("unknown-core", [{ provider: "eslint", rule: "no-such-rule", kind: "static", required: true }]),
+        control("wrong-kind", [{ provider: "eslint", rule: "no-console", kind: "rendered", required: true }]),
+        control("unknown-plugin", [{ provider: "eslint", rule: "wealth-design/use-button", kind: "static", required: true }]),
+      ],
+    }), "utf8");
+    const report = await validatePolicyAuthoring({ policyPath });
+    expect(report.issues.map((issue) => [issue.path, issue.message])).toEqual([
+      ["policy.controls.1.evidence.0.rule", "ESLint has no core rule no-such-rule"],
+      ["policy.controls.2.evidence.0.kind", "ESLint rules produce static evidence, not rendered"],
+      ["policy.controls.3.evidence.0.rule", "Unknown ESLint plugin wealth-design"],
+    ]);
+  });
+});

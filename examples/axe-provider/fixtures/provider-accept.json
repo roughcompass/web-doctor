@@ -1,0 +1,8 @@
+{
+  "schema": "web-doctor.fixture",
+  "schemaVersion": 1,
+  "id": "axe/provider-accept",
+  "contract": "providerManifest",
+  "input": "provider.json",
+  "expected": "accept"
+}

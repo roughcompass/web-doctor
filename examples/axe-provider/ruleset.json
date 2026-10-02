@@ -1,0 +1,23 @@
+{
+  "description": "The axe rules approved for rendered accessibility evidence. Policy selects which of them a run executes.",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa"
+  ],
+  "rules": [
+    "aria-allowed-attr",
+    "aria-required-attr",
+    "aria-valid-attr-value",
+    "button-name",
+    "color-contrast",
+    "document-title",
+    "html-has-lang",
+    "image-alt",
+    "label",
+    "landmark-one-main",
+    "link-name",
+    "region"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "web-doctor.policy-pack",
+  "schemaVersion": 2,
+  "id": "firm/accessibility-runtime",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "layer": "firmwide",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "controls": [
+    {
+      "id": "firm/accessibility-runtime/button-name",
+      "title": "Buttons have accessible names",
+      "rationale": "Every interactive control needs an accessible name.",
+      "strength": "required",
+      "applicability": {},
+      "evidence": [
+        {
+          "provider": "axe",
+          "rule": "button-name",
+          "kind": "rendered",
+          "required": true
+        }
+      ],
+      "remediation": "Give each button visible text or an accessible name.",
+      "verification": [
+        {
+          "kind": "axe",
+          "description": "Run axe against each rendered interaction state."
+        },
+        {
+          "kind": "manual",
+          "description": "Confirm the control name with a screen reader."
+        }
+      ]
+    },
+    {
+      "id": "firm/accessibility-runtime/image-alt",
+      "title": "Images have text alternatives",
+      "rationale": "Non-text content needs a text alternative.",
+      "strength": "required",
+      "applicability": {},
+      "evidence": [
+        {
+          "provider": "axe",
+          "rule": "image-alt",
+          "kind": "rendered",
+          "required": true
+        }
+      ],
+      "remediation": "Add alt text, or alt=\"\" for decorative images.",
+      "verification": [
+        {
+          "kind": "axe",
+          "description": "Run axe against each rendered interaction state."
+        }
+      ]
+    },
+    {
+      "id": "firm/accessibility-runtime/color-contrast",
+      "title": "Text meets contrast minimums",
+      "rationale": "Low-contrast text is hard to read.",
+      "strength": "recommended",
+      "applicability": {},
+      "evidence": [
+        {
+          "provider": "axe",
+          "rule": "color-contrast",
+          "kind": "rendered",
+          "required": true
+        }
+      ],
+      "remediation": "Use design tokens that meet 4.5:1 for body text.",
+      "verification": [
+        {
+          "kind": "axe",
+          "description": "Run axe against each rendered interaction state."
+        }
+      ]
+    }
+  ]
+}

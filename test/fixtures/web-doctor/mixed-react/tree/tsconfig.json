@@ -1,0 +1,8 @@
+{
+  // Path aliases are read as data; nothing here is executed.
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "paths": { "@/*": ["./src/*"] }
+  }
+}

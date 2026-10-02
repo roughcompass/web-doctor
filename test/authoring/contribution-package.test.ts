@@ -40,7 +40,7 @@ async function buildSource(): Promise<string> {
   await fs.mkdir(path.join(root, "fixtures"), { recursive: true });
   const policy = {
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: "firm/example",
     version: "1.0.0",
     owner: "Fixture Team",

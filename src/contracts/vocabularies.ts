@@ -21,6 +21,15 @@ export const FINDING_CLASSIFICATIONS = [
   "unresolved",
 ] as const;
 export const UPDATE_URGENCIES = ["none", "recommended", "required"] as const;
+export const APPROVED_PATTERN_KINDS = [
+  "component",
+  "design-token",
+  "api",
+  "analytics-event",
+  "runtime-integration",
+  "content-term",
+  "remediation",
+] as const;
 
 export const policyLayerSchema = z.enum(POLICY_LAYERS);
 export const requirementStrengthSchema = z.enum(REQUIREMENT_STRENGTHS);
@@ -31,6 +40,7 @@ export const providerCompletenessSchema = z.enum(PROVIDER_COMPLETENESS);
 export const providerCapabilitySchema = z.enum(PROVIDER_CAPABILITIES);
 export const findingClassificationSchema = z.enum(FINDING_CLASSIFICATIONS);
 export const updateUrgencySchema = z.enum(UPDATE_URGENCIES);
+export const approvedPatternKindSchema = z.enum(APPROVED_PATTERN_KINDS);
 
 export type PolicyLayer = z.infer<typeof policyLayerSchema>;
 export type RequirementStrength = z.infer<typeof requirementStrengthSchema>;
@@ -41,3 +51,4 @@ export type ProviderCompleteness = z.infer<typeof providerCompletenessSchema>;
 export type ProviderCapability = z.infer<typeof providerCapabilitySchema>;
 export type FindingClassification = z.infer<typeof findingClassificationSchema>;
 export type UpdateUrgency = z.infer<typeof updateUrgencySchema>;
+export type ApprovedPatternKind = z.infer<typeof approvedPatternKindSchema>;

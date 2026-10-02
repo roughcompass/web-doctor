@@ -37,7 +37,7 @@ describe("portal selection", () => {
         { source: "repository", portals: ["advisor"] },
         { source: "assignment", portals: ["advisor", "wealth"] },
       ],
-      message: "Portal sources disagree: cli=[wealth]; repository=[advisor]; assignment=[advisor, wealth]",
+      message: "Portal sources disagree: explicit=[wealth]; repository=[advisor]; assignment=[advisor, wealth]",
     });
   });
 

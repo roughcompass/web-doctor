@@ -34,7 +34,7 @@ When enterprise npm distribution is configured, update status compares the insta
 
 ## Managed Upgrades
 
-A managed standalone installation may update inside its enterprise tool cache. The updater retrieves one exact package with SHA-512 integrity and extracts it without lifecycle scripts. It runs a startup self-check before atomically replacing `active.json`. It retains `previous.json` for rollback. Any retrieval, integrity, self-check, or activation failure leaves the active pointer unchanged.
+A managed standalone installation may update inside its enterprise tool cache. The updater retrieves one exact package with SHA-512 integrity and extracts it without lifecycle scripts. It then installs the release's production dependencies from the `npm-shrinkwrap.json` inside the package. Every dependency must carry an exact version and SHA-512 integrity, and npm verifies each tarball against it with scripts disabled. The updater runs a startup self-check before atomically replacing `active.json`. It retains `previous.json` for rollback. Any retrieval, integrity, self-check, or activation failure leaves the active pointer unchanged.
 
 Rollback makes the retained previous version active and preserves the displaced version as the next rollback target. Running processes remain on their loaded package. The stable launcher observes the new pointer only when starting a new process.
 

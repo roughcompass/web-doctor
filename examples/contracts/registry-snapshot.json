@@ -1,6 +1,6 @@
 {
   "schema": "web-doctor.registry-snapshot",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "webDoctorVersion": "0.1.0",
   "webDoctorCommit": "cccccccccccccccccccccccccccccccccccccccc",
   "catalogCommit": "cccccccccccccccccccccccccccccccccccccccc",

@@ -22,6 +22,8 @@ jobs:
           cache: npm
           registry-url: ${{ vars.WEB_DOCTOR_NPM_REGISTRY }}
       - run: npm ci --ignore-scripts
+        env:
+          REPO_FACTS_NPM_REGISTRY: ${{ vars.REPO_FACTS_NPM_REGISTRY }}
       - run: npm run check
       - name: Rebuild and verify release artifacts
         run: npm run release:verify

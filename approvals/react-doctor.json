@@ -1,0 +1,80 @@
+{
+  "schema": "web-doctor.provider-approval",
+  "schemaVersion": 1,
+  "engine": "react-doctor",
+  "packageName": "react-doctor",
+  "legal": {
+    "status": "approved",
+    "decidedBy": "Web Doctor product owner",
+    "decidedOn": "2026-09-30",
+    "scope": "Internal enterprise use of React Doctor as an isolated, optional static provider behind Web Doctor, for developers and coding agents",
+    "conditions": [
+      "Use React Doctor only inside the enterprise; never sell it or offer it to third parties as a paid, hosted, or managed product or service whose value derives substantially from it",
+      "Never use React Doctor, its source code, derivative works, or its output as training, fine-tuning, or evaluation data for a machine-learning model or AI system, or as input to a pipeline that trains or improves one, without prior written permission from Million Software, Inc.",
+      "Keep React Doctor's copyright notice and Modified MIT License with every installed copy"
+    ],
+    "evidence": [
+      "React Doctor 0.9.14 LICENSE: Modified MIT License, Copyright (c) 2026 Million Software, Inc.",
+      "docs/react-doctor.md#legal-review"
+    ]
+  },
+  "security": {
+    "status": "approved",
+    "decidedBy": "Web Doctor product owner",
+    "decidedOn": "2026-09-30",
+    "scope": "The React Doctor scan command, run by the Web Doctor adapter in a bounded Node process under the permission model",
+    "conditions": [
+      "Run only the scan command with the configuration below; never run install, ci, scan <url>, rules set, rules enable, rules disable, rules category, rules ignore-tag, or audit mode, which write to the application, its CI, its agent configuration, or its source",
+      "Grant no network: telemetry to Sentry and Axiom, the score and share API, and Socket.dev supply-chain lookups stay disabled by flags and are blocked by the network guard",
+      "Refuse an application with an executable doctor.config file, because loading it would run repository code in a process that may start child processes",
+      "Refuse an application with leftover .react-doctor/audit-backups, which React Doctor would restore into source files",
+      "Write only to a private scratch directory and to the absent .react-doctor/audit-backups path, and pass no PATH, so git, bash, and nvm cannot be started",
+      "Pin exactly one release per entry; a new release needs its own entry, digests, contract tests, and evaluation"
+    ],
+    "evidence": [
+      "npm registry: react-doctor 0.9.14 was published on 2026-09-12 by GitHub Actions trusted publishing, with an SLSA v1 provenance attestation and two registry signatures",
+      "Release cadence: 114 stable releases since 2026-02-13, 32 of them since 2026-07-01, plus 704 dev builds; the package is pre-1.0",
+      "docs/react-doctor.md#security-review",
+      "docs/react-doctor-evaluation.md",
+      "test/diagnostics/react-doctor.test.ts"
+    ],
+    "configuration": {
+      "arguments": [
+        "--json",
+        "--json-out",
+        "<scratch>/report.json",
+        "--no-telemetry",
+        "--no-supply-chain",
+        "--no-cache",
+        "--yes",
+        "--blocking",
+        "none",
+        "--output-dir",
+        "<scratch>/out"
+      ],
+      "environment": {
+        "HOME": "<scratch>",
+        "REACT_DOCTOR_CONFIG_DIR": "<scratch>/config",
+        "REACT_DOCTOR_CACHE_DIR": "<scratch>/cache",
+        "REACT_DOCTOR_NO_CACHE": "1",
+        "NO_COLOR": "1"
+      },
+      "network": false
+    }
+  },
+  "releases": [
+    {
+      "version": "0.9.14",
+      "integrity": "sha512-JzOwAY/hoSxHa4Siyqgfxr/KCNak0SB9pSTseFVStFHAnWS+XxR6RsWU6Q5Ho+J5Jmyb9LZRXc6ZK5jt3cfcQQ==",
+      "contentDigest": "9c0f18d1610adbe7776985c2605b205a8c67913f320047c7bca564670881bf86",
+      "rulesetDigest": "0d6d5a275acc0fe41d09058a1caa99d71d0360e02389cc7ea62499af80805968",
+      "outputSchemaVersions": [
+        3
+      ],
+      "license": {
+        "name": "Modified MIT License",
+        "digest": "aa9b278de35d20d320e40789db8b3e242096ed4a89c5aaf8fbe23a5e55c08ff1"
+      }
+    }
+  ]
+}

@@ -4,12 +4,17 @@ import type { PolicyControl } from "../contracts/index.js";
 
 export type ApplicabilityStatus = "match" | "no-match" | "unresolved";
 
+/**
+ * Facts for applicability. A version or range means present, `true` means
+ * present without a version, `false` means established absent, and a missing
+ * name means unknown, which leaves a dependent predicate unresolved.
+ */
 export interface ApplicabilityFacts {
   portals?: readonly string[];
   file?: string;
-  capabilities?: Readonly<Record<string, string | true>>;
-  dependencies?: Readonly<Record<string, string>>;
-  runtimes?: Readonly<Record<string, string>>;
+  capabilities?: Readonly<Record<string, string | boolean>>;
+  dependencies?: Readonly<Record<string, string | false>>;
+  runtimes?: Readonly<Record<string, string | false>>;
   applicationMetadata?: Readonly<Record<string, string | number | boolean>>;
 }
 
@@ -74,7 +79,7 @@ export function evaluateApplicability(
 function evaluateVersionPredicates(
   predicate: "capabilities" | "dependencies" | "runtimes",
   requirements: readonly { name: string; range?: string | undefined }[] | undefined,
-  facts: Readonly<Record<string, string | true>> | undefined,
+  facts: Readonly<Record<string, string | boolean>> | undefined,
   reasons: ApplicabilityReason[],
 ): void {
   if (requirements === undefined) return;
@@ -85,17 +90,38 @@ function evaluateVersionPredicates(
   let status: ApplicabilityStatus = "match";
   let message = `${label(predicate)} matched`;
   for (const requirement of requirements) {
-    const observed = facts[requirement.name];
+    const observed = Object.hasOwn(facts, requirement.name) ? facts[requirement.name] : undefined;
+    if (observed === false) {
+      status = "no-match";
+      message = `${predicate} ${requirement.name} is absent`;
+      break;
+    }
     if (observed === undefined || (requirement.range !== undefined && observed === true)) {
       status = "unresolved";
       message = `${predicate} ${requirement.name} is unavailable`;
-    } else if (requirement.range !== undefined && typeof observed === "string" && !semver.satisfies(observed, requirement.range)) {
+      continue;
+    }
+    if (requirement.range === undefined || typeof observed !== "string") continue;
+    const outcome = versionOutcome(observed, requirement.range);
+    if (outcome === "no-match") {
       status = "no-match";
       message = `${predicate} ${requirement.name}@${observed} is outside ${requirement.range}`;
       break;
     }
+    if (outcome === "unresolved") {
+      status = "unresolved";
+      message = `${predicate} ${requirement.name}@${observed} may or may not satisfy ${requirement.range}`;
+    }
   }
   reasons.push(reason(predicate, status, message));
+}
+
+/** An exact version satisfies or not; a declared range matches only when every version it allows does. */
+function versionOutcome(observed: string, range: string): ApplicabilityStatus {
+  if (semver.valid(observed) !== null) return semver.satisfies(observed, range) ? "match" : "no-match";
+  if (semver.validRange(observed) === null || semver.validRange(range) === null) return "unresolved";
+  if (semver.subset(observed, range)) return "match";
+  return semver.intersects(observed, range) ? "unresolved" : "no-match";
 }
 
 function reason(predicate: ApplicabilityReason["predicate"], status: ApplicabilityStatus, message: string): ApplicabilityReason {

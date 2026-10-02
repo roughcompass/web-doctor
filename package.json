@@ -26,11 +26,13 @@
     "examples/",
     "generated/",
     "templates/",
-    "README.md"
+    "README.md",
+    "npm-shrinkwrap.json",
+    "approvals/"
   ],
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
-    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "build": "npm run clean && tsc -p tsconfig.build.json && node scripts/record-repo-facts.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run --passWithNoTests",
@@ -38,20 +40,29 @@
     "registry:lock:fixture": "npm run build --silent && node scripts/generate-registry-lock.mjs --catalog registry/catalog.json --manifests test/fixtures/registry/manifest-metadata.json --output tmp/registry.lock.json",
     "registry:pr": "npm run build --silent && node scripts/validate-registry-pr.mjs",
     "release:verify": "npm run build --silent && node scripts/verify-release.mjs",
-    "check": "npm run build && npm run typecheck && npm run lint && npm test"
+    "check": "npm run build && npm run typecheck && npm run lint && npm test",
+    "test:performance": "WEB_DOCTOR_PERFORMANCE=1 vitest run test/performance --no-file-parallelism"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.2.0",
+    "@repo-facts/bundle": "0.1.0",
+    "@repo-facts/contract": "0.1.0",
+    "@typescript-eslint/parser": "8.71.0",
+    "axe-core": "4.13.0",
     "eslint": "9.39.5",
+    "ignore": "7.0.10",
     "minimatch": "10.2.6",
     "npm-package-arg": "13.0.2",
     "pacote": "21.5.1",
+    "playwright-core": "1.63.0",
     "semver": "7.8.5",
     "ssri": "13.0.1",
+    "typescript": "6.0.3",
     "zod": "4.6.5"
   },
   "devDependencies": {
     "@eslint/js": "9.39.5",
+    "@modelcontextprotocol/client": "2.2.0",
     "@types/node": "24.19.0",
     "@types/npm-package-arg": "6.1.4",
     "@types/pacote": "11.1.8",
@@ -59,8 +70,10 @@
     "@types/ssri": "7.1.5",
     "@types/tar-stream": "3.1.5",
     "tar-stream": "3.2.1",
-    "typescript": "6.0.3",
     "typescript-eslint": "8.71.0",
     "vitest": "5.0.2"
+  },
+  "optionalDependencies": {
+    "react-doctor": "0.9.14"
   }
 }

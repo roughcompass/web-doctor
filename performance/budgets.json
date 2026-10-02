@@ -1,0 +1,29 @@
+{
+  "schema": "web-doctor.performance-budgets",
+  "schemaVersion": 1,
+  "approvedBy": "Web Doctor product owner",
+  "approvedOn": "2026-09-30",
+  "basis": "95th percentiles of 24 samples per operation across the eight fleet repositories (evidence/performance-baseline.json), with headroom for slower CI runners. Interactive answers stay under one second and a cold command under two and a half seconds.",
+  "metrics": {
+    "startupMs": { "p95Ms": 2500, "description": "A cold CLI process: load the registry, analyze the project, and answer one context query" },
+    "packageSnapshotLoadMs": { "p95Ms": 250, "description": "Load and verify the embedded registry snapshot" },
+    "readerMs": { "p95Ms": 250, "description": "Scan the working tree through the conforming reader" },
+    "bundleMs": { "p95Ms": 1000, "description": "Run the pinned repo-facts bundle over the reader" },
+    "indexMs": { "p95Ms": 750, "description": "Build the Web Doctor extension index" },
+    "incrementalQueryMs": { "p95Ms": 750, "description": "Observe one source edit and answer a query from the new project state" },
+    "eslintMs": { "p95Ms": 3000, "description": "Run diagnostics with the ESLint provider and a twenty-rule enterprise baseline" },
+    "reactDoctorMs": { "p95Ms": 4000, "description": "Run diagnostics with the approved React Doctor provider" },
+    "mcpResponseMs": { "p95Ms": 250, "description": "Answer a warm MCP context or guidance request" }
+  },
+  "serviceLevels": {
+    "application": "About 2,000 source files, a typical enterprise React application",
+    "targets": {
+      "coldStartMs": 5000,
+      "incrementalQueryMs": 1000,
+      "mcpResponseMs": 1000,
+      "changedFileDiagnosticsMs": 15000,
+      "fullDiagnosticsMs": 120000
+    },
+    "verification": "Measured on pilot applications before any Control gates CI"
+  }
+}

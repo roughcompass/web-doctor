@@ -24,6 +24,21 @@ export interface ManagedUpdateOptions {
   cache?: string;
   allowInsecureRegistry?: boolean;
   selfCheck?: (packageRoot: string) => Promise<void>;
+  dependencies?: DependencyInstallOptions;
+}
+
+/** How a staged release's pinned dependencies are installed from its npm-shrinkwrap.json. */
+export interface DependencyInstallOptions {
+  /** The registry for unscoped dependencies; defaults to the registry that served the release. */
+  registry?: string;
+  /** Registries for npm scopes, such as `@repo-facts`; the release registry serves every other package. */
+  scopes?: Readonly<Record<string, string>>;
+  /** Install only from the local npm cache, for staging without network access. */
+  offline?: boolean;
+  /** A dedicated npm cache, such as one inside the managed tool cache. */
+  cache?: string;
+  /** The npm executable; defaults to `npm` on the path. */
+  npm?: string;
 }
 
 export interface ManagedUpdateResult {
@@ -57,12 +72,13 @@ export async function installManagedUpdate(options: ManagedUpdateOptions): Promi
     try {
       await fs.access(finalRoot);
     } catch {
+      staged = true;
       await pacote.extract(`${source.packageName}@${source.version}`, stagingRoot, {
         registry,
         integrity: source.integrity,
         ...(options.cache === undefined ? {} : { cache: options.cache }),
       });
-      staged = true;
+      await installPinnedDependencies(stagingRoot, registry, options.dependencies ?? {});
       await selfCheck(stagingRoot);
       await fs.rename(stagingRoot, finalRoot);
       staged = false;
@@ -145,6 +161,70 @@ async function writeManagedPointer(root: string, name: "active" | "previous", po
   const pointerPath = path.join(root, `${name}.json`);
   await fs.writeFile(temporaryPath, `${canonicalJson(pointer)}\n`, { encoding: "utf8", mode: 0o600 });
   await fs.rename(temporaryPath, pointerPath);
+}
+
+interface ShrinkwrapEntry {
+  version?: unknown;
+  integrity?: unknown;
+  resolved?: unknown;
+  link?: unknown;
+  dev?: unknown;
+}
+
+interface Shrinkwrap {
+  lockfileVersion?: unknown;
+  packages?: Record<string, ShrinkwrapEntry>;
+}
+
+/** Why a shrinkwrap does not pin these production dependencies well enough to install; empty when it does. */
+export function shrinkwrapProblems(required: readonly string[], shrinkwrap: Shrinkwrap): string[] {
+  const packages = shrinkwrap.packages ?? {};
+  const problems: string[] = [];
+  if (typeof shrinkwrap.lockfileVersion !== "number" || shrinkwrap.lockfileVersion < 2) problems.push("npm-shrinkwrap.json must use lockfile version 2 or later");
+  for (const name of required) if (packages[`node_modules/${name}`] === undefined) problems.push(`npm-shrinkwrap.json does not pin ${name}`);
+  for (const [key, entry] of Object.entries(packages)) {
+    if (key === "" || entry.dev === true) continue;
+    if (entry.link === true) problems.push(`${key} is a link, not a registry package`);
+    else if (typeof entry.version !== "string" || !/^\d+\.\d+\.\d+/.test(entry.version)) problems.push(`${key} has no exact version`);
+    else if (typeof entry.integrity !== "string" || !entry.integrity.startsWith("sha512-")) problems.push(`${key} has no SHA-512 integrity`);
+    else if (entry.resolved !== undefined) problems.push(`${key} records ${String(entry.resolved)}; pinned packages resolve only through the configured registry`);
+  }
+  return problems;
+}
+
+/**
+ * Installs a staged release's production dependencies exactly as its
+ * published npm-shrinkwrap.json pins them. Every package must carry an exact
+ * version and SHA-512 integrity and resolve through the configured registry;
+ * npm verifies each tarball against that integrity and runs no scripts.
+ */
+export async function installPinnedDependencies(packageRoot: string, registry: string, options: DependencyInstallOptions = {}): Promise<void> {
+  const manifest = JSON.parse(await fs.readFile(path.join(packageRoot, "package.json"), "utf8")) as { dependencies?: Record<string, string>; optionalDependencies?: Record<string, string> };
+  const required = Object.keys({ ...manifest.dependencies, ...manifest.optionalDependencies }).sort();
+  if (required.length === 0) return;
+  let shrinkwrap: Shrinkwrap;
+  try {
+    shrinkwrap = JSON.parse(await fs.readFile(path.join(packageRoot, "npm-shrinkwrap.json"), "utf8")) as Shrinkwrap;
+  } catch {
+    throw new Error("The release has dependencies but no npm-shrinkwrap.json; managed installs use only pinned dependencies");
+  }
+  const problems = shrinkwrapProblems(required, shrinkwrap);
+  if (problems.length > 0) throw new Error(`The release's pinned dependencies cannot be installed:\n${problems.join("\n")}`);
+  const insecure = new URL(registry).protocol === "http:";
+  const args = [
+    "ci", "--omit=dev", "--ignore-scripts", "--no-audit", "--no-fund", "--no-update-notifier", "--workspaces=false",
+    `--registry=${options.registry === undefined ? registry : validateRegistry(options.registry, insecure)}`,
+    ...Object.entries(options.scopes ?? {}).map(([scope, url]) => `--${scope}:registry=${validateRegistry(url, insecure)}`),
+    ...(options.offline === true ? ["--offline"] : []),
+    ...(options.cache === undefined ? [] : [`--cache=${options.cache}`]),
+  ];
+  try {
+    await execFileAsync(options.npm ?? "npm", args, { cwd: packageRoot, encoding: "utf8", timeout: 10 * 60_000, maxBuffer: 64 * 1024 * 1024 });
+  } catch (error) {
+    const failure = error as { stderr?: string; message?: string };
+    const detail = (failure.stderr ?? failure.message ?? "").trim().split("\n").filter((line) => line.trim() !== "").slice(-3).join(" ");
+    throw new Error(`Installing the release's pinned dependencies failed: ${detail}`);
+  }
 }
 
 function validateRegistry(registryInput: string, allowInsecure: boolean): string {

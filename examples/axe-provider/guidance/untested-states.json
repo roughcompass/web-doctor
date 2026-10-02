@@ -1,0 +1,22 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "accessibility/runtime/untested-states",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "applicability": {},
+  "evidencePrerequisites": [
+    "rendered"
+  ],
+  "classification": "manual_review",
+  "explanation": "Automated checks cover only the states a runtime request names. Errors, empty and loading states, dialogs, and other screens need their own targets or review.",
+  "alternatives": [],
+  "tradeoffs": [],
+  "verification": [
+    {
+      "kind": "untested-states",
+      "description": "List the states the tested targets did not reach and check each one, adding runtime targets where possible."
+    }
+  ],
+  "controls": []
+}

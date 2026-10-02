@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   canonicalJson,
+  currentPolicyPack,
   digestDocument,
   parseContract,
   type Catalog,
@@ -10,8 +11,14 @@ import {
   type ContributionFixture,
   type ContributionLock,
   type ContractKind,
+  type GuidanceEntry,
+  type PolicyPack,
+  type PolicyPackV1,
+  type ProviderManifest,
   type RegistryOwnership,
 } from "../contracts/index.js";
+import { APPROVAL_GATED_ENGINES, approvedReleaseFor, loadProviderApproval, rulesetProblems } from "../diagnostics/provider-approval.js";
+import { guidanceProblems } from "../guidance/validation.js";
 import { generateContributionLock } from "./lock.js";
 import { buildRegistryProvenance, type RegistryProvenance } from "./provenance.js";
 import { validateCatalog, type CatalogValidationIssue } from "./validate.js";
@@ -36,6 +43,11 @@ export interface ApprovedRuntimeArtifact {
   path: string;
   digest: string;
   bytes: number;
+}
+
+interface CollectedDocuments {
+  guidance: GuidanceEntry[];
+  policies: PolicyPack[];
 }
 
 const DOCUMENT_CONTRACT_KINDS = {
@@ -78,6 +90,7 @@ export async function validateRegistryFiles(
     add(issues, "lock_generation", "lock", messageFrom(error));
   }
 
+  const documents: CollectedDocuments = { guidance: [], policies: [] };
   for (const entry of catalog.entries) {
     runtimeArtifacts.push(...await validateContribution(
       entry.id,
@@ -87,7 +100,11 @@ export async function validateRegistryFiles(
       entry,
       ownership.owners.find((owner) => owner.id === entry.owner)?.name,
       issues,
+      documents,
     ));
+  }
+  for (const problem of guidanceProblems(documents)) {
+    add(issues, `guidance_${problem.code}`, `guidance.${problem.guidance}`, problem.message);
   }
 
   let provenance: RegistryProvenance | undefined;
@@ -111,6 +128,7 @@ async function validateContribution(
   entry: Catalog["entries"][number],
   expectedOwnerName: string | undefined,
   issues: CatalogValidationIssue[],
+  documents: CollectedDocuments,
 ): Promise<ApprovedRuntimeArtifact[]> {
   const root = path.resolve(contributionsRoot, ...id.split("/"));
   const manifestBuffer = await readPackageFile(root, manifestPath, `contributions.${id}.manifest`, issues);
@@ -153,8 +171,12 @@ async function validateContribution(
     const contractKind = DOCUMENT_CONTRACT_KINDS[document.kind];
     try {
       const parsed = parseContract(contractKind, JSON.parse(contents.toString("utf8")) as unknown);
+      if (contractKind === "guidanceEntry") documents.guidance.push(parsed as GuidanceEntry);
+      if (contractKind === "policyPack") documents.policies.push(currentPolicyPack(parsed as PolicyPack | PolicyPackV1));
       if (contractKind === "providerManifest") {
-        providerArtifacts.push(...(parsed as { artifacts: { path: string; digest: string }[] }).artifacts);
+        const provider = parsed as ProviderManifest;
+        providerArtifacts.push(...provider.artifacts);
+        for (const problem of await approvalProblems(provider, root)) add(issues, "provider_approval", `contributions.${id}.documents.${document.path}`, problem);
       }
     } catch (error) {
       add(issues, "invalid_document", `contributions.${id}.documents.${document.path}`, messageFrom(error));
@@ -258,6 +280,20 @@ function finish(
 
 function add(issues: CatalogValidationIssue[], code: string, issuePath: string, message: string): void {
   issues.push({ code, path: issuePath, message });
+}
+
+/**
+ * A provider for an approval-gated engine, such as React Doctor, is embedded
+ * only when Web Doctor's recorded approval covers its exact engine release
+ * and its rule catalog matches the approved rule set.
+ */
+async function approvalProblems(provider: ProviderManifest, contributionRoot: string): Promise<string[]> {
+  if (!APPROVAL_GATED_ENGINES.includes(provider.engine)) return [];
+  const approved = approvedReleaseFor(provider, await loadProviderApproval(provider.engine));
+  if ("problem" in approved) return [approved.problem];
+  const catalog = provider.artifacts.find((artifact) => artifact.path.endsWith("rules.json"));
+  const bytes = catalog === undefined ? null : await fs.readFile(path.join(contributionRoot, ...catalog.path.split("/"))).catch(() => null);
+  return rulesetProblems(provider, approved.release, bytes);
 }
 
 function messageFrom(error: unknown): string {

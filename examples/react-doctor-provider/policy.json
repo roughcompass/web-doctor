@@ -1,0 +1,50 @@
+{
+  "schema": "web-doctor.policy-pack",
+  "schemaVersion": 2,
+  "id": "platform/react-quality",
+  "version": "1.0.0",
+  "owner": "Web Platform",
+  "layer": "platform",
+  "compatibility": { "webDoctor": ">=0.1.0" },
+  "controls": [
+    {
+      "id": "platform/react-quality/rules-of-hooks",
+      "title": "Hooks follow the rules of hooks",
+      "rationale": "Conditional or nested hook calls break React's state ordering.",
+      "strength": "required",
+      "applicability": { "capabilities": [{ "name": "react" }] },
+      "evidence": [{ "provider": "react-doctor", "rule": "rules-of-hooks", "kind": "static", "required": true }],
+      "remediation": "Call hooks unconditionally at the top level of components and custom hooks.",
+      "verification": [{ "kind": "react-doctor", "description": "Run React Doctor on the changed files." }]
+    },
+    {
+      "id": "platform/react-quality/stable-keys",
+      "title": "List keys are stable",
+      "rationale": "Index keys reorder state and DOM when lists change.",
+      "strength": "recommended",
+      "applicability": { "capabilities": [{ "name": "react" }] },
+      "evidence": [{ "provider": "react-doctor", "rule": "no-array-index-as-key", "kind": "static", "required": true }],
+      "remediation": "Key list items by a stable identifier from the data.",
+      "verification": [{ "kind": "react-doctor", "description": "Run React Doctor on the changed files." }]
+    },
+    {
+      "id": "platform/react-quality/nested-components",
+      "title": "Components are not defined inside other components",
+      "rationale": "A nested component definition remounts on every parent render.",
+      "strength": "recommended",
+      "applicability": { "capabilities": [{ "name": "react" }] },
+      "evidence": [{ "provider": "react-doctor", "rule": "no-unstable-nested-components", "kind": "static", "required": true }],
+      "remediation": "Move the component to module scope and pass what it needs as props.",
+      "verification": [{ "kind": "react-doctor", "description": "Run React Doctor on the changed files." }]
+    },
+    {
+      "id": "platform/react-quality/fast-refresh",
+      "title": "Component files export only components",
+      "rationale": "Mixed exports make Fast Refresh reload the page and lose state.",
+      "strength": "informational",
+      "applicability": { "capabilities": [{ "name": "react" }] },
+      "evidence": [{ "provider": "react-doctor", "rule": "only-export-components", "kind": "static", "required": true }],
+      "verification": [{ "kind": "react-doctor", "description": "Run React Doctor on the changed files." }]
+    }
+  ]
+}

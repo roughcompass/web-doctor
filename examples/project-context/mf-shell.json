@@ -1,0 +1,19 @@
+{
+  "example": "mf-shell",
+  "fixture": "federation-shell",
+  "description": "A Module Federation host that embeds a legacy frame: shared facts report the federation remotes, the frame, and the message listener; Web Doctor ties the frame and the listener to the component that owns them and names the shared facts it builds on. The frame markup inside a string is a decoy and produces nothing.",
+  "shared": [
+    { "category": "composition", "key": "iframe:http://127.0.0.1:9103", "state": "observed", "value": { "mechanism": "iframe", "src": { "kind": "literal", "value": "http://127.0.0.1:9103" } } },
+    { "category": "composition", "key": "module-federation:mfShell", "state": "observed", "value": { "mechanism": "module-federation", "exposes": [] } },
+    { "category": "runtime_integrations", "key": "postMessage:receive", "state": "observed" }
+  ],
+  "extensions": [
+    { "category": "web-doctor.components", "key": "src/App.tsx#LegacyFrame", "state": "inferred", "value": { "name": "LegacyFrame", "props": [], "props_certainty": "observed" } },
+    { "category": "web-doctor.source_relationships", "key": "iframe:src/App.tsx:9", "state": "observed", "value": { "kind": "iframe-host", "component": "src/App.tsx#LegacyFrame", "src": { "kind": "literal", "value": "http://127.0.0.1:9103" }, "shared_fact": "iframe:http://127.0.0.1:9103" } },
+    { "category": "web-doctor.source_relationships", "key": "message:receive:src/App.tsx:6", "state": "observed", "value": { "kind": "message-channel", "direction": "receive", "symbol": "src/App.tsx#LegacyFrame", "shared_fact": "postMessage:receive" } }
+  ],
+  "categories": {
+    "web-doctor.entry_points": "unknown",
+    "web-doctor.tests": "absent"
+  }
+}

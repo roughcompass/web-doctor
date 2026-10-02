@@ -1,0 +1,360 @@
+{
+  "acme-platform": {
+    "reader": {
+      "status": "complete",
+      "exclusions": []
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "pnpm"
+      ],
+      "frameworks": []
+    },
+    "index": {
+      "status": "complete",
+      "modules": 2,
+      "components": 0,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "legacy-portal": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "npm"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 5,
+      "components": 2,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "mf-admin": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "pnpm"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 6,
+      "components": 2,
+      "hooks": 1,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "mf-billing": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "egress_routes",
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "yarn"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 7,
+      "components": 1,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "mf-shell": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist",
+        "gitignored:packages/shell-bus/dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "npm"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 11,
+      "components": 3,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "spa-orders": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "egress_routes",
+        "served_origins",
+        "verification_commands"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "pnpm"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 5,
+      "components": 2,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "spa-reports": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "npm"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 6,
+      "components": 3,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  },
+  "spa-root": {
+    "reader": {
+      "status": "complete",
+      "exclusions": [
+        "dependency_directory:node_modules",
+        "gitignored:dist"
+      ]
+    },
+    "bundle": {
+      "status": "incomplete",
+      "incompleteCategories": [
+        "served_origins"
+      ],
+      "skippedInputs": [],
+      "packageManagers": [
+        "npm"
+      ],
+      "frameworks": [
+        "package.json#react"
+      ]
+    },
+    "index": {
+      "status": "complete",
+      "modules": 10,
+      "components": 1,
+      "hooks": 0,
+      "skipped": []
+    },
+    "policy": {
+      "status": "incomplete",
+      "factStatus": "complete",
+      "controls": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "firm/accessibility/button-name",
+        "platform/runtime/analytics-event",
+        "wealth/brand/approved-button"
+      ],
+      "unresolvedApplicability": [
+        "advisor/content/action-name",
+        "application/engineering/account-term",
+        "wealth/brand/approved-button"
+      ]
+    }
+  }
+}

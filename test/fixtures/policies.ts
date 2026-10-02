@@ -5,7 +5,7 @@ const focusedTest = [{ kind: "test", description: "Run the focused policy verifi
 
 export const firmwideAccessibilityPolicy = {
   schema: "web-doctor.policy-pack",
-  schemaVersion: 1,
+  schemaVersion: 2,
   id: "firm/accessibility",
   version: "1.0.0",
   owner: "Enterprise Accessibility",
@@ -31,7 +31,7 @@ export const firmwideAccessibilityPolicy = {
 
 export const wealthBrandPolicy = {
   schema: "web-doctor.policy-pack",
-  schemaVersion: 1,
+  schemaVersion: 2,
   id: "wealth/brand",
   version: "2.1.0",
   owner: "Wealth Design Platform",
@@ -58,7 +58,7 @@ export const wealthBrandPolicy = {
 
 export const advisorContentPolicy = {
   schema: "web-doctor.policy-pack",
-  schemaVersion: 1,
+  schemaVersion: 2,
   id: "advisor/content",
   version: "1.4.0",
   owner: "Advisor Experience",
@@ -83,7 +83,7 @@ export const advisorContentPolicy = {
 
 export const platformRuntimePolicy = {
   schema: "web-doctor.policy-pack",
-  schemaVersion: 1,
+  schemaVersion: 2,
   id: "platform/runtime",
   version: "3.0.0",
   owner: "Web Platform",
@@ -107,7 +107,7 @@ export const platformRuntimePolicy = {
 
 export const applicationEngineeringPolicy = {
   schema: "web-doctor.policy-pack",
-  schemaVersion: 1,
+  schemaVersion: 2,
   id: "application/engineering",
   version: "1.0.0",
   owner: "Application Team",

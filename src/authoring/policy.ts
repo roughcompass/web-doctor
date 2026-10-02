@@ -3,10 +3,12 @@ import path from "node:path";
 import semver from "semver";
 import {
   contributionFixtureSchema,
-  policyPackSchema,
   providerManifestSchema,
+  schemaFor,
   type ProviderManifest,
 } from "../contracts/index.js";
+import { builtinRules } from "eslint/use-at-your-own-risk";
+import { BUILTIN_ESLINT } from "../diagnostics/providers.js";
 import { WEB_DOCTOR_VERSION } from "../version.js";
 
 export interface PolicyValidationIssue {
@@ -72,7 +74,7 @@ function validatePolicyDocument(
   providers: ReadonlyMap<string, ProviderManifest>,
   issues: PolicyValidationIssue[],
 ): void {
-  const parsed = policyPackSchema.safeParse(input);
+  const parsed = schemaFor("policyPack", isRecord(input) && typeof input.schemaVersion === "number" ? input.schemaVersion : undefined).safeParse(input);
   if (!parsed.success) addSchemaIssues(parsed.error.issues, root, "schema", issues);
   if (!isRecord(input)) return;
 
@@ -94,6 +96,12 @@ function validatePolicyDocument(
       for (const [evidenceIndex, evidence] of value.evidence.entries()) {
         if (!isRecord(evidence) || typeof evidence.provider !== "string") continue;
         const evidencePath = `${controlPath}.evidence.${evidenceIndex}`;
+        // Manual evidence names a reviewer, not an executable provider.
+        if (evidence.kind === "manual") continue;
+        if (evidence.provider === BUILTIN_ESLINT && !providers.has(BUILTIN_ESLINT)) {
+          validateBuiltinEslint(evidence, evidencePath, providers, issues);
+          continue;
+        }
         const provider = providers.get(evidence.provider);
         if (provider === undefined) {
           add(issues, "provider_reference", `${evidencePath}.provider`, `Unknown provider ${evidence.provider}`);
@@ -142,6 +150,26 @@ function validateApplicability(input: unknown, root: string, issues: PolicyValid
       }
     }
   }
+}
+
+/**
+ * The built-in `eslint` provider runs ESLint's core rules as static evidence.
+ * A namespaced rule, such as `wealth-design/use-button`, belongs to the
+ * approved plugin with that namespace, which must be supplied.
+ */
+function validateBuiltinEslint(evidence: Record<string, unknown>, evidencePath: string, providers: ReadonlyMap<string, ProviderManifest>, issues: PolicyValidationIssue[]): void {
+  if (evidence.kind !== "static") add(issues, "provider_reference", `${evidencePath}.kind`, `ESLint rules produce static evidence, not ${String(evidence.kind)}`);
+  const rule = evidence.rule;
+  if (typeof rule !== "string") return;
+  const slash = rule.indexOf("/");
+  if (slash === -1) {
+    if (!builtinRules.has(rule)) add(issues, "provider_reference", `${evidencePath}.rule`, `ESLint has no core rule ${rule}`);
+    return;
+  }
+  const [namespace, name] = [rule.slice(0, slash), rule.slice(slash + 1)];
+  const plugin = providers.get(namespace);
+  if (plugin === undefined) add(issues, "provider_reference", `${evidencePath}.rule`, `Unknown ESLint plugin ${namespace}`);
+  else if (!plugin.rules.some((candidate) => candidate.id === name)) add(issues, "provider_reference", `${evidencePath}.rule`, `Provider ${plugin.id} does not declare rule ${name}`);
 }
 
 async function readProviders(paths: readonly string[], issues: PolicyValidationIssue[]): Promise<Map<string, ProviderManifest>> {

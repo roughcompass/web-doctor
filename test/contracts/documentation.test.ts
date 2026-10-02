@@ -16,6 +16,11 @@ const examples: readonly [ContractKind, string, string][] = [
   ["normalizedFinding", "web-doctor.finding", "finding.json"],
   ["guidanceEntry", "web-doctor.guidance-entry", "guidance-entry.json"],
   ["mcpResponse", "web-doctor.mcp-response", "mcp-response.json"],
+  ["repoFactsRelease", "web-doctor.repo-facts-release", "repo-facts-release.json"],
+  ["repositoryConfig", "web-doctor.repository-config", "repository-config.json"],
+  ["diagnosticsReport", "web-doctor.diagnostics-report", "diagnostics-report.json"],
+  ["profileEvidence", "web-doctor.profile-evidence", "profile-evidence.json"],
+  ["providerApproval", "web-doctor.provider-approval", "provider-approval.json"],
 ];
 
 describe("contract documentation", () => {

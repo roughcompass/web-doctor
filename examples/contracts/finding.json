@@ -1,30 +1,109 @@
 {
   "schema": "web-doctor.finding",
-  "schemaVersion": 1,
-  "id": "finding/button-name",
-  "provider": "axe",
-  "providerVersion": "4.13.0",
+  "schemaVersion": 2,
+  "id": "finding_bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "fingerprint": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "provider": {
+    "id": "axe",
+    "version": "4.13.0",
+    "engine": "axe-core",
+    "engineVersion": "4.13.0",
+    "contribution": "firm/axe-provider"
+  },
   "rule": "button-name",
   "evidenceKind": "rendered",
   "locations": [
     {
-      "path": "src/App.tsx",
-      "line": 12,
-      "column": 5
+      "kind": "rendered",
+      "url": "http://127.0.0.1:4173/orders",
+      "route": "/orders",
+      "state": "orders-loaded",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "target": [
+        "#toolbar > button:nth-child(2)"
+      ]
     }
   ],
   "severity": "error",
   "certainty": "observed",
   "classification": "defect",
-  "message": "Button has no accessible name.",
-  "controls": ["firm/accessibility/button-name"],
-  "remediation": ["Give the button an accessible name."],
-  "verification": [
+  "message": "Buttons must have discernible text",
+  "controls": [
+    "advisor/content/action-name",
+    "firm/accessibility/button-name"
+  ],
+  "obligations": [
     {
-      "kind": "axe",
-      "description": "Run axe against the rendered state."
+      "control": "advisor/content/action-name",
+      "title": "Advisor actions use specific names",
+      "strength": "required",
+      "layer": "portal",
+      "policy": "advisor/content",
+      "contribution": "advisor/content",
+      "remediation": "Use the approved Advisor action terminology.",
+      "verification": [
+        {
+          "kind": "test",
+          "description": "Run the focused policy verification."
+        }
+      ]
+    },
+    {
+      "control": "firm/accessibility/button-name",
+      "title": "Buttons have accessible names",
+      "strength": "required",
+      "layer": "firmwide",
+      "policy": "firm/accessibility",
+      "contribution": "firm/accessibility",
+      "remediation": "Provide a visible or programmatic accessible name.",
+      "verification": [
+        {
+          "kind": "axe",
+          "description": "Run axe against each rendered interaction state."
+        },
+        {
+          "kind": "manual",
+          "description": "Confirm the control name with a screen reader."
+        }
+      ]
     }
   ],
+  "remediation": [
+    "Use the approved Advisor action terminology.",
+    "Provide a visible or programmatic accessible name."
+  ],
+  "verification": [
+    {
+      "kind": "test",
+      "description": "Run the focused policy verification."
+    },
+    {
+      "kind": "axe",
+      "description": "Run axe against each rendered interaction state."
+    },
+    {
+      "kind": "manual",
+      "description": "Confirm the control name with a screen reader."
+    }
+  ],
+  "fix": {
+    "available": false,
+    "description": null,
+    "applied": false
+  },
+  "suppression": null,
+  "baseline": "introduced",
+  "original": {
+    "id": "button-name",
+    "impact": "critical",
+    "tags": [
+      "wcag2a",
+      "wcag412"
+    ]
+  },
   "completeness": "complete",
   "registryDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "policyDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"

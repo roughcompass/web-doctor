@@ -11,7 +11,10 @@ export interface InternalPackageFixture {
   version: string;
   files: Readonly<Record<string, string>>;
   scripts?: Readonly<Record<string, string>>;
+  dependencies?: Readonly<Record<string, string>>;
   commit?: string;
+  /** Publishes these exact bytes, such as a tarball `contribution pack` produced, instead of building one from files. */
+  tarball?: Buffer;
 }
 
 interface PreparedPackage extends InternalPackageFixture {
@@ -40,7 +43,7 @@ export async function startInternalRegistry(
   const cache = await fs.mkdtemp(path.join(os.tmpdir(), "web-doctor-registry-cache-"));
   const packages = new Map<string, PreparedPackage>();
   for (const fixture of fixtures) {
-    const tarball = await buildTarball(fixture);
+    const tarball = fixture.tarball ?? await buildTarball(fixture);
     packages.set(`${fixture.name}@${fixture.version}`, {
       ...fixture,
       tarball,
@@ -71,6 +74,8 @@ export async function startInternalRegistry(
       versions: Object.fromEntries(versions.map((fixture) => [fixture.version, {
         name: fixture.name,
         version: fixture.version,
+        gitHead: fixture.commit ?? "c".repeat(40),
+        repository: { type: "git", url: repositoryOf(fixture.name) },
         dist: {
           tarball: `http://127.0.0.1:${address.port}/tarballs/${tarballKey(fixture)}.tgz`,
           integrity: fixture.integrity,
@@ -99,7 +104,7 @@ export async function startInternalRegistry(
         version,
         integrity: fixture.integrity,
         provenance: {
-          repository: `ssh://git.internal/${name.replace(/^@/, "").replace("/", "/")}.git`,
+          repository: repositoryOf(name),
           commit: fixture.commit ?? "c".repeat(40),
         },
       };
@@ -111,9 +116,13 @@ export async function startInternalRegistry(
   };
 }
 
+function repositoryOf(name: string): string {
+  return `ssh://git.internal/${name.replace(/^@/, "")}.git`;
+}
+
 async function buildTarball(fixture: InternalPackageFixture): Promise<Buffer> {
   const archive = pack();
-  const packageJson = JSON.stringify({ name: fixture.name, version: fixture.version, scripts: fixture.scripts ?? {} });
+  const packageJson = JSON.stringify({ name: fixture.name, version: fixture.version, scripts: fixture.scripts ?? {}, ...(fixture.dependencies === undefined ? {} : { dependencies: fixture.dependencies }) });
   archive.entry({ name: "package/package.json" }, packageJson);
   for (const [name, content] of Object.entries(fixture.files)) archive.entry({ name: `package/${name}` }, content);
   archive.finalize();

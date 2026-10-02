@@ -1,0 +1,19 @@
+{
+  "example": "spa-orders",
+  "fixture": null,
+  "source": "The spa-orders lifecycles input from repo-facts packages/architecture/test/architecture.test.ts at the pinned release commit; repo-facts publishes no spa-orders golden document",
+  "files": {
+    "src/lifecycles.tsx": "import singleSpaReact from \"single-spa-react\";\nimport { Orders } from \"./Orders\";\nconst lifecycles = singleSpaReact({ rootComponent: Orders });\nexport const { bootstrap, mount, unmount } = lifecycles;\n"
+  },
+  "description": "A single-spa application: the shared release infers the application role from its lifecycles; Web Doctor adds the lifecycle entry point and keeps the root component unresolved because ./Orders is not in the tree.",
+  "shared": [
+    { "category": "composition", "key": "single-spa:application", "state": "inferred", "value": { "mechanism": "single-spa", "role": "application" } }
+  ],
+  "extensions": [
+    { "category": "web-doctor.entry_points", "key": "single-spa:src/lifecycles.tsx", "state": "observed", "value": { "kind": "single-spa-lifecycles", "package": "single-spa-react", "root_component": { "name": "Orders", "symbol": null, "module": "./Orders" }, "lifecycles": ["bootstrap", "mount", "unmount"] } }
+  ],
+  "categories": {
+    "web-doctor.entry_points": "observed",
+    "web-doctor.routes": "unknown"
+  }
+}

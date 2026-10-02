@@ -1,0 +1,241 @@
+{
+  "schema": "web-doctor.mcp-response",
+  "schemaVersion": 2,
+  "requestId": "req_0b5a70573f528a2c46b2b0f7e6d486e03ec8fc655938d95d35ac7a3b4a448f26",
+  "tool": "plan_verification",
+  "complete": false,
+  "truncated": false,
+  "provenance": {
+    "webDoctor": {
+      "version": "0.1.0",
+      "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "registryDigest": "262558f4290b04a4c98198f0e97dd5a2fb252b366aaec8f3b05c7917f4c45f59",
+      "catalogCommit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "catalogDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    "repoFacts": {
+      "status": "complete",
+      "reason": null,
+      "release": "0.1.0",
+      "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+      "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+      "factDocumentDigest": "ca84de8da9b604b853a67716270e09d7b1c2b1a9d7e1524e937809097c102a4c",
+      "incompleteCategories": [
+        "served_origins"
+      ]
+    },
+    "extensions": {
+      "release": "web-doctor-extensions/0.1.0",
+      "stateDigest": "240e02ea9505c235c4e31ce0754370a85c42d26de81327d9d078baceb0b24ae7",
+      "indexDigest": "ee64a0668759219f37609cf6a30cf2ecbbc78d144ca44188491a93027c335eed",
+      "incompleteCategories": []
+    },
+    "project": {
+      "root": "/work/orders",
+      "snapshotDigest": "5258257850eaeb97265ef2d78af2ee7985d48ff1990d981ab77af51f41262ad0",
+      "treeDigest": "de9ad457b19730210d387d34d2b0207f522beae6db769d95cddad6a3b0cf63ef"
+    },
+    "policy": {
+      "digest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+      "portals": [
+        "wealth"
+      ]
+    }
+  },
+  "update": {
+    "status": "unknown",
+    "installedVersion": "0.1.0",
+    "availableVersion": null,
+    "installationMode": "unknown",
+    "command": null,
+    "reason": "Enterprise package distribution is not configured"
+  },
+  "evidence": [],
+  "warnings": [],
+  "data": {
+    "items": [
+      {
+        "type": "static",
+        "controls": [
+          "firm/ux/no-blocking-dialogs",
+          "wealth/design/dialog"
+        ],
+        "evidenceKind": "static",
+        "provider": "eslint",
+        "rule": "no-alert",
+        "required": true,
+        "description": "Run eslint no-alert",
+        "command": "web-doctor check --files src/SaveButton.tsx",
+        "targets": [
+          "src/SaveButton.tsx"
+        ],
+        "status": "failed",
+        "reason": "The last run reported findings for this evidence",
+        "evidence": [],
+        "id": "verify_e772428d293597d7d8894bac27f13665a9f9a79549b69f4855b20d9f69715389"
+      },
+      {
+        "type": "component-test",
+        "controls": [
+          "wealth/design/dialog"
+        ],
+        "evidenceKind": null,
+        "provider": null,
+        "rule": null,
+        "required": false,
+        "description": "Run the component tests for the changed components.",
+        "command": "npm run test",
+        "targets": [
+          "src/SaveButton.test.tsx"
+        ],
+        "status": "remaining",
+        "reason": "Web Doctor names tests but does not run them",
+        "evidence": [
+          {
+            "source": "extension",
+            "category": "web-doctor.tests",
+            "key": "src/SaveButton.test.tsx",
+            "state": "inferred",
+            "value": {
+              "path": "src/SaveButton.test.tsx",
+              "frameworks": [
+                "vitest"
+              ],
+              "imports_framework": "vitest",
+              "subjects": [
+                "src/SaveButton.tsx"
+              ],
+              "symbols": [
+                "src/SaveButton.tsx#SaveButton"
+              ],
+              "commands": [
+                "package.json#scripts/test"
+              ]
+            },
+            "rule": "web-doctor.test-file",
+            "reasoning": "The file uses the .test suffix that test runners collect, and it imports vitest",
+            "evidence": [
+              {
+                "id": "ev_3f114ad3d1dfd01098af8944",
+                "path": "src/SaveButton.test.tsx",
+                "lines": null,
+                "pointer": null,
+                "rule": "web-doctor.test-file",
+                "detector": "web-doctor.tests"
+              }
+            ],
+            "candidates": null
+          },
+          {
+            "source": "shared",
+            "category": "verification_commands",
+            "key": "package.json#scripts/test",
+            "state": "observed",
+            "value": {
+              "command": "vitest run",
+              "context": {
+                "script": "test",
+                "via": []
+              },
+              "kinds": [
+                "test"
+              ],
+              "source": "package.json"
+            },
+            "rule": "manifest.verification-script",
+            "reasoning": null,
+            "evidence": [
+              {
+                "id": "ev_3e540f90f80441c8be00c9fb",
+                "path": "package.json",
+                "lines": null,
+                "pointer": "/scripts/test",
+                "rule": "manifest.verification-script",
+                "detector": "ci"
+              }
+            ],
+            "candidates": null
+          }
+        ],
+        "id": "verify_07187b870f9e9424b788074988b3127b7f2393b4cd50dfee918ad5ee254ed4bd"
+      },
+      {
+        "type": "manual",
+        "controls": [
+          "wealth/design/dialog"
+        ],
+        "evidenceKind": "manual",
+        "provider": "design-review",
+        "rule": null,
+        "required": true,
+        "description": "Review by design-review",
+        "command": null,
+        "targets": [
+          "src/SaveButton.tsx"
+        ],
+        "status": "remaining",
+        "reason": "Manual review cannot be satisfied by automated checks or tests",
+        "evidence": [],
+        "id": "verify_f01dcfa0bf8fd9aee78bd786b9e5ec6b8a7aaca888cb56267e5d501421dc54a5"
+      },
+      {
+        "type": "manual",
+        "controls": [
+          "wealth/design/dialog"
+        ],
+        "evidenceKind": "manual",
+        "provider": null,
+        "rule": null,
+        "required": false,
+        "description": "Open and close the dialog with the keyboard only.",
+        "command": null,
+        "targets": [
+          "src/SaveButton.tsx"
+        ],
+        "status": "remaining",
+        "reason": "Manual review cannot be satisfied by automated checks or tests",
+        "evidence": [],
+        "id": "verify_94ec5790ae19b7c925e8988d02933ee98ac438f7bc6546442a91718cfe87c29c"
+      }
+    ],
+    "controls": [
+      {
+        "control": "firm/ux/no-blocking-dialogs",
+        "title": "Pages do not block with browser dialogs",
+        "strength": "required",
+        "layer": "firmwide",
+        "requires": [
+          "static"
+        ],
+        "satisfied": [],
+        "status": "failed",
+        "remaining": [
+          "verify_e772428d293597d7d8894bac27f13665a9f9a79549b69f4855b20d9f69715389"
+        ]
+      },
+      {
+        "control": "wealth/design/dialog",
+        "title": "Wealth pages use the approved dialog",
+        "strength": "required",
+        "layer": "portal",
+        "requires": [
+          "manual",
+          "static"
+        ],
+        "satisfied": [],
+        "status": "failed",
+        "remaining": [
+          "verify_f01dcfa0bf8fd9aee78bd786b9e5ec6b8a7aaca888cb56267e5d501421dc54a5",
+          "verify_e772428d293597d7d8894bac27f13665a9f9a79549b69f4855b20d9f69715389",
+          "verify_94ec5790ae19b7c925e8988d02933ee98ac438f7bc6546442a91718cfe87c29c",
+          "verify_07187b870f9e9424b788074988b3127b7f2393b4cd50dfee918ad5ee254ed4bd"
+        ]
+      }
+    ],
+    "complete": false,
+    "statement": "2 of 2 Controls still need evidence, including manual review for 1; passing automated checks does not establish conformance",
+    "policyDigest": "82e8adf002fde394b739c6077f2f04cae305409fb6d5dc9dccc68917dc44d93d",
+    "reportDigest": "38c1e4d17a1497a83ea25295c7fa092cd5b02f18164acf210d626b698f58b832",
+    "modifiesProject": false
+  }
+}

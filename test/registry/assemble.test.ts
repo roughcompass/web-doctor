@@ -84,7 +84,7 @@ function contributionManifest(): Contribution {
 function policy(): PolicyPack {
   return {
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id: "firm/registered",
     version: "1.0.0",
     owner: "Enterprise Accessibility",
@@ -105,7 +105,7 @@ function policy(): PolicyPack {
 function registrySnapshot(manifest: ReturnType<typeof contributionManifest>): RegistrySnapshot {
   return {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "c".repeat(40),
     catalogCommit: "d".repeat(40),

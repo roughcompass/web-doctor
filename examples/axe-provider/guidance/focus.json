@@ -1,0 +1,22 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "accessibility/runtime/focus",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "applicability": {},
+  "evidencePrerequisites": [
+    "rendered"
+  ],
+  "classification": "manual_review",
+  "explanation": "Keep focus visible and in a logical order, and move focus deliberately when content opens, closes, or changes route.",
+  "alternatives": [],
+  "tradeoffs": [],
+  "verification": [
+    {
+      "kind": "focus",
+      "description": "Confirm a visible focus indicator on every stop and that focus lands on new content or returns to its trigger."
+    }
+  ],
+  "controls": []
+}

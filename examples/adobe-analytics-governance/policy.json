@@ -1,6 +1,6 @@
 {
   "schema": "web-doctor.policy-pack",
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "platform/adobe-analytics",
   "version": "1.0.0",
   "owner": "Digital Analytics Platform",

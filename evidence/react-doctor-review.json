@@ -1,0 +1,33 @@
+{
+  "schema": "web-doctor.react-doctor-review",
+  "schemaVersion": 1,
+  "reactDoctorVersion": "0.9.14",
+  "reviewedOn": "2026-09-30",
+  "method": "Each finding from evidence/react-doctor-evaluation.json was read against its source and classified. A false positive claims a defect the code does not have.",
+  "findings": [
+    {
+      "app": "mf-admin",
+      "path": "src/Admin.tsx",
+      "line": 39,
+      "rule": "rerender-lazy-state-init",
+      "verdict": "true_positive",
+      "rationale": "useState(shell.getTheme()) evaluates getTheme() on every render and discards the result after the first; useState(() => shell.getTheme()) avoids it. The cost is small because getTheme reads shared state."
+    },
+    {
+      "app": "mf-shell",
+      "path": "src/App.tsx",
+      "line": 54,
+      "rule": "iframe-missing-sandbox",
+      "verdict": "needs_context",
+      "rationale": "The iframe hosts the cross-origin legacy servicing portal, so the same-origin policy already prevents the full access the message claims. A sandbox attribute is still a valid hardening step, but it must be checked against the legacy bridge's postMessage use before it is added."
+    },
+    {
+      "app": "spa-orders",
+      "path": "src/Orders.tsx",
+      "line": 15,
+      "rule": "only-export-components",
+      "verdict": "true_positive",
+      "rationale": "The Vite application exports trackOrderSelected, a non-component function, from a component file, so Fast Refresh reloads the module and loses component state."
+    }
+  ]
+}

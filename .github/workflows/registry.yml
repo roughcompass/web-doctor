@@ -21,6 +21,8 @@ jobs:
           node-version: 24.14.0
           cache: npm
       - run: npm ci --ignore-scripts
+        env:
+          REPO_FACTS_NPM_REGISTRY: ${{ vars.REPO_FACTS_NPM_REGISTRY }}
       - run: npm run registry:check
       - run: npm run registry:pr
         env:

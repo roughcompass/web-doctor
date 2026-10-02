@@ -61,7 +61,7 @@ function policy(
 ): PolicyPack {
   return {
     schema: "web-doctor.policy-pack",
-    schemaVersion: 1,
+    schemaVersion: 2,
     id,
     version: "1.0.0",
     owner: `${id} owner`,
@@ -83,7 +83,7 @@ function policy(
 function snapshot(policies: PolicyPack[]): RegistrySnapshot {
   return {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "a".repeat(40),
     catalogCommit: "b".repeat(40),

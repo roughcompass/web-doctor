@@ -57,3 +57,20 @@ describe("bounded applicability", () => {
     expect(result.reasons).toContainEqual(expect.objectContaining({ predicate, status: "unresolved" }));
   });
 });
+describe("established absence and declared ranges", () => {
+  it("treats an established absence as no-match and an unknown name as unresolved", () => {
+    const control = { capabilities: [{ name: "react" }] };
+    expect(evaluateApplicability(control, { capabilities: { react: false } }).status).toBe("no-match");
+    expect(evaluateApplicability(control, { capabilities: {} }).status).toBe("unresolved");
+    expect(evaluateApplicability({ dependencies: [{ name: "react", range: "^18.0.0" }] }, { dependencies: { react: false } }).status).toBe("no-match");
+  });
+
+  it.each([
+    [">=20.0.0 <21.0.0-0", ">=18", "match"],
+    [">=16.0.0 <17.0.0-0", ">=18", "no-match"],
+    [">=16.0.0", ">=18", "unresolved"],
+    ["^18.2.0", "^18.0.0", "match"],
+  ] as const)("compares a declared range %s with %s as %s", (declared, required, expected) => {
+    expect(evaluateApplicability({ runtimes: [{ name: "node", range: required }] }, { runtimes: { node: declared } }).status).toBe(expected);
+  });
+});

@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -25,11 +26,18 @@ export interface RegistryReleaseArtifacts {
   files: string[];
 }
 
+/**
+ * Builds the lock and embedded registry from the catalog. Everything is
+ * staged and validated first; the committed lock and generated tree change
+ * only after the whole build succeeds, each by an atomic rename, so a
+ * rejected contribution never leaves a partial or unvalidated release behind.
+ */
 export async function buildRegistryReleaseArtifacts(
   options: RegistryReleaseOptions,
 ): Promise<RegistryReleaseArtifacts> {
   const workspace = await fs.mkdtemp(path.join(os.tmpdir(), "web-doctor-release-build-"));
   const contributionsRoot = path.join(workspace, "contributions");
+  const stagedLock = path.join(workspace, "registry.lock.json");
   try {
     const catalog = parseContract(
       "catalog",
@@ -37,11 +45,11 @@ export async function buildRegistryReleaseArtifacts(
     ) as Catalog;
     const metadata = await materializeCatalogContributions(catalog, contributionsRoot, options.resolver);
     const lock = generateContributionLock(catalog, metadata);
-    await writeContributionLock(options.lockPath, lock);
+    await writeContributionLock(stagedLock, lock);
     const report = await validateRegistryFiles({
       catalogPath: options.catalogPath,
       ownershipPath: options.ownershipPath,
-      lockPath: options.lockPath,
+      lockPath: stagedLock,
       contributionsRoot,
     });
     if (!report.valid) {
@@ -55,11 +63,43 @@ export async function buildRegistryReleaseArtifacts(
       webDoctorCommit: options.webDoctorCommit,
       catalogCommit: options.catalogCommit,
     });
-    const assembly = await assembleEmbeddedRegistry(compiled.snapshot, contributionsRoot, options.generatedRoot);
-    return { registryDigest: compiled.digest, files: assembly.files };
+    // Stage beside the targets so each commit is a same-filesystem rename.
+    const suffix = `.staging-${crypto.randomUUID()}`;
+    const stagedRoot = `${options.generatedRoot}${suffix}`;
+    try {
+      const assembly = await assembleEmbeddedRegistry(compiled.snapshot, contributionsRoot, stagedRoot);
+      await fs.mkdir(path.dirname(options.lockPath), { recursive: true });
+      await fs.copyFile(stagedLock, `${options.lockPath}${suffix}`);
+      await replaceDirectory(stagedRoot, options.generatedRoot);
+      await fs.rename(`${options.lockPath}${suffix}`, options.lockPath);
+      return { registryDigest: compiled.digest, files: assembly.files };
+    } finally {
+      await fs.rm(stagedRoot, { recursive: true, force: true });
+      await fs.rm(`${options.lockPath}${suffix}`, { force: true });
+    }
   } finally {
     await fs.rm(workspace, { recursive: true, force: true });
   }
+}
+
+/** Swaps a staged directory into place, keeping the previous one until the swap succeeds. */
+async function replaceDirectory(staged: string, target: string): Promise<void> {
+  const previous = `${target}.previous-${crypto.randomUUID()}`;
+  let moved = false;
+  try {
+    await fs.rename(target, previous);
+    moved = true;
+  } catch (error) {
+    if (!isMissing(error)) throw error;
+  }
+  try {
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.rename(staged, target);
+  } catch (error) {
+    if (moved) await fs.rename(previous, target);
+    throw error;
+  }
+  if (moved) await fs.rm(previous, { recursive: true, force: true });
 }
 
 export async function verifyRegistryReleaseArtifacts(

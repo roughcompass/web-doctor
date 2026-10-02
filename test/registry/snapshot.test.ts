@@ -79,7 +79,7 @@ async function buildFixture() {
     await fs.writeFile(path.join(root, "fixture.json"), "{}", "utf8");
     await fs.writeFile(path.join(root, "policy.json"), JSON.stringify({
       schema: "web-doctor.policy-pack",
-      schemaVersion: 1,
+      schemaVersion: 2,
       id: catalogEntry.id,
       version: "1.0.0",
       owner: manifest.owner,

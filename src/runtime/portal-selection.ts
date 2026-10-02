@@ -34,7 +34,9 @@ export function resolvePortalSelection(input: PortalSelectionInput): PortalSelec
   const selectedKey = selected.portals.join("\0");
   const conflicting = sources.filter((source) => source.portals.join("\0") !== selectedKey);
   if (conflicting.length > 0) {
-    const details = sources.map((source) => `${source.source}=[${source.portals.join(", ")}]`).join("; ");
+    // Command-line and MCP arguments are both explicit selections; naming them alike keeps the
+    // message, and any policy digest that records it, the same from either surface.
+    const details = sources.map((source) => `${source.source === "cli" || source.source === "mcp" ? "explicit" : source.source}=[${source.portals.join(", ")}]`).join("; ");
     return {
       status: "conflict",
       portals: [],

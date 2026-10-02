@@ -4,7 +4,6 @@ import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import { canonicalJson, digestDocument, type RegistrySnapshot } from "../../src/contracts/index.js";
 import { runCli } from "../../src/cli-app.js";
-import { createWebDoctorServer } from "../../src/mcp.js";
 import { loadBuildProvenance } from "../../src/runtime/provenance.js";
 
 const temporaryDirectories: string[] = [];
@@ -14,7 +13,7 @@ afterEach(async () => {
 });
 
 describe("build provenance", () => {
-  it("returns exact build inputs through CLI and the shared MCP server core", async () => {
+  it("returns exact build inputs through the CLI", async () => {
     const directory = await fs.mkdtemp(path.join(os.tmpdir(), "web-doctor-provenance-"));
     temporaryDirectories.push(directory);
     const snapshotPath = path.join(directory, "snapshot.json");
@@ -23,7 +22,6 @@ describe("build provenance", () => {
 
     const provenance = await loadBuildProvenance({ snapshotPath });
     const result = await invoke(["provenance", "--snapshot", snapshotPath, "--json"]);
-    const server = createWebDoctorServer(provenance);
 
     expect(result.exitCode).toBe(0);
     expect(JSON.parse(result.stdout)).toEqual(provenance);
@@ -40,14 +38,13 @@ describe("build provenance", () => {
         commit: "e".repeat(40),
       }],
     });
-    expect(server).toBeDefined();
   });
 });
 
 function buildSnapshot(): RegistrySnapshot {
   return {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "c".repeat(40),
     catalogCommit: "d".repeat(40),

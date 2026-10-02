@@ -1,0 +1,22 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "accessibility/runtime/zoom",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "applicability": {},
+  "evidencePrerequisites": [
+    "rendered"
+  ],
+  "classification": "manual_review",
+  "explanation": "Content must remain usable at 200 percent zoom and reflow at a 320 CSS pixel width without loss of content or function.",
+  "alternatives": [],
+  "tradeoffs": [],
+  "verification": [
+    {
+      "kind": "zoom",
+      "description": "Zoom to 200 percent and narrow the viewport to 320 CSS pixels; confirm nothing is clipped, overlapped, or lost."
+    }
+  ],
+  "controls": []
+}

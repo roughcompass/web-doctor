@@ -1,0 +1,25 @@
+{
+  "schema": "web-doctor.repository-config",
+  "schemaVersion": 1,
+  "portals": [
+    "wealth",
+    "advisor"
+  ],
+  "applicationMetadata": {
+    "managed": true
+  },
+  "protectedDirectories": [
+    "fixtures-private"
+  ],
+  "exceptions": [
+    {
+      "controlId": "firm/accessibility/button-name",
+      "exceptionId": "exception/legacy-button",
+      "authorization": "accessibility-review"
+    }
+  ],
+  "ci": {
+    "gate": "required",
+    "requirePortal": true
+  }
+}

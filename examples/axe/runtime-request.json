@@ -1,0 +1,22 @@
+{
+  "authorized": true,
+  "timeoutMs": 10000,
+  "targets": [
+    {
+      "url": "{origin}/stateful",
+      "route": "/orders",
+      "state": "menu-open",
+      "viewport": { "width": 1280, "height": 800 },
+      "steps": [
+        { "action": "click", "selector": "#open" },
+        { "action": "waitFor", "selector": "#menu button" }
+      ]
+    },
+    {
+      "url": "{origin}/account",
+      "route": "/account",
+      "state": "signed-in",
+      "storageState": "{storageState}"
+    }
+  ]
+}

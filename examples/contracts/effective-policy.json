@@ -1,12 +1,22 @@
 {
   "schema": "web-doctor.effective-policy",
-  "schemaVersion": 1,
+  "schemaVersion": 3,
   "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "webDoctorVersion": "0.1.0",
   "registryDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "resolverVersion": "0.1.0",
-  "portals": ["wealth"],
+  "portals": [
+    "wealth"
+  ],
   "capabilities": {
     "react": "observed"
+  },
+  "facts": {
+    "status": "complete",
+    "detectorRelease": "0.1.0",
+    "configurationDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "factDocumentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "extensionStateDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   },
   "contributions": [],
   "controls": [],

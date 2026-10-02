@@ -3,6 +3,7 @@ import path from "node:path";
 import {
   digestDocument,
   parseContract,
+  parsePolicyPack,
   registrySnapshotSchema,
   type Catalog,
   type Contribution,
@@ -12,6 +13,7 @@ import {
   type ProviderManifest,
   type RegistrySnapshot,
 } from "../contracts/index.js";
+import { assertValidGuidance } from "../guidance/validation.js";
 
 export interface RegistrySnapshotCompilerOptions {
   catalog: Catalog;
@@ -51,15 +53,16 @@ export async function compileRegistrySnapshot(
 
     for (const document of manifest.documents) {
       const input = JSON.parse(await fs.readFile(path.join(root, ...document.path.split("/")), "utf8")) as unknown;
-      if (document.kind === "policy") policies.push(parseContract("policyPack", input) as PolicyPack);
+      if (document.kind === "policy") policies.push(parsePolicyPack(input));
       else if (document.kind === "provider") providers.push(parseContract("providerManifest", input) as ProviderManifest);
       else guidance.push(parseContract("guidanceEntry", input) as GuidanceEntry);
     }
   }
 
+  assertValidGuidance({ guidance, policies });
   const snapshot = registrySnapshotSchema.parse({
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: options.webDoctorVersion,
     webDoctorCommit: options.webDoctorCommit,
     catalogCommit: options.catalogCommit,

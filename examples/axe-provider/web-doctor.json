@@ -1,0 +1,64 @@
+{
+  "schema": "web-doctor.contribution",
+  "schemaVersion": 1,
+  "id": "firm/axe-provider",
+  "type": "provider",
+  "owner": "Enterprise Accessibility",
+  "compatibility": {
+    "webDoctor": ">=0.1.0"
+  },
+  "portals": [],
+  "layers": [
+    "firmwide"
+  ],
+  "documents": [
+    {
+      "kind": "provider",
+      "path": "provider.json"
+    },
+    {
+      "kind": "policy",
+      "path": "policy.json"
+    },
+    {
+      "kind": "guidance",
+      "path": "guidance/keyboard.json"
+    },
+    {
+      "kind": "guidance",
+      "path": "guidance/focus.json"
+    },
+    {
+      "kind": "guidance",
+      "path": "guidance/screen-reader.json"
+    },
+    {
+      "kind": "guidance",
+      "path": "guidance/zoom.json"
+    },
+    {
+      "kind": "guidance",
+      "path": "guidance/motion.json"
+    },
+    {
+      "kind": "guidance",
+      "path": "guidance/untested-states.json"
+    }
+  ],
+  "runtimeArtifacts": [
+    {
+      "path": "ruleset.json",
+      "digest": "5d7ccaa0865f9452b91bdd67b4778c8f07effd59263ddd1d2106555d9ffcd052"
+    }
+  ],
+  "dependencies": [],
+  "fixtures": [
+    "fixtures/provider-accept.json",
+    "fixtures/policy-accept.json",
+    "fixtures/guidance-accept.json"
+  ],
+  "provenance": {
+    "repository": "ssh://git.internal/accessibility/axe-provider.git",
+    "commit": "4444444444444444444444444444444444444444"
+  }
+}

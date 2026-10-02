@@ -1,0 +1,21 @@
+{
+  "schema": "web-doctor.profile-evidence",
+  "schemaVersion": 1,
+  "interaction": "Select an order row",
+  "source": "React Developer Tools Profiler export",
+  "commitBudgetMs": 16,
+  "components": [
+    {
+      "component": "src/orders/OrderRow.tsx#OrderRow",
+      "commits": 42,
+      "actualDurationMs": 510,
+      "maxCommitMs": 24
+    },
+    {
+      "component": "OrderList",
+      "commits": 42,
+      "actualDurationMs": 96,
+      "maxCommitMs": 5
+    }
+  ]
+}

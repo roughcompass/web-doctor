@@ -1,24 +1,46 @@
+import path from "node:path";
 import process from "node:process";
 import { validatePolicyAuthoring } from "./authoring/policy.js";
 import { validateProviderAuthoring } from "./authoring/provider.js";
 import { packContribution } from "./authoring/contribution-package.js";
 import { prepareCatalogProposal } from "./authoring/catalog-proposal.js";
 import { validateRegistryFiles } from "./registry/command.js";
+import { runAgent } from "./cli/agents.js";
+import { runCheck, runExplain, runPlan, runUpdate } from "./cli/commands.js";
+import { CliUsageError, parseOptions, single } from "./cli/options.js";
+import { budgetOf, runContextCommand, runPolicyEffective, updateConfiguration, type CliContext, type CliIo } from "./cli/product.js";
 import { runWebDoctorStdioServer } from "./mcp.js";
 import { loadBuildProvenance } from "./runtime/provenance.js";
 import { WEB_DOCTOR_VERSION } from "./version.js";
 
-export interface CliIo {
-  stdout: (text: string) => void;
-  stderr: (text: string) => void;
-}
+export type { CliContext, CliIo } from "./cli/product.js";
 
 const HELP = `Web Doctor ${WEB_DOCTOR_VERSION}
 
 Usage: web-doctor <command>
 
 Commands:
-  mcp                 Run the local MCP server over stdio
+  context [topic]     Project context: overview, symbol, usages, data-path,
+                      boundaries, tests, services, or commands
+  policy effective    Resolve effective policy (--portal, --file, --ci)
+  check               Run applicable diagnostics (--changed <base>,
+                      --changed-lines <base>, --file, --runtime <request>,
+                      --baseline <report>, --gate, --ci); exits with the gate
+  explain finding|control <id>
+                      Explain a finding or Control (--report <report>)
+  plan upgrade [package] <target>
+                      Plan an ordered, verifiable upgrade (default react)
+  plan verification   Plan verification (--file, --control, --report,
+                      --profile <file> --measured-by <provider>)
+  update status       Report whether a newer approved package is available
+  update              Activate the approved release (managed installs) or
+                      print the exact upgrade command
+  update rollback     Reactivate the previous managed version
+  mcp                 Run the local MCP server over stdio (--portal, --root,
+                      --allow-runtime)
+  agent install|uninstall --client <claude-code|cursor|vscode>
+                      Register the MCP server with an agent client and add
+                      a short instruction (--portal, --allow-runtime)
   registry validate   Validate catalog, ownership, lock, and extracted contributions
   policy validate     Validate a policy pack, providers, and Control fixtures
   provider validate   Validate an ESLint provider contribution and fixtures
@@ -29,12 +51,21 @@ Commands:
   help                Show this help
 `;
 
-export async function runCli(args: readonly string[], io: CliIo = processIo()): Promise<number> {
+export async function runCli(args: readonly string[], io: CliIo = processIo(), context: CliContext = processContext()): Promise<number> {
   const [command, subcommand, ...rest] = args;
 
-  if (command === "mcp") {
-    await runWebDoctorStdioServer();
-    return 0;
+  try {
+    if (command === "context") return await runContextCommand(args.slice(1), io, context);
+    if (command === "policy" && subcommand === "effective") return await runPolicyEffective(rest, io, context);
+    if (command === "mcp") return await runMcp(args.slice(1), context);
+    if (command === "check") return await runCheck(args.slice(1), io, context);
+    if (command === "explain") return await runExplain(args.slice(1), io, context);
+    if (command === "plan") return await runPlan(args.slice(1), io, context);
+    if (command === "update") return await runUpdate(args.slice(1), io, context);
+    if (command === "agent") return await runAgent(args.slice(1), io, context);
+  } catch (error) {
+    io.stderr(`${error instanceof CliUsageError ? "Usage error" : "Web Doctor failed"}: ${messageFrom(error)}\n`);
+    return error instanceof CliUsageError ? 64 : 1;
   }
   if (command === "registry" && subcommand === "validate") {
     return runRegistryValidate(rest, io);
@@ -52,7 +83,7 @@ export async function runCli(args: readonly string[], io: CliIo = processIo()): 
     return runContributionProposal(rest, io);
   }
   if (command === "provenance") {
-    return runProvenance([subcommand, ...rest].filter((value): value is string => value !== undefined), io);
+    return runProvenance([subcommand, ...rest].filter((value): value is string => value !== undefined), io, context.env);
   }
   if (command === "version" || command === "--version" || command === "-v") {
     io.stdout(`${WEB_DOCTOR_VERSION}\n`);
@@ -206,7 +237,7 @@ async function runPolicyValidate(args: readonly string[], io: CliIo): Promise<nu
   }
 }
 
-async function runProvenance(args: readonly string[], io: CliIo): Promise<number> {
+async function runProvenance(args: readonly string[], io: CliIo, env: CliContext["env"]): Promise<number> {
   try {
     let snapshotPath: string | undefined;
     let json = false;
@@ -224,6 +255,8 @@ async function runProvenance(args: readonly string[], io: CliIo): Promise<number
       }
       throw new Error(`Unexpected argument ${argument}`);
     }
+    // Like every other command, an explicit registry root in the environment names the embedded snapshot.
+    snapshotPath ??= env.WEB_DOCTOR_REGISTRY_ROOT === undefined || env.WEB_DOCTOR_REGISTRY_ROOT === "" ? undefined : path.join(env.WEB_DOCTOR_REGISTRY_ROOT, "snapshot.json");
     const provenance = await loadBuildProvenance(snapshotPath === undefined ? {} : { snapshotPath });
     if (json) io.stdout(`${JSON.stringify(provenance, null, 2)}\n`);
     else {
@@ -286,6 +319,28 @@ function parseRegistryArguments(args: readonly string[]) {
     contributionsRoot: values.get("contributions") ?? "tmp/contributions",
     json,
   };
+}
+
+async function runMcp(args: readonly string[], context: CliContext): Promise<number> {
+  const parsed = parseOptions(args, { values: ["--root", "--registry"], repeatable: ["--portal"], flags: ["--allow-runtime"] });
+  if (parsed.positionals.length > 0) throw new CliUsageError(`Unexpected argument ${parsed.positionals[0]}`);
+  const root = single(parsed, "root");
+  const registryRoot = single(parsed, "registry") ?? context.env.WEB_DOCTOR_REGISTRY_ROOT;
+  const portals = parsed.values.get("portal");
+  await runWebDoctorStdioServer({
+    cwd: context.cwd,
+    allowRuntime: parsed.flags.has("allow-runtime"),
+    update: updateConfiguration(context.env),
+    ...budgetOf(context.env),
+    ...(root === undefined ? {} : { root }),
+    ...(registryRoot === undefined ? {} : { registryRoot }),
+    ...(portals === undefined ? {} : { portals }),
+  });
+  return 0;
+}
+
+function processContext(): CliContext {
+  return { cwd: process.cwd(), env: process.env };
 }
 
 function processIo(): CliIo {

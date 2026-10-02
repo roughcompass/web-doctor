@@ -1,0 +1,17 @@
+{
+  "example": "spa-root",
+  "fixture": "single-spa-root",
+  "description": "A single-spa root configuration: the shared release reports import-map entries and observed registrations and infers the root configuration; Web Doctor adds no React facts because the tree has no React root, component, or test.",
+  "shared": [
+    { "category": "composition", "key": "import-map:spa-orders", "state": "observed", "value": { "mechanism": "import-map", "specifier": "spa-orders", "url": "http://127.0.0.1:9001/assets/spa-orders.js" } },
+    { "category": "composition", "key": "single-spa:application:spa-orders", "state": "observed", "value": { "mechanism": "single-spa", "role": "registration", "activeWhen": { "kind": "unresolved", "reason": "unsupported" } } },
+    { "category": "composition", "key": "single-spa:root-config", "state": "inferred", "reasoning": "The repository registers single-spa applications and starts single-spa, which is what a single-spa root configuration does." }
+  ],
+  "extensions": [],
+  "categories": {
+    "web-doctor.components": "absent",
+    "web-doctor.entry_points": "unknown",
+    "web-doctor.routes": "unknown",
+    "web-doctor.tests": "absent"
+  }
+}

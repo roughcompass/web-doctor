@@ -1,0 +1,22 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "accessibility/runtime/motion",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "applicability": {},
+  "evidencePrerequisites": [
+    "rendered"
+  ],
+  "classification": "manual_review",
+  "explanation": "Respect reduced-motion preferences and avoid motion that flashes or cannot be paused.",
+  "alternatives": [],
+  "tradeoffs": [],
+  "verification": [
+    {
+      "kind": "motion",
+      "description": "Enable reduced motion and confirm animations stop or shorten; confirm nothing flashes more than three times a second."
+    }
+  ],
+  "controls": []
+}

@@ -1,0 +1,215 @@
+{
+  "schema": "web-doctor.react-doctor-evaluation",
+  "schemaVersion": 1,
+  "webDoctorVersion": "0.1.0",
+  "node": "v24.14.0",
+  "platform": "darwin-arm64",
+  "reactDoctor": {
+    "version": "0.9.14",
+    "integrity": "sha512-JzOwAY/hoSxHa4Siyqgfxr/KCNak0SB9pSTseFVStFHAnWS+XxR6RsWU6Q5Ho+J5Jmyb9LZRXc6ZK5jt3cfcQQ==",
+    "contentDigest": "9c0f18d1610adbe7776985c2605b205a8c67913f320047c7bca564670881bf86",
+    "rulesetDigest": "0d6d5a275acc0fe41d09058a1caa99d71d0360e02389cc7ea62499af80805968",
+    "outputSchemaVersions": [
+      3
+    ],
+    "rules": 906,
+    "enabledByDefault": 688
+  },
+  "configuration": {
+    "arguments": [
+      "--json",
+      "--json-out",
+      "<scratch>/report.json",
+      "--no-telemetry",
+      "--no-supply-chain",
+      "--no-cache",
+      "--yes",
+      "--blocking",
+      "none",
+      "--output-dir",
+      "<scratch>/out"
+    ],
+    "environment": {
+      "HOME": "<scratch>",
+      "REACT_DOCTOR_CONFIG_DIR": "<scratch>/config",
+      "REACT_DOCTOR_CACHE_DIR": "<scratch>/cache",
+      "REACT_DOCTOR_NO_CACHE": "1",
+      "NO_COLOR": "1"
+    },
+    "network": false
+  },
+  "fleet": [
+    {
+      "app": "acme-platform",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 2,
+      "latencyMs": 511,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 0,
+      "byCategory": {},
+      "byRule": {},
+      "items": []
+    },
+    {
+      "app": "legacy-portal",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 6,
+      "latencyMs": 535,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 0,
+      "byCategory": {},
+      "byRule": {},
+      "items": []
+    },
+    {
+      "app": "mf-admin",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 7,
+      "latencyMs": 533,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 1,
+      "byCategory": {
+        "Performance": 1
+      },
+      "byRule": {
+        "rerender-lazy-state-init": 1
+      },
+      "items": [
+        {
+          "rule": "rerender-lazy-state-init",
+          "category": "Performance",
+          "severity": "warning",
+          "path": "src/Admin.tsx",
+          "line": 39,
+          "message": "useState(getTheme()) re-runs getTheme() on every render & throws the result away."
+        }
+      ]
+    },
+    {
+      "app": "mf-billing",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 9,
+      "latencyMs": 672,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 0,
+      "byCategory": {},
+      "byRule": {},
+      "items": []
+    },
+    {
+      "app": "mf-shell",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 11,
+      "latencyMs": 539,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 1,
+      "byCategory": {
+        "Security": 1
+      },
+      "byRule": {
+        "iframe-missing-sandbox": 1
+      },
+      "items": [
+        {
+          "rule": "iframe-missing-sandbox",
+          "category": "Security",
+          "severity": "warning",
+          "path": "src/App.tsx",
+          "line": 54,
+          "message": "An `<iframe>` with no `sandbox` is a security hole: the embedded page gets full access to your site."
+        }
+      ]
+    },
+    {
+      "app": "spa-orders",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 5,
+      "latencyMs": 675,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 1,
+      "byCategory": {
+        "Maintainability": 1
+      },
+      "byRule": {
+        "only-export-components": 1
+      },
+      "items": [
+        {
+          "rule": "only-export-components",
+          "category": "Maintainability",
+          "severity": "warning",
+          "path": "src/Orders.tsx",
+          "line": 15,
+          "message": "This file exports non-components, so Fast Refresh can't safely preserve component state."
+        }
+      ]
+    },
+    {
+      "app": "spa-reports",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 4,
+      "latencyMs": 524,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 0,
+      "byCategory": {},
+      "byRule": {},
+      "items": []
+    },
+    {
+      "app": "spa-root",
+      "completeness": "complete",
+      "reason": null,
+      "engineVersion": "0.9.14",
+      "analyzedFiles": 9,
+      "latencyMs": 529,
+      "denied": [],
+      "treeUnchanged": true,
+      "findings": 0,
+      "byCategory": {},
+      "byRule": {},
+      "items": []
+    }
+  ],
+  "totals": {
+    "apps": 8,
+    "complete": 8,
+    "findings": 3,
+    "latencyMs": {
+      "max": 675,
+      "total": 4518
+    },
+    "treesUnchanged": true,
+    "networkAttempts": 0
+  },
+  "overlap": {
+    "eslintCore": [
+      "no-eval"
+    ],
+    "reactHooks": [
+      "exhaustive-deps",
+      "rules-of-hooks"
+    ],
+    "enterprise": []
+  }
+}

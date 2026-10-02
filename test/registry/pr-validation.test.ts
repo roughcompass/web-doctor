@@ -99,7 +99,7 @@ async function buildFixture() {
       "web-doctor.json": JSON.stringify(manifest),
       "policy.json": JSON.stringify({
         schema: "web-doctor.policy-pack",
-        schemaVersion: 1,
+        schemaVersion: 2,
         id: "firm/accessibility",
         version: "1.0.0",
         owner: "Enterprise Accessibility",

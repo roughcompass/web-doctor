@@ -4,12 +4,15 @@ Web Doctor is the local CLI and MCP surface for evidence-backed React project co
 
 ## Development
 
-Requires Node.js 24 or newer.
+Requires Node.js 24 or newer and the internal npm registry that serves the `@repo-facts` packages. The committed `.npmrc` resolves that scope only through `REPO_FACTS_NPM_REGISTRY` and never runs dependency lifecycle scripts:
 
 ```sh
+export REPO_FACTS_NPM_REGISTRY=<internal registry URL>
 npm ci
 npm run check
 ```
+
+`npm run build` records the pinned repo-facts release in `generated/repo-facts.json`; see [Shared Repository Facts Release](docs/contracts.md#shared-repository-facts-release).
 
 Build the package before launching the MCP server:
 
@@ -29,6 +32,24 @@ See [Contribution catalog operations](docs/registry.md) for the registry layout,
 See [Package assembly and release](docs/package-release.md) for deterministic assembly, internal npm retention, integrity verification, release provenance, reproduction, and rollback operations.
 
 See [Federated contribution authoring](docs/federated-authoring.md) for templates, validation, internal publication, catalog proposals, platform approval, embedding, and retirement.
+
+See [Project context](docs/project-context.md) for shared versus Web Doctor fact ownership, detector provenance, certainty states, skipped inputs, reader exclusions, budgets, and live updates.
+
+See [Reading Web Doctor guidance](docs/guidance.md) for how responses show recommendation strength, confidence, policy provenance, project evidence, and non-modifying behavior.
+
+See [ESLint provider](docs/eslint-provider.md) for the provider contract, configuration composition, plugin approval, suppressions, fix policy, and changed-file scope.
+
+See [Axe provider](docs/axe-provider.md) for rendered accessibility checks, runtime requests, authenticated targets, sensitive output, and proof boundaries.
+
+Start with the [Web Doctor overview and operator runbook](docs/overview.md) for how one package, one MCP server, policy layers, portals, and provider proof boundaries fit together.
+
+See [Installing and operating Web Doctor](docs/operations.md) for installation, portal selection, agent registration, CI gates and exit codes, updates, offline use, rollback, and troubleshooting.
+
+See [React Doctor provider](docs/react-doctor.md) for the approval decision, its legal and security conditions, the supported version policy, rollback, and the [fleet evaluation](docs/react-doctor-evaluation.md).
+
+See the [Advisory pilot runbook](docs/pilot.md) for capturing pilot runs, reviewing findings, and holding the readiness review before any Control gates CI.
+
+See [Performance budgets and fleet compatibility](docs/performance.md) for the approved budgets, service-level targets, and fleet results.
 
 See [Runtime configuration and updates](docs/runtime-configuration.md) for multiple portals, source scope, embedded contributions, offline behavior, update status, managed upgrades, and immutable installs.
 

@@ -44,7 +44,7 @@ describe("required portal identity", () => {
 function snapshot(): RegistrySnapshot {
   return {
     schema: "web-doctor.registry-snapshot",
-    schemaVersion: 1,
+    schemaVersion: 2,
     webDoctorVersion: "0.1.0",
     webDoctorCommit: "a".repeat(40),
     catalogCommit: "b".repeat(40),

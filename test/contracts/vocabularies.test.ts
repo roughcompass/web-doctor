@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import findingExample from "../../examples/contracts/finding.json" with { type: "json" };
 import {
   evidenceKindSchema,
   factCertaintySchema,
@@ -50,39 +51,33 @@ describe("contract vocabularies", () => {
   });
 
   it("rejects unavailable evidence represented as a proven defect", () => {
-    expect(
-      normalizedFindingSchema.safeParse({
-        schema: "web-doctor.finding",
-        schemaVersion: 1,
-        id: "finding/example",
-        provider: "axe",
-        providerVersion: "4.13.0",
-        rule: "button-name",
-        evidenceKind: "rendered",
-        locations: [],
-        severity: "warning",
-        certainty: "unknown",
-        classification: "defect",
-        message: "The browser did not start.",
-        controls: [],
-        remediation: [],
-        verification: [],
-        completeness: "unavailable",
-        registryDigest: DIGEST,
-        policyDigest: DIGEST,
-      }).success,
-    ).toBe(false);
+    const finding = { ...findingExample, certainty: "unknown", message: "The browser did not start.", completeness: "unavailable" };
+    expect(normalizedFindingSchema.safeParse(finding).success).toBe(false);
+    expect(normalizedFindingSchema.safeParse({ ...finding, classification: "unresolved" }).success).toBe(true);
+  });
+
+  it("rejects Controls that do not match the finding's obligations", () => {
+    const finding = findingExample;
+    expect(normalizedFindingSchema.safeParse({ ...finding, controls: ["firm/accessibility/button-name"] }).success).toBe(false);
   });
 
   it("rejects truncated MCP responses without continuation", () => {
     expect(
       mcpResponseSchema.safeParse({
         schema: "web-doctor.mcp-response",
-        schemaVersion: 1,
+        schemaVersion: 2,
         requestId: "request-1",
         tool: "project_overview",
         complete: false,
         truncated: true,
+        provenance: {
+          webDoctor: { version: "0.1.0", commit: "c".repeat(40), registryDigest: "a".repeat(64), catalogCommit: "c".repeat(40), catalogDigest: "a".repeat(64) },
+          repoFacts: { status: "unavailable", reason: "not installed", release: null, commit: null, configurationDigest: null, factDocumentDigest: null, incompleteCategories: [] },
+          extensions: null,
+          project: null,
+          policy: null,
+        },
+        update: null,
         evidence: [],
         warnings: [],
         data: {},

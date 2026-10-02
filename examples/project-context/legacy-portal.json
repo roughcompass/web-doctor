@@ -1,0 +1,17 @@
+{
+  "example": "legacy-portal",
+  "fixture": "legacy-portal",
+  "description": "A legacy React 17 application embedded in a frame: shared facts report the React version and both message directions; Web Doctor names the functions that send and receive.",
+  "shared": [
+    { "category": "frameworks", "key": "package.json#react", "state": "observed", "value": { "id": "react", "specifiers": { "dependencies": "17.0.2" } } },
+    { "category": "runtime_integrations", "key": "postMessage:send:http://127.0.0.1:9100", "state": "observed", "value": { "contract": "postMessage", "direction": "send" } }
+  ],
+  "extensions": [
+    { "category": "web-doctor.source_relationships", "key": "message:receive:src/runtime.js:9", "state": "observed", "value": { "symbol": "src/runtime.js#onHostMessage", "shared_fact": "postMessage:receive" } },
+    { "category": "web-doctor.source_relationships", "key": "message:send:src/runtime.js:4", "state": "observed", "value": { "symbol": "src/runtime.js#sendHostMessage", "shared_fact": "postMessage:send:http://127.0.0.1:9100", "shared_state": "observed" } }
+  ],
+  "categories": {
+    "web-doctor.components": "absent",
+    "web-doctor.tests": "absent"
+  }
+}

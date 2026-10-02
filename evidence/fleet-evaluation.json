@@ -1,0 +1,603 @@
+{
+  "schema": "web-doctor.fleet-evaluation",
+  "schemaVersion": 1,
+  "webDoctorVersion": "0.1.0",
+  "installation": "managed",
+  "node": "v24.14.0",
+  "platform": "darwin-arm64",
+  "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+  "repoFacts": {
+    "schema": "web-doctor.repo-facts-release",
+    "schemaVersion": 1,
+    "release": "0.1.0",
+    "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+    "packages": [
+      {
+        "name": "@repo-facts/architecture",
+        "version": "0.1.0",
+        "integrity": "sha512-UntKhs8dh/uKawQ+l6P/B4NDvRsD2v1PJrcTFXLc3xma7ho6PYVclc7Oh/oguhkzkMsHWbeiutrn/MK5pLEhhQ==",
+        "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+        "contentDigest": "29c6275507bb9361e3dfb3a6ad39f5ab6b5aacda02c9ddf9bf391b4046501ae0"
+      },
+      {
+        "name": "@repo-facts/bundle",
+        "version": "0.1.0",
+        "integrity": "sha512-N53X6BQpHKVjKD2rNmlGmz4aVIuUZRkdduWH17tmfW44OzX1igLALnnp/28LSBT9wrstB0Yr2F3GuknA9WQdpw==",
+        "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+        "contentDigest": "2ba4fb9d7fb6f38bfd49c1f653fb4931cc09ec90fe6d374ecf6e4ae465e4fb1f"
+      },
+      {
+        "name": "@repo-facts/contract",
+        "version": "0.1.0",
+        "integrity": "sha512-YmFRMB5mF3sAUez0KcHl6iTwx9uDM5kFXfl4vfe8wqULvacWnDPnH2XRIVQWNIrqm7ca21UJb8SMLWXhSJ+QtQ==",
+        "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+        "contentDigest": "6ed01477cc8f12635d136734498fe02a99b252625ded2eec480c62a1b6ba701c"
+      },
+      {
+        "name": "@repo-facts/core",
+        "version": "0.1.0",
+        "integrity": "sha512-OnUtpIKmPIyB4VVK+d5Y03g+wVh5DwrfafETU5+a+NHYVUTibli3lzvmRkK7HLBaiJdcwMGe48TK3lfq7E4Qnw==",
+        "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+        "contentDigest": "7d4298bfe2e6c3c78973a4d1a1b9599b50cc43d9c4f5ea9bfb797c627125cd95"
+      },
+      {
+        "name": "@repo-facts/services",
+        "version": "0.1.0",
+        "integrity": "sha512-Hvue5UVDOFKd8tWR5PxAFnzKpWd0cWqCQng2edg4ZQC0Nb1yneFTBj0/KiSct17WBZmizlJeoK1MAkmOteRxMQ==",
+        "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+        "contentDigest": "a551b58225f0b3fe928296cf4318be74dd04fdadd549244be79bd7b8633042d1"
+      },
+      {
+        "name": "@repo-facts/syntax",
+        "version": "0.1.0",
+        "integrity": "sha512-2Y8EfNSieb+EhWoiLTShxT7MD+Ile37OzXUgG7+HACDfVBpJTgNaM/t32SIHp31BcZXFzxhdljKIz5XFXt/WiQ==",
+        "commit": "b475579e5c5f40aff9cdbb32a46dbfd0c504cb46",
+        "contentDigest": "241bea94decc8ec2cf04a4a8fd28efe76270182dd06009eea90e62e5af22214a"
+      }
+    ]
+  },
+  "repositories": [
+    {
+      "repository": "acme-platform",
+      "reader": {
+        "status": "complete",
+        "files": 18,
+        "exclusions": [],
+        "digest": "a54f4b565158bc507bc54b0c31f6192da838358d95da70389f673e3551b05542",
+        "durationMs": 3
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "7e0be1558a1fe2428f03a2e0c0cbbe5fb9a286b5ef1b46b013cb34f337b4ed74",
+        "incompleteCategories": [
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "pnpm"
+        ],
+        "frameworks": [],
+        "buildTools": [
+          "typescript"
+        ],
+        "durationMs": 45
+      },
+      "index": {
+        "status": "complete",
+        "modules": 2,
+        "components": 0,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "f3035d102b45a9ec8462ab051d9e292d80ba72161d7b8ba658d8eccdac859314",
+        "durationMs": 20
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "5ffaaeec3bc2505f9076f39bddaa98ac77028bb30e28e1ae8cf0334830c36732",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "5110fdd7566acf4d7d9e6409151269d2c66da3216b2ef9d98b380669d483c7f2",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": false
+        },
+        "durationMs": 29
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "legacy-portal",
+      "reader": {
+        "status": "complete",
+        "files": 14,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist"
+        ],
+        "digest": "b7b61c9db57ff6f9ece2b6152a10fe7a4b9365b3e309f352be59972c98719b27",
+        "durationMs": 1
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "d3d4698021f0e7699a450fe7c68f4e37f8cead9907993745a5a9498948f88b55",
+        "incompleteCategories": [
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "npm"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "babel",
+          "webpack"
+        ],
+        "durationMs": 39
+      },
+      "index": {
+        "status": "complete",
+        "modules": 5,
+        "components": 2,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "94b781948d45648ad26636dfedce98d0b526a55c8ef7f0284cfcdf5f288ecd98",
+        "durationMs": 14
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "d70c7b31f96eb96df5a85b2df09b3915f31815a63478ce92c3cf1a9ea160f3cc",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "2d2dc24a64ec56338eeff78c342d9d37e986e4fe958b2d245b5a407600ce6a77",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "17.0.2"
+        },
+        "durationMs": 44
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "mf-admin",
+      "reader": {
+        "status": "complete",
+        "files": 18,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist"
+        ],
+        "digest": "c3b174b663eac2dc9c7467b1812f48e18f1ce805d264dcfe21d08e5ec8009216",
+        "durationMs": 1
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "06704dd0a9e50a155b6bb560825053c792ac5ae602c2d424868b046b14bd828d",
+        "incompleteCategories": [
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "pnpm"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "rspack",
+          "typescript"
+        ],
+        "durationMs": 92
+      },
+      "index": {
+        "status": "complete",
+        "modules": 6,
+        "components": 2,
+        "hooks": 1,
+        "skipped": [],
+        "digest": "e03a0c7182c649489e24740b7b5a80f9803644b4039e26d11a36b58486b6d3e6",
+        "durationMs": 11
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "b586c1b66cabe8019e7e5d060a8872ff2de841bbd1674c13dd48c87b196d7447",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "cab21e87927262a43f801559d946bc11fbe6951ce06bb4d76cab2ee07ca2d6e0",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "18.3.1"
+        },
+        "durationMs": 97
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "mf-billing",
+      "reader": {
+        "status": "complete",
+        "files": 19,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist"
+        ],
+        "digest": "cdc36cfe6a09e8f74faef7f4a6c8628619974548d8023c42551f5cf001999667",
+        "durationMs": 1
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "41df6b8e9136fa3e2d5159defc2991e1cda0b9c8bd1f719d8e8f7ebd868cd39a",
+        "incompleteCategories": [
+          "egress_routes",
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "yarn"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "typescript",
+          "vite"
+        ],
+        "durationMs": 10
+      },
+      "index": {
+        "status": "complete",
+        "modules": 7,
+        "components": 1,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "d772cfb5f98acb63775b14e0169eb22d16ed89220a710d73469492c6a35dfc1d",
+        "durationMs": 6
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "72e075fa095880be2d2da9656adc89a33bcb52d41f28c33b5cb25f02f6b751b5",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "c8c2f054d7e1a6073cf5c564fff98f8c9ffb3211cf9b20805ab1662bfcaca302",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "18.3.1"
+        },
+        "durationMs": 14
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "mf-shell",
+      "reader": {
+        "status": "complete",
+        "files": 30,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist",
+          "gitignored:packages/shell-bus/dist"
+        ],
+        "digest": "febbaefedd7a6481e7f654585953a2bf8bb7b163a4671107389e96128c897a65",
+        "durationMs": 2
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "7959c529cd87051d1d05d6a960248672914d1e77328b05f5b9e98deb2734cc45",
+        "incompleteCategories": [
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "npm"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "typescript",
+          "webpack"
+        ],
+        "durationMs": 31
+      },
+      "index": {
+        "status": "complete",
+        "modules": 11,
+        "components": 3,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "a21682c02dbca5a1180749b6c0e0aceadf911f9e2602e4f71946cc566cd2a880",
+        "durationMs": 14
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "0fcfbd390c660bada3a687b488d0b8f42d6ad6bfafae2e8d081117cea6a6c36f",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "4b07309e0c3d9bb5178c9c962646d7346ebf2adc7671aa5fac1e555dcf82f5f0",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "18.3.1"
+        },
+        "durationMs": 40
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "spa-orders",
+      "reader": {
+        "status": "complete",
+        "files": 16,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist"
+        ],
+        "digest": "d151fe93585c6e282bb3554d50b55d69428ca92dc1fd3ebfa311c67995d70b81",
+        "durationMs": 1
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "60d740ef1233e0a81dfd18346da1f19e88b4e2df0af8e7a07ac6d6cb60741262",
+        "incompleteCategories": [
+          "egress_routes",
+          "served_origins",
+          "verification_commands"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "pnpm"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "typescript",
+          "vite"
+        ],
+        "durationMs": 127
+      },
+      "index": {
+        "status": "complete",
+        "modules": 5,
+        "components": 2,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "5650b30bcfac4541a889fcfbacf17bc6f5207d155b02c3d603e4be9728933eed",
+        "durationMs": 6
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "43c48cf77d2675db4a07741b03303a6eec4edd10a74d7df082f12e5bed2ea890",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "1d1c5de1041f2cbb796064273377cfede2ee817ac575e39e818e1a1a5ad3ad53",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "18.3.1"
+        },
+        "durationMs": 131
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "spa-reports",
+      "reader": {
+        "status": "complete",
+        "files": 15,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist"
+        ],
+        "digest": "07ad63cbf89a7d8e619f41db52d30c16312eea008fa3e23d7a73c10aa2b6ac76",
+        "durationMs": 3
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "4c9a0a30212584846578dd756702ec211f0548e3328d9e02ac232ed355d2d4c8",
+        "incompleteCategories": [
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "npm"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "babel",
+          "webpack"
+        ],
+        "durationMs": 17
+      },
+      "index": {
+        "status": "complete",
+        "modules": 6,
+        "components": 3,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "9e49f04fb6ac10bfdf698796f10f5a8569345018a273f82bf7f7837af2cebbbd",
+        "durationMs": 7
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "b6667d10eb9fc75cfd988fcbb7ab252db2104ecfbc68013d274f95a953dc1491",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "a8c16e081f4d881e339031b39eba8832eb40a1e7f61e4e112d25f1843c4e5a7d",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "18.3.1"
+        },
+        "durationMs": 19
+      },
+      "processes": [],
+      "treeUnchanged": true
+    },
+    {
+      "repository": "spa-root",
+      "reader": {
+        "status": "complete",
+        "files": 24,
+        "exclusions": [
+          "dependency_directory:node_modules",
+          "gitignored:dist"
+        ],
+        "digest": "3a7e4a6aa3863523703eb221e2809b4fc9023cb3e3875f0d45b9488b9e5aa52e",
+        "durationMs": 2
+      },
+      "bundle": {
+        "status": "incomplete",
+        "detectorRelease": "0.1.0",
+        "configurationDigest": "3687e74e5406be6c24ceb20ab4bac9f92d22b03e1567b0844c256b0aa5ee373c",
+        "factDocumentDigest": "6f455be652b74b57ca192f7bcb58d403aee7575e620e2d82492dc9d1c94b35de",
+        "incompleteCategories": [
+          "served_origins"
+        ],
+        "skippedInputs": [],
+        "packageManagers": [
+          "npm"
+        ],
+        "frameworks": [
+          "package.json#react"
+        ],
+        "buildTools": [
+          "typescript",
+          "webpack"
+        ],
+        "durationMs": 27
+      },
+      "index": {
+        "status": "complete",
+        "modules": 10,
+        "components": 1,
+        "hooks": 0,
+        "skipped": [],
+        "digest": "6f25fb15bc3bac383602d383950b42b1a4d8ab84c21c17fa74766f320f1a275a",
+        "durationMs": 7
+      },
+      "policy": {
+        "status": "incomplete",
+        "policyDigest": "28cc0c932bf1b50a9b25b0146a32723bc5233ba2de68f4eb728971ddaeae7f51",
+        "registryDigest": "831b8badcefd25e1d37fd246cd4c1962f7e1c56e39ba4b5891993b06941c193f",
+        "extensionStateDigest": "c84fdff16b58d4709de4982f198fff14bfef483235e616d1c4bede35aded8fb9",
+        "factStatus": "complete",
+        "controls": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "firm/accessibility/button-name",
+          "platform/runtime/analytics-event",
+          "wealth/brand/approved-button"
+        ],
+        "unresolvedApplicability": [
+          "advisor/content/action-name",
+          "application/engineering/account-term",
+          "wealth/brand/approved-button"
+        ],
+        "capabilities": {
+          "react": "18.3.1"
+        },
+        "durationMs": 32
+      },
+      "processes": [],
+      "treeUnchanged": true
+    }
+  ],
+  "networkAttempts": []
+}

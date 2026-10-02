@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   canonicalJson,
+  currentPolicyPack,
   digestDocument,
   parseContract,
   type Contribution,
@@ -10,9 +11,11 @@ import {
   type ContractKind,
   type GuidanceEntry,
   type PolicyPack,
+  type PolicyPackV1,
   type ProviderManifest,
   type RegistrySnapshot,
 } from "../contracts/index.js";
+import { assertValidGuidance } from "../guidance/validation.js";
 
 const DOCUMENT_KINDS = {
   policy: "policyPack",
@@ -29,6 +32,8 @@ export interface LoadedEmbeddedRegistry {
   snapshot: RegistrySnapshot;
   digest: string;
   files: string[];
+  /** The contribution that embeds each provider manifest, by provider id. */
+  providerContributions: Record<string, string>;
 }
 
 export async function loadEmbeddedRegistry(options: EmbeddedRegistryOptions = {}): Promise<LoadedEmbeddedRegistry> {
@@ -39,9 +44,11 @@ export async function loadEmbeddedRegistry(options: EmbeddedRegistryOptions = {}
     "registrySnapshot",
     JSON.parse((await readFile(root, "snapshot.json")).toString("utf8")) as unknown,
   ) as RegistrySnapshot;
+  assertValidGuidance(snapshot);
   const policies: PolicyPack[] = [];
   const providers: ProviderManifest[] = [];
   const guidance: GuidanceEntry[] = [];
+  const providerContributions: Record<string, string> = {};
 
   for (const reference of snapshot.contributions) {
     const prefix = path.posix.join("contributions", reference.id);
@@ -66,9 +73,11 @@ export async function loadEmbeddedRegistry(options: EmbeddedRegistryOptions = {}
         DOCUMENT_KINDS[document.kind],
         JSON.parse((await readFile(root, documentPath)).toString("utf8")) as unknown,
       );
-      if (document.kind === "policy") policies.push(parsed as PolicyPack);
-      else if (document.kind === "provider") providers.push(parsed as ProviderManifest);
-      else guidance.push(parsed as GuidanceEntry);
+      if (document.kind === "policy") policies.push(currentPolicyPack(parsed as PolicyPack | PolicyPackV1));
+      else if (document.kind === "provider") {
+        providers.push(parsed as ProviderManifest);
+        providerContributions[(parsed as ProviderManifest).id] = reference.id;
+      } else guidance.push(parsed as GuidanceEntry);
     }
     for (const fixturePath of manifest.fixtures) {
       const embeddedFixturePath = path.posix.join(prefix, fixturePath);
@@ -107,7 +116,7 @@ export async function loadEmbeddedRegistry(options: EmbeddedRegistryOptions = {}
       ...unexpected.map((file) => `unexpected ${file}`),
     ].sort().join(", ")}`);
   }
-  return { root, snapshot, digest: digestDocument(snapshot).digest, files };
+  return { root, snapshot, digest: digestDocument(snapshot).digest, files, providerContributions };
 }
 
 function assertDocuments<Document extends { id: string; version: string }>(

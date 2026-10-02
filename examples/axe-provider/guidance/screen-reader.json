@@ -1,0 +1,22 @@
+{
+  "schema": "web-doctor.guidance-entry",
+  "schemaVersion": 1,
+  "id": "accessibility/runtime/screen-reader",
+  "version": "1.0.0",
+  "owner": "Enterprise Accessibility",
+  "applicability": {},
+  "evidencePrerequisites": [
+    "rendered"
+  ],
+  "classification": "manual_review",
+  "explanation": "Confirm that names, roles, states, and live announcements make sense when read aloud, which automated rules only approximate.",
+  "alternatives": [],
+  "tradeoffs": [],
+  "verification": [
+    {
+      "kind": "screen-reader",
+      "description": "Complete the tested task with a screen reader and confirm each control's name, role, and state are announced."
+    }
+  ],
+  "controls": []
+}

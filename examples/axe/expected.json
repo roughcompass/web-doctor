@@ -1,0 +1,13 @@
+{
+  "description": "Rendered checks for examples/axe/runtime-request.json against the local test application, with the axe provider contribution in examples/axe-provider embedded.",
+  "findings": [
+    { "rule": "button-name", "state": "menu-open", "route": "/orders", "target": [".icon"], "controls": ["firm/accessibility-runtime/button-name"] },
+    { "rule": "image-alt", "state": "signed-in", "route": "/account", "target": ["img"], "controls": ["firm/accessibility-runtime/image-alt"] }
+  ],
+  "testedStates": ["menu-open", "signed-in"],
+  "controls": {
+    "firm/accessibility-runtime/button-name": "not_met",
+    "firm/accessibility-runtime/color-contrast": "met",
+    "firm/accessibility-runtime/image-alt": "not_met"
+  }
+}

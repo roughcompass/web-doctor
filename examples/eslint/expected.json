@@ -1,0 +1,14 @@
+{
+  "description": "Diagnostics for examples/eslint/app with the Adobe Analytics governance contribution embedded. The compliant wrapper in src/tracking.js produces no finding. The inline suppression in src/signup.js is recorded and does not waive its Control.",
+  "findings": [
+    { "provider": "adobe-analytics-eslint", "rule": "no-direct-alloy-send-event", "path": "src/checkout.js", "line": 4, "controls": ["platform/adobe-analytics/approved-adapter"], "suppression": null },
+    { "provider": "adobe-analytics-eslint", "rule": "require-canonical-event-name", "path": "src/events.js", "line": 4, "controls": ["platform/adobe-analytics/event-taxonomy"], "suppression": null },
+    { "provider": "adobe-analytics-eslint", "rule": "no-direct-identifiers", "path": "src/signup.js", "line": 5, "controls": ["platform/adobe-analytics/no-direct-identifiers"], "suppression": { "kind": "inline", "justification": "legacy form pending privacy review" } }
+  ],
+  "controls": {
+    "platform/adobe-analytics/approved-adapter": "not_met",
+    "platform/adobe-analytics/event-taxonomy": "not_met",
+    "platform/adobe-analytics/no-direct-identifiers": "not_met"
+  },
+  "gate": { "status": "fail", "exitCode": 2 }
+}
